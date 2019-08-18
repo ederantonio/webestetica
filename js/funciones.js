@@ -1,19 +1,25 @@
 var player;
 var ytplayer;
-//SWIPER INICIO
+//SWIPER INICIO API
 var swiper = new Swiper('#link-Inicio__slider', {
-    slidesPerView: 1,/*diapositivas por vista*/
-    spaceBetween: 30,
-    loop: true,
-    effect : 'fade',
-    pagination: {
+   /* centeredSlides: true,*/
+    spaceBetween: 30,/* Por Default en la api distancia entre las diapositivas en pixeles*/
+    loop: true,/* viene en los parametros de la api para que alterminar continue cambiando al primer slider en bucle o ciclo*/
+     effect : 'fade',/* Viene en los parametros de la api es un desvanecido el efecto , porque si se deja el de por default se ve cuando recorre la diapositiva siguiente */
+      
+     /* ####### Esto viene por default en la api#######*/
+      autoplay: {
+        delay: 2500, /* 2500 milisegundos son 2.5 segundos la duracion de cada diapositiva*/
+        disableOnInteraction: false,/* Estando en falso la reproduccion automatica no se deshabilitara despues de lasinteracciones con el usuario*/
+      },
+      pagination: {
         el: '.swiper-pagination',
         clickable: true,
-    },
-    navigation: {
+      },
+      navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-    },
+      },
     /*onSlideChangeStart: function(swiper) 
     {
         var isVideo = swiper.slides[swiper.previousIndex].querySelector('.video-container');
@@ -23,7 +29,7 @@ var swiper = new Swiper('#link-Inicio__slider', {
     }*/
 });
 
-swiper.autoplay.start();
+/*swiper.autoplay.start();*/
 
 
 /* ####### Es para cuando pase el mouse sobre el elemento aparezca el otro encima ####### */
