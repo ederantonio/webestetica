@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" href="css/swiper.min.css">   
+            <title>DNA | Diagnostica</title>
+	<!-- Aqui va lo de los iconos -->
+	
+	 
+</head>
+<div class="container-ppal">
+            <header class="header-ppal">
+                <div class=""><!-- Pone el fondo en color blanco y ancho y altura en 100% display flex indica la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible-->
+                    <figure class="header-logo">
+
+                    </figure>
+                    <nav class="header-menu">
+                        <ul>
+                            <li><a class="btn-scroll" data-id="link-Inicio">INICIO</a></li>
+                            <li><a class="btn-scroll" data-id="link-QuienesSomos">NOSOTROS</a></li>
+                            <li><a class="btn-scroll" data-id="link-Servicios">SERVICIOS</a></li>
+                            <li><a class="btn-scroll" data-id="link-Paquetes">PAQUETES</a></li>
+                            <li><a id="btn_ResultLinea">RESULTADO EN LÍNEA</a></li>
+                            
+                            <li><a  data-id="link-Contacto" class="header-menu__contacto btn-scroll">CONTACTO</a></li>
+                        </ul>
+                    </nav>
+                    <div class="header-btnMenuResponsive">
+                        <div>
+                            <section id="header-btnMenuResponsive__btn" class="ON">
+                                <figure></figure>
+                                <figure></figure>
+                                <figure></figure>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </header>
+           <div class="space bc-ffffff" id="link-Inicio"></div><!--con este div pone un espacio  y hace que las imagenes del slider swiper baje al tamaño estandard o al tamaño natural si no se pone sube la imagen se le da estilos en css pero solo con poner el div es suficiente para bajar la imagen o puede que se use mas a delante para otras cosas en la media querys-->
+            <div class="container-slider bc-ffffff" id="link-Inicio__slider"><!--####### Swiperslider ####### -->
+                <div class="swiper-wrapper" >
+                    <div class="swiper-slide"  style="background-image:url('./img/principal-junio20190604050441.jpg')">
+                        <h2 style="text-align: center;">  <span class="txtShadow">Junio</span>  </h2>
+                        <br>
+                        <h3 class="txtShadow">
+                            <button type="button" name="button" id="slider-prommes__btn" onclick="detalle_promocion('18')">MÁS INFORMACIÓN</button>
+                        </h3>
+                    </div>
+                    <div class="swiper-slide" style="background-image:url(./img/banner_1.jpg)">
+                        <h1 class="txtShadow">Previniendo</h1>
+                        <h2 class="txtShadow">nos queremos <span>más</span></h2>
+                        <h3 class="txtShadow">El centro de diagnóstico clínico más innovador de la región</h3>
+                    </div>
+                    <div class="swiper-slide" style="background-image:url(./img/banner_2.jpg)">
+                        <h1 class="txtShadow">Comunícate</h1>
+                        <h1 class="txtShadow">con nosotros</h1>
+                        <h3 class="txtShadow">Agenda tus citas através de nuestro servicio de whatsapp</h3>
+                    </div>
+                    <div class="swiper-slide" style="background-image:url(./img/banner_4.jpg)">
+                        <h2><span class="txtShadow">Atención</span></h2>
+                        <h2><span class="txtShadow">y servicio de cálidad</span></h2>
+                        <h3 class="txtShadow">Con equipo de trabajo sólido y capacitado</h3>
+                    </div>
+                    <div id="slider_video" class="swiper-slide">
+                        <div class="video-container" id="player">
+                            <div class="video-iframe"></div>
+                            <div class="video-play"></div>
+                        </div>
+                    </div> 
+
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination swiper-pagination-white" id="slider-pagination"></div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next swiper-button-white" id="slider-button-next"></div>
+                    <div class="swiper-button-prev swiper-button-white" id="slider-button-prev"></div>
+            
+        </div>
+        <div class="space bc-ffffff"></div><!-- solo es un div para hacer un espacio en la estructura con otra clase de color blanco definido en css-->
+        <div class="container-tittle bc-ffffff">
+                    <span class="container-tittle__tittles1"><strong>Somos la <span class="colorTittle">empresa líder</span> en diagnóstico clínico en la <span class="colorMora">Región Lagunera.</span></strong></span>
+        </div>
+
+        <div class="space_min bc-ffffff"></div><!-- comentario -->
+        <div class="container-sec bc-ffffff"><!-- Contenedor de los 3 secciones con efecto-->
+            <!-- Membresia-->
+            <section id="container-membresia"><!-- Seccion de Membresias -->
+                <div class="container-animate__down"><!-- div del efecto a sobre poner el cursor-->
+                    <section>
+                        <span class="container-NameServ"><strong>Membresías</strong></span>
+                        <span class="container-membresia__tittle"><strong>Membresías</strong></span>
+                        <p class="container-membresia__text">
+                            Al momento de adquirir nuestra
+                            membresía, cuenta con grandes
+                            beneficios y descuentos permanentes 
+                            en estudios de rutina del laboratorio.<br><br>
+                            •  15 puntos canjeables por estudios de rutina
+                            (de acuerdo a la lista anexa al contrato). <br><br>
+                            •  15% de descuento permanente en análisis clínicos
+                            de laboratorio (aplican restricciones). <br><br>
+                            •  Descuentos en visitas a domicilio. <br><br>
+                            •  Tres beneficiarios. <br><br>
+                            •  Es vitalicia <br>
+                             
+                        </p>
+                    </section>
+                </div>
+            </section>
+            <!-- Servicio Empresas-->
+            <section id="container-seremp">
+                <div class="container-animate__down">
+                <section>
+                    <span class="container-NameServ"><strong>Servicio a empresas</strong></span><!-- Es el primer titulo-->
+                    <span class="container-membresia__tittle"><strong>Servicio a empresas</strong></span><!-- Segundo titulo -->
+                    <p class="container-membresia__text">
+                        En DNA Diagnostica© sabemos lo importante que es
+                        para su empresa, contar con un capital humano en condiciones óptimas.
+                        <br><br>
+                        Contacto: elias.farachala@laboratoriodiagnostica .com.mx<!-- con los espacios en los textos logra que se centre el texto -->
+                    </p>
+                </section>      
+                </div>
+            </section>
+
+            <!-- Servicio a domicilio-->
+            <section id="container-servdo">
+                <div class="container-animate__down">
+                    <section>
+                        <span class="container-NameServ"><strong>Servicio a domicilio</strong></span>
+                        <span class="container-membresia__tittle"><strong>servicio a domicilio</strong></span>
+                        <p class="container-membresia__text">
+                            Nos proponemos cubrir sus necesidades en la búsqueda de una vida saludable por lo que 
+                            ofrecemos el servicio de toma de muestras a domicilio.
+                            
+                        </p>
+                    </section>
+                </div>
+            </section>
+
+
+        </div><!-- Aqui termina container-sec-->
+        <div class="space bc-ffffff" id="link-QuienesSomos"></div>
+
+        <div class="container-tittle bc-ffffff">
+            <span class="container-tittle__tittles2">Conócenos</span>
+            <p class="container-tittle__text">Seleccione una opcion para conocer más</p>
+        </div>
+
+        <div class="space_min bc-ffffff"></div>
+        
+        <div class="container-sec_2 bc-ffffff">
+             <section id="container-qsomos">
+                    <div class="container-animate__down">
+                        <section>
+                            <span class="container-NameServ background-colorMora"><strong>¿Quiénes somos?</strong></span>
+                            <span class="container-membresia__tittle"><strong>¿Quiénes somos?</strong></span>
+                            <p class="container-membresia__text">
+                                DNA Diagnóstica es el centro de diagnostico clínico más innovador de la region.
+                            </p>
+                        </section>
+                    </div>
+                </section>
+                <section id="container-mision">
+                            <div class="container-animate__down">
+                                <section>
+                                    <span class="container-NameServ background-colorMora"><strong class="">Misión</strong></span>
+                                    <span class="container-membresia__tittle"><strong>Misión</strong></span>
+                                    <p class="container-membresia__text">
+                                    Crear experiencias positivas, a través de un servicio innovador.
+                                    </p>
+                                </section>
+                            </div>
+                </section>
+             <!-- div .container-sec__ho estaba de mas-->
+                <section id="container-vision">
+                            <div class="container-animate__down">
+                                <section>
+                                    <span class="container-NameServ background-colorMora"><strong>Visión</strong></span>
+                                    <span class="container-membresia__tittle"><strong>Visión</strong></span>
+                                    <p class="container-membresia__text">
+                                    Contribuir a la prevención, diagnóstico y recuperación de la salud de nuestros pacientes. Nuestra marca es sinónimo de experiencia, innovación, integridad, confianza y empatía. Creemos en el desarrollo de habilidades de nuestro equipo de trabajo, su bienestar, crecimiento y colaboración son nuestra fortaleza. La lealtad de nuestros clientes, es orgullo y satisfacción de nuestros colaboradores. Creemos en la innovación integral. Creemos en un excelente servicio.
+                                    </p>
+                                </section>
+                            </div>
+                        </section>
+            
+        </div><!-- Aqui termina container-sec_2-->
+
+        <div class="space bc-ffffff"  id="link-Servicios"></div>
+
+        <div class="container-tittle bc-ffffff">
+            <span class="container-tittle__tittles2">Servicios</span>
+            <p class="container-tittle__text">Seleccione una opción para conocer más</p>
+        </div>
+        <div class="space-min bc-ffffff"></div>
+
+        <div class="container-sec bc-ffffff">
+            <div class="container-ho2" id="container-servicios">
+                
+            </div>
+        </div>
+
+        <div class="ModalMax" id="ModalMax2"><!-- Aca llega solo uno de los dos ya sea 1 servicio o paquete-->
+    <div class="">
+        <div class="container-ModalMin">
+            <div class="btn_close"></div>
+            <section>
+                <span class="Modal2-title"><strong></strong></span>
+                <div class="Modal2-text"></div>
+            </section>
+            <figure>
+                <img src="" alt="" id="imgModal2">
+            </figure>
+        </div>
+    </div>
+</div>
+
+<div class="space bc-ffffff" id="link-Paquetes"></div><!--Es un espacio en blanco-->
+
+<div class="container-tittle bc-ffffff"><!-- Container del letrero Paquetes-->
+    <span class="container-tittle__tittles2">Paquetes</span>
+    <p class="container-tittle__text">Contamos con paquetes Femenino, Masculino e Infantil.</p>
+</div>
+
+<div class="space_min bc-ffffff"></div>
+
+<div class="container-sec bc-ffffff">
+    <div class="container-ho2" id="container-paquetes">
+            <!-- Aqui es donde llega el contenido de Ajax Paquetes-->   
+    </div>
+</div> 
+
+<div class="space bc-ffffff"></div>
+
+<div class="container-tittle bc-ffffff">
+    <span class="container-tittle__tittles2" id="link-Contacto">Contacto</span>
+</div>
+
+<div class="space_min bc-ffffff"></div>
+
+<div class="container-sec"><!--container sec por ende deja todo en columna por eso usa la clase container-ho2 para ahi poner en row los elementos-->
+   <div class="container-ho2">  <!-- Esta clase se puede omitir se uso mas que nada para el llenado de todos los servicios y paquetes para evitar o permitir desbordamientos-->
+        <form class="container-form" id="form-Contactanos" action="" method="">
+             
+                <input type="text" name="NombreContacto" value="" class="input-basic" placeholder="Nombre *"id="NombreContacto"/>
+                <span class="MMError" id="MErrorConNom">Error: El Nombre demasiado corto</span>
+
+                <input type="text" name="EmailContacto" value="" class="input-basic" placeholder="Email *" id="EmailContacto"/>
+                <span class="MMError" id="MErrorConEmail">Error: El Nombre demasiado corto</span>
+
+                <input type="text" name="TelefonoContacto" value="" class="input-basic" placeholder="Teléfono *" id="TelefonoContacto">
+                <span class="MMError" id="MErrorConTel">Error: El Nombre demasiado corto</span>
+
+                <textarea type="textarea" name="MensajeConacto" rows="8" cols="50" class="textare-basic" placeholder="Mensaje*" id="MensajeConacto"/></textarea>
+                <span class="MMError" id="MErrorMensajeContacto">Error: El Nombre demasiado corto</span>
+
+                <div id="RecaptchaField2" data-callback="imNotARobot2"></div>
+                <span class="MMError" id="MErrorRecaptchaField2">Error: No has realizado esta sección</span>
+                <span class="MMError" id="MErrorNoRobotContacto">Error: El Nombre demasiado corto</span>
+
+                <div class="container-form__btn">
+                    <button type="button" name="button" class="btn-form background-colorVerd" id="btn-Contactanos"><strong>Enviar</strong></button>
+                    <div class="loader" id="loaderContacto"></div>
+                </div>
+                <span class="MMError" id="AlertEnvioMsContacto"></span>
+        </form>
+        <div class="container-map">
+                            <section class="map-basic">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7200.33070618466!2d-103.42921527629841!3d25.532868434964293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868fdb95e99c3cef%3A0x1f74fcad434422f4!2sDNA+Diagn%C3%B3stica+Centro+Integral+de+Diagn%C3%B3stico!5e0!3m2!1ses-419!2smx!4v1531950174303" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </section>
+                            <span class="contacto-info__tittle colorTittle"><strong>MATRIZ TORREÓN</strong></span>
+                            <span class="contacto-info__text">Blv. Revolución 2360 Ote., Local 5, Col. Torreón jardín. Torreón Coah.</span>
+                            <span class="contacto-info__text">(Frente a Urgencias de Clínica 16 del IMSS)</span>
+                            <span class="contacto-info__text">Tel. (871)722 99 03</span>
+                            <span class="contacto-info__text">info@dnadiagnostica.mx</span>
+        </div>
+    </div>
+</div>
+<div class="container-footer">
+    <div class="footer-btn__flotante btn-scroll" data-id="link-Inicio"></div>
+    <div class="container-derechos">
+                        <p class="derechos"> Todos los Derechos quedan reservados </p>
+    </div>
+</div>
+<div class="infoSolicitud" id="infoSolicitudWaFa">
+            <div class="">
+                <span><strong>Agenda tu cita</strong></span>
+                <span>Whatsapp:<br/> (871) 121 09 99</span>
+                <span>Correo: correo@gmail.com</span>
+            </div>
+</div>
+
+</div><!--termina container-ppal--> 
+
+<script src="js/jquery.js" charset="utf-8"></script><!-- jQuery principal -->
+<script src="js/swiper.min.js" charset="UTF-8"></script><!-- plugin del slider-->
+<script src="js/funciones.js" charset="utf-8"></script><!-- jquery para los efectos-->
+
+</body>
+</html>

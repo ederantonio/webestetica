@@ -1,0 +1,1098 @@
+*{
+  border: 0;
+  margin: 0;
+  padding:0;
+}
+
+/* ------ container ppal ------ */
+ @font-face {
+    font-family: 'poppinsregular';
+    src: url('../fuentes/poppinsregular.woff2') format('woff2'),
+         url('../fuentes/poppinsregular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+ @font-face {
+    font-family: 'poppinsbold';
+    src: url('../fuentes/poppinsbold.woff2') format('woff2'),
+         url('../fuentes/poppinsbold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+li {
+list-style: none;/* quita las viñetas de la lista */
+}
+a{
+text-decoration:none; /* quita el subrayado de los enlaces */
+
+}
+h1{
+  color: white;
+  font-family: 'poppinsbold';
+  font-size: 82px;
+  margin: 0;
+  padding: 0;
+}
+h2{
+  color: white;
+  font-family: 'poppinsregular';
+  font-size: 52px;
+}
+h3{
+  color: white;
+  font-family: 'poppinsregular';
+  font-size: 17px;
+}
+
+.container-ppal{ /* el contenedor principal se pone de manera por default con su ancho en 100% height auto */
+  width: 100%;/* define el ancho para la parte flexible*/
+  height: auto;/* define la altura el tamaño minimo, va respetando la altura de acuerdo a los elementos que lleva a dentro*/
+  min-width: 319px;/*esta parte no define nada se puede quitar */
+   
+  position: absolute;/* posicion absoluta toma como referencia a la ventana del navegador*/
+  display: flex; /* para la parte flexible */
+  flex-direction: column;/* column: los elementos se colocan verticalmente de arriba abajo.  */
+  align-items: center;/* para la alineacion en x de los elementos*/
+   
+}
+ 
+.btn-scroll{
+  cursor: pointer;
+}
+.header-ppal{
+
+width: 95%;/* solo reduce el ancho del header respecto al navegador*/
+height: 6em;/* se define su altura normal*/
+position: fixed;/* esta afuera del flujo normal de la pagina, al hacer scroll en la pagina el elemento seguira en la misma posicion */
+top: 0px;/* respecto a top toma como referencia la parte de arriba*/
+display: block;/* esta propiedad define que el tag estara en bloque*/
+z-index: 100;/* para que este elemento este apilado jerarquicamente */
+}
+.header-ppal > div{
+  background: white;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+} 
+.header-logo{
+  width:200px;/* determinas el espacio*/
+  height:100%;/* determinas la altura*/
+  background-image:url('../img/header-logo.png');
+  background-size: 65%;/* definir el tamaño de la imagen de fondo*/
+  background-repeat: no-repeat;/* que no se repita la imagen */
+  background-position: 10px center;/* x y -top | center | bottom*/
+   
+}
+.header-menu{
+
+  width:calc(100% - 200px);/* ""el simbolo de menos debe ir separado" aqui del total del tamaño le resta el tamaño del logotipo*/
+  height: 100%;/* altura al 100% para el responsive*/
+}
+
+
+.header-menu > ul
+{ /* aqui trabajamos el ul vamos escalando*/
+  width:100%;
+  height:100%;
+  display:flex;/*el contenedor se comporta como un bloque, es decir, ocupa todo el espacio horizontal disponible*/
+  /*flex-direction:row;*//* para seguir el flujo de los links del nav*/
+  justify-content:flex-end;/* Alinear items desde el final en el eje principal */
+  align-items:center;/* es como una alineacion en x*/
+}
+.header-menu > ul > li > a{
+    display: block;/*Esta propiedad se puedeomitir ya que el comportamiento lo define arriba */
+    margin: 2px;/* este es para hacer la separacion de cada enlace */
+   padding: 10px 10px 10px 10px; /*trabaja los rellenos de cada enlace*/
+   font-family:'poppinsregular';/* se aplican las fuentes a los enlaces*/
+   font-size:13px;/* se aplica el tamaño del texto */
+   display:flex;/* se define que se flexible para la parte de los enlaces*/
+   /*flex-direction:row;*/
+   justify-content: center;/* para la alineacion de los items*/
+   align-items: center;/* para la alineacion en x */
+   color: #6F6B70;
+  transition: background-color .3s;
+  letter-spacing: 1pt;/* Da espacios entre las letras */
+  text-align: center;/* centra el texto dentro del elemento*/
+  cursor: pointer;
+
+}
+
+.header-menu > ul > li > a:hover{
+  background-color: #6F6B70;/* se aplica un color de fondo como en gris*/
+  color: white;/* se aplica un color al texto en blanco*/
+}
+
+.header-btnMenuResponsive{
+  
+  display:none; ;/* Estara oculto*/
+  height: 100%;
+
+  width: calc(100% - 200px);/*le dejas un espacio al elemento El ancho de 100%(pero tiene el logo y el menu) - 200px quedara un resultado de la resta un ejemplo estaria dejando un 80% de espacio solo para el menu*/
+}
+
+.header-btnMenuResponsive > div{
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;/* para ponerlo a laderecha*/
+}
+
+.header-btnMenuResponsive > div > section{
+ 
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.header-btnMenuResponsive > div > section > figure{
+  width: 35px;
+  height: 3px;
+  margin: 2px;
+  border-radius: 1px;
+  background-color: #6F6B70;
+}
+
+.header-menu__contacto{
+  background-color: #6F6B70;
+  color: white !important;/* !important puede ser usada para dar prioridad a diferentes parámetros:*/
+  margin: 5px 10px 5px 5px !important;
+}
+ 
+.txtShadow{
+  text-shadow: 1px 1px 1px #000;/* aqui solo da el efecto como de sombra pero define los colores y tamaños en los h1, h2, h3*/
+}
+::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+        cursor: pointer;
+    }
+::-webkit-scrollbar-thumb {
+        border-radius: 7px;
+        background-color: #6E6A6F;
+        -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+    }
+/* ------ slider ------ */
+.container-slider{
+  width: 95%;/* define el mismo ancho que la parte de arriba*/
+  height:100vh;/* define la altura con vh para el responsive */
+  overflow: hidden;/* Overflow se utiliza para indicar al navegador de nuestro ordenador lo que debe hacer con el contenido que no cabe dentro de una capa (div) que segun las dimensiones que le hayamos dado este no quema en el mismo. hidden
+    El contenido es recortado y no se muestran barras de posición. y que el contenido quede dentro sin mostrar las barras de despazamiento*/
+  position: relative;/* define la posicion de acuerdo el flujo que lleva la pagina*/
+}
+ .swiper-slide {
+
+  background-position:center;
+   background-size:cover;/* con este valor escala la imagen al mayor tamaño sin estirarla y la deja centrada a comparacion a los otros valores como auto | auto auto etc*/
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;/* aqui en columna abarca todo el elemento, luego con el align-items se centra y con el flex- end inicia desde abajo hacia arriba pero con el height de arriba esta en height vh que toma como referencia al total de la altura del navegador*/
+  
+} 
+.swiper-slide > h1{
+  line-height: 65px;/* separa las lienas de texto es el espacio de una linea de texto con la de abajo*/
+  margin:5px;/*aqui solo abre el elemento con el margin ayudando un poco al line-height pero no es tan necesario aplica los 4 lados arriba | derecha | abajo | izquierda*/
+}
+
+.swiper-slide > h2 > span{ /* solo define el tipo de fuente del span*/
+  font-family: 'poppinsbold' !important;
+}
+
+.swiper-slide > h2{
+  line-height: 50px;
+}
+
+.swiper-slide > h3{
+  margin-bottom: 180px;
+}
+
+.swiper-slide > h3 > button{
+  border: none;
+  padding: 5px 35px 5px 35px;
+  background-color: white;
+  font-size: 12px;
+  color: #6f6b70;
+  font-family: 'poppinsregular';
+  letter-spacing: 1pt;
+  cursor: pointer;
+  margin: 10px;
+}
+.swiper-slide > iframe{ /* Esta parte no esta declarada en html y no afecta si lo quitamos*/
+width: 100%;
+ height: 100%;
+}
+.swiper-slide > iframe a{/* Esta parte no esta declarada en html y no afecta si lo quitamos*/
+  display: none !important;
+}
+.space{/* maneja espacios con div*/
+  width:100%;
+  height:6em;
+}
+.space_min{
+  width:100%;
+  height:2em;
+}
+
+/* Container-tittle*/
+.container-tittle{ /* Para los titulos como Conócenos selecciona una opcioón */
+width:100%;
+height:auto;
+display:flex;
+flex-direction:column; 
+justify-content:center;
+align-items:center;
+color:#6F6B70;
+}
+
+.container-tittle__tittles1{/* a este div o elemento le da 500 px de ancho*/
+ 
+  width: 500px;
+  height: 4em;
+  margin: 0 auto;/* aqui centra al elemento*/
+  display: block;
+  font-family: 'poppinsregular';
+  cursor: pointer;
+  margin: 20px;/* aplica los 4 lados*/
+  font-size: 28px;/* tamaño de la fuente*/
+  text-align: center;
+   
+}
+.colorTittle{
+  color: #3EB649 !important;
+}
+ 
+.colorMora{
+  color: #B12A84 !important;
+  font-family: 'poppinsbold' !important;
+  letter-spacing: 1pt;
+}
+ 
+ 
+.bc-ffffff{
+  background-color: #ffffff;
+}
+  
+/* Container sec */
+.container-sec{
+ 
+  width:95%;
+  height:auto;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items:center;
+}
+.container-sec > section{/* section que tiene los id's # | A cada section le da su ancho y altura*/
+  
+  width:318px;
+  height:400px;
+  margin:10px;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+  position:relative;
+   overflow: hidden;/* como estas trabajando un div de efectos y se sale de tu section debes de darle overflow hidden aqui en section */
+}
+#container-membresia{
+  background-image:url('../img/membresia_1.jpg');
+}
+#container-seremp{
+  background-image:url('../img/servicio_a_empresa.jpg');
+}
+#container-servdo{
+  background-image:url('../img/servicio_a_domicilio.jpg');
+}
+
+.container-animate__down{ /* div | defines los tamaños estandar y bajas el div .container-animate__down*/
+
+  width:100%;
+  height:100%;
+  position:absolute; /*se sobre pone encima de donde lo colocas*/
+  bottom:-100%;/*baja el div en Y | y baja el section que tiene el texto que esta dentro del div*/
+    
+}
+.container-animate__down > section{/* div > es el section de los textos*/
+  width: 100%;
+  height: 100%;
+  position:relative;
+  background-color:rgba(0,0,0,0.6);/* es el color negro tenue */
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.container-NameServ{ /* Primer titulo el de color verde*/
+  width:260px;
+  height:2em ;
+  display:block;
+  position: absolute;/* lo sobrepone*/
+  top:-2em;/* absolute en  Y por default es 0 por default es ir bajando si le pones 1 2em si le pone -2em sube*/
+  margin:0em auto;/* pafra centrar el elemento span*/
+  text-align:center;/* para centrar le*/
+  line-height:40px;
+  border-radius:5px 5px 0px 0px;
+  background-color:#3EB649;
+  color:white;
+  font-family:'poppinsregular';
+  font-size:20px;
+}
+
+.container-membresia__tittle{ /* segundo titulo en color blanco*/
+  color:white;
+  font-family:'poppinsregular';
+  font-size:22px;
+}
+ 
+.container-membresia__text{/* los parrafos el | los textos*/
+  color:white;/* color del texto*/
+  font-family:'poppinsregular';/* el tipo de fuente*/
+  font-size:14px;
+  line-height:25px;/* es el espacio de un renglon con otro*/
+  width:80%;/*el ancho del elemento */
+  height:auto;
+  text-align:center;/* centrar el texto*/
+  margin-top:10px;/* el espacio de los 4 lados del elemento*/
+  line-height:18px;
+}
+
+/* Container-tittle */
+.container-sec_2{
+  width:95%;
+  height:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items:center;
+}
+.container-tittle{
+
+  width:100%;
+  height:auto;/* medida estandar en los elementos padre para no definirle un tamaño en especifico*/
+  display:flex;
+  flex-direction:column;/* Solo medidas estandar */
+  justify-content:center;
+  align-items:center;
+  color: #6F6B70;
+
+}
+.container-tittle__tittles2{/* Conocenos aqui ya se le aplica el tipo de fuente el tamaño de la letra*/
+  font-family: 'poppinsbold' !important;
+  font-size:56px;
+  text-align: center;
+
+   
+}
+.container-tittle__text{/* seleccione una opcion para conocer más*/
+  font-family:'poppinsregular';
+  font-size:14px;
+  margin-top:15px;
+  text-align:center;
+  width:100%;
+}
+
+/* Container-sec__ho*/
+.container-sec_2{
+
+width:95%;
+  height:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+/*.container-sec__ho{
+
+  width:984px;
+  height:100%;
+  display:flex;
+  direction-flex:column;
+  justify-content:center;
+  align-items: center;
+}
+ */
+.container-sec_2 > section{
+  width:984px;
+  height:400px;
+  margin:10px;
+   
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  position:relative;
+  overflow:hidden;
+
+}
+ #container-qsomos{
+  background-image:url('../img/quienes_somos2.jpg');
+}
+
+#container-mision{
+  background-image:url('../img/mision2.jpg');
+}
+#container-vision{
+  background-image:url('../img/vision2.jpg');
+}
+
+.container-ho2{
+ 
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+}
+.container-ho2 > section{
+  width:380px;
+  height:200px;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  margin:10px;
+  position:relative;
+  cursor:pointer;
+}
+
+.container-ho2 > section > a{
+  color:white;
+  text-align: center;
+  font-family:'poppinsregular';
+  font-size:18px;
+  line-height:22px;
+  width:95%;
+}
+
+
+/* ------ Modal ------ */
+.ModalMax{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index:100;
+   display:none;
+}
+
+.ModalMax > div{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/*.ModalMax > div > section{ ***Toda esta parte le pertenece al ModalMax donde iba la promocion del dia del padre***
+  width: 770px;
+  height: 350px;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+   
+}
+.ModalMax > div > section > p{
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ModalMax > div > section > figure{
+  width: 35%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.ModalMax > div > section > figure > span{  
+  width:  50px;
+  height: 50px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'poppinsbold' !important;
+  font-size: 5em;
+  color: white;
+  cursor: pointer;
+}
+
+.ModalMax-text__title{
+  font-family: 'Poppins-Bold' !important;
+  font-size: 42px;
+  text-align: center;
+  line-height: 50px;
+  color: #3EB649;
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+.ModalMax-text__text{
+  width: 90%;
+  font-size: 16px;
+  padding-top: 5px;
+  color: #6f6b70;
+  font-family: 'POPPINS-REGULAR';
+  line-height: 25px;
+  height: 45%;
+  overflow: auto;
+}
+
+#ModalMax-text__btnContact{
+  padding: 5px 20px 5px 20px !important;
+  background: #B12A84;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Poppins-Bold' !important;
+  color: white;
+  margin: 10px;
+  cursor: pointer;
+}*/
+
+.container-ModalMin{
+  background-color: white;/* Pinta el elemento en color blanco viene siendo el rectangulo que se despliega al dar click*/
+  width: 760px;
+  height: 310px;
+  display: flex;
+  position: relative;/* puede ir con flex box*/
+}
+.container-ModalMin > figure{
+  width: 280px;
+  height:100%;/* aqui puede ir tambien auto */
+  overflow: hidden;/* Este se puede omitir*/
+ 
+}
+.container-ModalMin > figure > img{
+  width: 280px;/* se deja en 280px al ancho del elemento si se pone cover lo deja al tamaño real de la imagen}*/
+}
+.btn_close, .btn-closeMGalery{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 5px;/* se despega 5px apartir del lado derecho*/
+  top: 5px;
+  background-image: url('../img/icono_cerrar.png');/* la imagen de cerrar*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+.container-ModalMin > section{/* Toma el elemento mas grande y le restas por el elemento mas chico*/
+  width: calc(100% - 280px);
+  height: 90%;
+  display: flex;
+  flex-direction:column;/* Para que caigan los elementos horizontales  el titulo y abajo el texto*/
+  justify-content: center;
+  align-items: center;
+  background-image: url('../img/logodna_transparente.png');/* Se le pone una imagen de fondo transparente pero con efecto de phoshop*/
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;/* la escala al tamaño del elemento*/
+}
+.Modal2-title, .Modal2-precio{
+  width: 85%;/* le da un ancho , aqui el titulo se da brincos de renglon por que se reduce en el 100% el titulo queda extendido se lee completo*/
+  /*height:auto;*//* como es un titulo pues con auto esta bien */
+  font-family: 'poppinsregular';
+  text-align: center;
+  font-size: 26px;
+  color:#3EB649 !important;
+  margin: 5px;
+  display: flex;
+  position:relative;/* Puede llevarlo o no no afecta el flujo o inclusive el flex-direction:column*/
+  line-height:1.5em;
+  justify-content: center;
+  align-items: center;
+}
+ .Modal2-precio{
+   width: 95% !important;
+ }
+.Modal2-text{/* Esta parte es donde va el texto los parrafos*/
+ color:white;
+  width: 85%;
+  height: 70%;
+  overflow: auto;/* Para poner barras de desplazamiento si hay excedentes*/
+}
+.Modal2-text >p{
+  width: 100%;
+  height: auto; /*En los altura se puede ir jugando con los valores auto, 100%, 70% de acuerdo a lo que se requiera*/
+  text-align:justify;
+  margin-top: 10px;
+  font-size: 14px !important;
+  font-family: 'poppinsregular';
+  color: #6F6B70;
+}
+.Modal2-text > section{/* ####### Este es el que pone dentro de .Modal-text que ya esta previamente configurado el section que lo contiene junto con el figure y solo le da formato a los textos de los paquetes ,Paquetes cuando le da click a la imagen ####### */
+  width: 100%;/* medida standar */
+  height: auto;/* auto va abriendo conforme va cayendo los textos*/
+  display:flex;/*la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible. Los elementos flexibles pueden ser estirados para utilizar el espacio disponible proporcional a su factor de crecimiento flexible o su factor de contracción flexible para evitar desbordamiento. */
+  flex-wrap:wrap;/*extiende el area y donde quede el slimite pasa el elemento hacia abajo flex-wrap:  nowrap | wrap | wrap-reverse  Evita o permite el desbordamiento (multilinea).
+  solo es cuestion del formato que se pretenda ya que si se maneja con flex-direction row y asi queda solo con el flujo normal pero este queda mas separado*/
+
+}
+.Modal2-text > section > ul{
+  /*background-color: teal;*/
+  margin: 5px;/* un margen de lo 4 lados*/
+  width: 180px;/* se le dio 180 por que al abrir mas el ancho deja las listas en una sola columna, entonces se redujo para que cupieran 2 arriba y uno abajo*/
+  line-height:19px;/* Para dar espacio entre un renglon a otro*/
+}
+.Modal2-text > section > ul > li{
+  font-size: 14px;
+  font-family: 'poppinsregular';
+  color: #6F6B70;/* un color gris*/
+}
+
+.title_Paquetes{
+  font-size: 18px !important;
+  color:#B12A84 !important;
+}
+
+
+/* ####### Container form ####### */
+.container-form{
+    display: flex;
+    flex-direction:column;
+    margin: 10px;
+    padding: 5px;
+  }
+  .input-basic, .textare-basic{
+    width: 450px;
+    max-width: 450px;
+    min-width: 450px;
+    padding:16px;
+    font-size:14px;
+    font-family: 'poppinsregular';
+    margin: 5px;
+    border-radius: 8px;
+    border: solid 1px #6F6B70;
+    
+  }
+
+  .input-basic::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-size: 13px !important;
+  }
+  .input-basic::-moz-placeholder { /* Firefox 19+ */
+    font-size: 13px !important;
+  }
+  .input-basic:-ms-input-placeholder { /* IE 10+ */
+    font-size: 13px !important;
+  }
+  .input-basic:-moz-placeholder { /* Firefox 18- */
+    font-size: 13px !important;
+  }
+  .input-basic::placeholder { /* Firefox 18- */
+    font-size: 13px !important;
+  }
+
+  .container-form__btn{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;/* Puede ir flex-direction tambien*/
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .btn-form{
+
+    width: 175px;
+    height: 33px;
+    border-radius: 5px;
+    background-color: #17ABE9;
+    color: white;
+    
+    font-family: 'poppinsregular';
+    font-size: 14px;
+    letter-spacing: 1pt;
+    margin: 10px;
+  }
+
+  .MMError{
+  width: 100%;
+  text-align: center;
+  margin: 0px 0px 5px 0px;
+  font-family: 'poppinsregular';
+  display: none;
+  color: #3EB649;
+}
+.loader {
+    display: none;
+    border: 5px solid #ededed; /* Light grey */
+    border-top: 5px solid #6F6B70;/* Blue */
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    animation: spin .9s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.container-map{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .map-basic{
+    width: 450px;
+    height: 318px;
+    margin: 25px 0px 5px 0px;
+  }
+  .map-basic > iframe{
+    width: 100%;
+    height: 100%;
+  }
+  .contacto-info__tittle{
+    width: 100%;
+    text-align:center;
+    font-family: 'poppinsregular';
+    font-size: 12px;
+    margin: 10px;
+  }
+.contacto-info__text{
+  width: 90%;
+  text-align:center;
+  font-family: 'poppinsregular';
+  font-size: 14px;
+  color: #6F6B70;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.derechos{
+  color: white;
+  font-size:12px;
+  font-family: 'poppinsregular';
+}
+.container-footer{
+  background-color:#6F6B70;
+  width: 100%;
+  height: 7em;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  
+}
+.footer-btn__flotante{
+  width: 70px;
+  height: 60px;
+  background: #6F6B70;
+  position: absolute;
+  bottom:110px;
+  right:5px;
+  border-radius:5px 5px 0px 0px;
+  
+  background-image: url('../img/flecha_arriba.jpg');
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+  cursor: pointer;
+}
+.btn-scroll{
+  cursor: pointer;
+}
+
+.infoSolicitud{
+  width: auto;/* auto toma el ancho del texto en este caso si se le da 100% abre al tamaño de la ventana del navegador*/
+  height: auto;
+  position: fixed;/* Lo deja fijo con respecto a la derecha y de abajo 20px*/
+  right: 0;
+  bottom: 20px;
+  z-index: 20;
+  padding: 10px;
+  display:none  ;
+}
+
+.infoSolicitud > div{
+  width: 150px;
+  height: 150px;
+  border-radius:50%;
+  -moz-border-radius: 50%;
+     -webkit-border-radius: 50%;
+  background-color: #FAFF89;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  padding:1em;  ;
+}
+.infoSolicitud > div > span{
+  padding: 2px 5px 1px 5px;
+  text-align: center;
+  font-family: 'poppinsregular';
+  color:#5E5E5EFF;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 1pt;
+}
+
+
+/* ------ Responsive ------ */
+@media only screen and (max-width: 920px){
+
+
+  .container-footer{
+    background-color: teal;
+  }
+  .header-ppal{
+    width: 100%;
+  }
+  .header-menu{
+    display: none;
+  }
+  .header-btnMenuResponsive{
+    display: block;
+  }
+  .header-menu{
+    width: 100%;
+    position: absolute;
+    top: 5em;
+  }
+
+  .header-menu > ul{
+    height: auto;
+    top: 4em;
+
+    flex-direction: column;
+    background-color: white;
+  }
+
+  .ModalMax > div > section{
+    width: 670px;
+    height: 280px;
+  }
+  .ModalMax-text__title{
+    font-size: 45px;
+  }
+
+  .ModalMax-text__text{
+    font-size: 14px;
+  }
+  .container-ModalMin{
+    width: 640px;
+  }
+  #link-galeria{
+    height: 350px !important;
+  }
+  #ModalGalery{
+    width: 650px;
+    height: 350px;
+  }
+}
+@media only screen and (max-width: 685px){
+  .container-footer{
+    background-color: yellow;
+  }
+
+
+  h1{
+    font-size: 62px;
+    text-align: center;
+    width: 90%;
+  }
+
+  h2{
+    font-size: 42px;
+    width: 90%;
+    text-align: center;
+  }
+
+  .swiper-slide > h3{
+    margin-bottom: 100px;
+    width: 90%;
+    text-align: center;
+  }
+
+  .ModalMax > div > section{
+    width: 425px;
+    height: 250px;
+  }
+
+  .container-tittle__tittles1{
+    width: 95% !important;
+  }
+  .container-tittle__tittles2{
+    font-size: 42px;
+  }
+
+  .ModalMax-text__title{
+    font-size: 35px;
+    line-height: 28px;
+  }
+
+  .ModalMax-text__text{
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .container-sec__ho > section > .container-animate__down >section >.container-NameServ{
+    font-size: 18px;
+  }
+  .container-sec__ho > section > .container-animate__down >section >.container-membresia__text{
+    font-size: 16px;
+    line-height: 20px;
+    width: 92%;
+  }
+  .container-ModalMin{
+    width: 95%;
+  }
+  .container-ModalMin > figure{
+    width: 200px;
+  }
+  .container-ModalMin > section{
+    width: calc(100% - 200px);
+  }
+  .map-basic {
+    width: 95%;
+  }
+  #link-galeria{
+    height: 500px !important;
+  }
+  .galery_img{
+    flex-direction: column !important;
+  }
+  .galery_img > a{
+    width: 100%;
+  }
+  #ModalGalery{
+    width: 450px;
+    height: 250px;
+  }
+  .infoSolicitud > div > span{
+    padding: 1px 1px 1px 1px;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: normal;
+  }
+
+}
+@media only screen and (max-width: 440px){
+  .container-ModalMin{
+    width: 98%;
+  }
+  .container-ModalMin > figure{
+    /* width: 100px; */
+    display: none;
+  }
+  .container-ModalMin > section{
+    /* width: calc(100% - 100px); */
+    width: 100%;
+  }
+  h1{
+    font-size: 42px;
+  }
+
+  h2{
+      font-size: 32px;
+  }
+
+  .swiper-slide > h3{
+    margin-bottom: 90px;
+  }
+
+  .ModalMax > div > section{
+    width: 318px;
+  }
+
+  .ModalMax-text__title{
+    font-size: 28px;
+  }
+
+  .ModalMax-text__text{
+    font-size: 10px;
+  }
+  .container-tittle__tittles3{
+    font-size: 24px;
+  }
+  .container-form{
+    justify-content: center;
+    align-items: center;
+  }
+  .input-basic, .texare-basic{
+    width: 240px;
+    max-width: 240px;
+    min-width: 240px;
+  }
+  .container-form__btn{
+    width: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  .container-form__file{
+    width: 270px;
+    margin: 5px;
+    height: 40px;
+  }
+  .btn-form{
+    width: 270px;
+    margin: 5px;
+    height: 40px;
+  }
+  #Fondo-SeparteEquipo{
+    background-size: contain;
+    height: auto;
+    padding-bottom: 50px;
+  }
+    .container-map{
+      margin: 0px;
+    }
+    .email_txt{
+      font-size: 15px !important;
+    }
+    .web_txt{
+      font-size: 10px !important;
+    }
+    #ModalGalery{
+      width: 316px;
+      height: 200px;
+    }
+    .container-tittle__tittles1{
+      font-size: 22px;
+    }
+    .Modal2-title{
+      font-size: 22px;
+    }
+}
+
+  /*.container-form__file{
+    width: 175px;
+    height: 33px;
+    background-color:  #3EB649 ;
+    margin: 10px;
+    border-radius: 5px;
+  }
+  .container-form__file > label{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'POPPINS-REGULAR';
+    font-size: 14px;
+    letter-spacing: .5pt;
+    cursor: pointer;
+  }*/
