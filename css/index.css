@@ -47,10 +47,10 @@ h3{
 }
 
 .container-ppal{ /* el contenedor principal se pone de manera por default con su ancho en 100% height auto */
+  background-color:#000;
   width: 100%;/* define el ancho para la parte flexible*/
   height: auto;/* define la altura el tamaño minimo, va respetando la altura de acuerdo a los elementos que lleva a dentro*/
   min-width: 319px;/*esta parte no define nada se puede quitar */
-   
   position: absolute;/* posicion absoluta toma como referencia a la ventana del navegador*/
   display: flex; /* para la parte flexible */
   flex-direction: column;/* column: los elementos se colocan verticalmente de arriba abajo.  */
@@ -62,28 +62,29 @@ h3{
   cursor: pointer;
 }
 .header-ppal{
-
 width: 95%;/* solo reduce el ancho del header respecto al navegador*/
-height: 6em;/* se define su altura normal*/
+height: 7em;/* se define su altura normal*/
 position: fixed;/* esta afuera del flujo normal de la pagina, al hacer scroll en la pagina el elemento seguira en la misma posicion */
-top: 0px;/* respecto a top toma como referencia la parte de arriba*/
+top:0px;/* respecto a top toma como referencia la parte de arriba*/
 display: block;/* esta propiedad define que el tag estara en bloque*/
 z-index: 100;/* para que este elemento este apilado jerarquicamente */
 }
 .header-ppal > div{
-  background: white;
+  background:#000;
   display: flex;
   width: 100%;
   height: 100%;
   position: relative;
 } 
 .header-logo{
-  width:200px;/* determinas el espacio*/
-  height:100%;/* determinas la altura*/
-  background-image:url('../img/header-logo.png');
-  background-size: 65%;/* definir el tamaño de la imagen de fondo*/
+  
+  display: flex;
+  width:130px;/* determinas el espacio del ancho*/
+  height:100%;/* determinas el espacio de la altura */
+  background-image:url('../img/logobarber.png');
+  background-size:85%;/* definir el tamaño pero de la imagen de fondo*/
   background-repeat: no-repeat;/* que no se repita la imagen */
-  background-position: 10px center;/* x y -top | center | bottom*/
+  background-position: center;/*  [top | center | bottom] */
    
 }
 .header-menu{
@@ -103,34 +104,30 @@ z-index: 100;/* para que este elemento este apilado jerarquicamente */
   align-items:center;/* es como una alineacion en x*/
 }
 .header-menu > ul > li > a{
-    display: block;/*Esta propiedad se puedeomitir ya que el comportamiento lo define arriba */
-    margin: 2px;/* este es para hacer la separacion de cada enlace */
-   padding: 10px 10px 10px 10px; /*trabaja los rellenos de cada enlace*/
-   font-family:'poppinsregular';/* se aplican las fuentes a los enlaces*/
-   font-size:13px;/* se aplica el tamaño del texto */
-   display:flex;/* se define que se flexible para la parte de los enlaces*/
-   /*flex-direction:row;*/
-   justify-content: center;/* para la alineacion de los items*/
-   align-items: center;/* para la alineacion en x */
-   color: #6F6B70;
-  transition: background-color .3s;
-  letter-spacing: 1pt;/* Da espacios entre las letras */
-  text-align: center;/* centra el texto dentro del elemento*/
-  cursor: pointer;
+display: block;/*Esta propiedad se puedeomitir ya que el comportamiento lo define arriba */
+margin: 2px;/* este es para hacer la separacion de cada enlace */
+padding: 10px 10px 10px 10px; /*trabaja los rellenos de cada enlace*/
+font-family:'poppinsregular';/* se aplican las fuentes a los enlaces*/
+font-size:13px;/* se aplica el tamaño del texto */
+display:flex;/* se define que se flexible para la parte de los enlaces*/
+/*flex-direction:row;*/
+justify-content: center;/* para la alineacion de los items*/
+align-items: center;/* para la alineacion en x */
+color: #FFFFFF;
+border-bottom: solid 1px #000;
+transition: border .5s ease;
+letter-spacing: 1pt;/* Da espacios entre las letras */
+text-align: center;/* centra el texto dentro del elemento*/
+cursor: pointer;
 
 }
-
 .header-menu > ul > li > a:hover{
-  background-color: #6F6B70;/* se aplica un color de fondo como en gris*/
-  color: white;/* se aplica un color al texto en blanco*/
+ border-bottom:solid 1px #BBA73A;
 }
-
 .header-btnMenuResponsive{
-  
-  display:none; ;/* Estara oculto*/
-  height: 100%;
-
-  width: calc(100% - 200px);/*le dejas un espacio al elemento El ancho de 100%(pero tiene el logo y el menu) - 200px quedara un resultado de la resta un ejemplo estaria dejando un 80% de espacio solo para el menu*/
+display:none;/* Estara oculto*/
+height: 100%;
+width: calc(100% - 200px);/*le dejas un espacio al elemento El ancho de 100%(pero tiene el logo y el menu) - 200px quedara un resultado de la resta un ejemplo estaria dejando un 80% de espacio solo para el menu*/
 }
 
 .header-btnMenuResponsive > div{
@@ -162,10 +159,11 @@ z-index: 100;/* para que este elemento este apilado jerarquicamente */
   background-color: #6F6B70;
 }
 
-.header-menu__contacto{
-  background-color: #6F6B70;
-  color: white !important;/* !important puede ser usada para dar prioridad a diferentes parámetros:*/
-  margin: 5px 10px 5px 5px !important;
+.contacto{
+
+border-bottom:solid 1px #BBA73A !important;
+  /* !important puede ser usada para dar prioridad a diferentes parámetros:*/
+  
 }
  
 .txtShadow{
@@ -192,11 +190,12 @@ z-index: 100;/* para que este elemento este apilado jerarquicamente */
  .swiper-slide {
 
   background-position:center;
-   background-size:cover;/* con este valor escala la imagen al mayor tamaño sin estirarla y la deja centrada a comparacion a los otros valores como auto | auto auto etc*/
+  background-size:cover;/* con este valor escala la imagen al mayor tamaño sin estirarla y la deja centrada a comparacion a los otros valores como auto | auto auto etc*/
   display:flex;
-  justify-content: flex-end;
+  height: 100vh;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;/* aqui en columna abarca todo el elemento, luego con el align-items se centra y con el flex- end inicia desde abajo hacia arriba pero con el height de arriba esta en height vh que toma como referencia al total de la altura del navegador*/
+  flex-direction:column;/* aqui en columna abarca todo el elemento, luego con el align-items se centra y con el flex- end inicia de derecha pero con el height de arriba esta en height vh que toma como referencia al total de la altura del navegador*/
   
 } 
 .swiper-slide > h1{
@@ -236,7 +235,7 @@ width: 100%;
 }
 .space{/* maneja espacios con div*/
   width:100%;
-  height:6em;
+  height:7em;
 }
 .space_min{
   width:100%;
@@ -278,8 +277,8 @@ color:#6F6B70;
 }
  
  
-.bc-ffffff{
-  background-color: #ffffff;
+.bc-negro{/* ####### Esta clase la contienen todos los espacios #######*/
+  background-color: #000;
 }
   
 /* Container sec */
