@@ -4,6 +4,23 @@ include('./conexion/conexionDB.php');
 if(mysqli_connect_errno()){/* si existe una falla en la conexion con esta funcion manda el letrero*/
 	echo "Fallo la conexon a la base de datos";
 }
+/* 
+	$data = json_decode(file_get_contents("http://localhost/pruebas/test.json"),true);
+	va adecodificar lo que trae la url
+	y con print_r($data) para formato de array
+
+	para iterar el arreglo
+
+	for($i=0;$i<cont($data);$i+){
+	 echo $data[$i]["nombre"]."<br>"
+	}
+
+
+
+
+
+
+*/
 else
 {
 

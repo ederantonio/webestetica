@@ -20,16 +20,16 @@ var swiper = new Swiper('#link-Inicio__slider', {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-    /*onSlideChangeStart: function(swiper) 
+     onSlideChangeStart: function(swiper) 
     {
         var isVideo = swiper.slides[swiper.previousIndex].querySelector('.video-container');
         if (isVideo) {
             YT.get(isVideo.querySelector('iframe').id).stopVideo()
         }
-    }*/
+    } 
 });
 
-/*swiper.autoplay.start();*/
+ swiper.autoplay.start(); 
 
 
 /* ####### Es para cuando pase el mouse sobre el elemento aparezca el otro encima ####### */
@@ -99,15 +99,18 @@ function paquetes()
         method: "POST",
         data: { peticion: "traer_paquetes"}
     }).done(function(res) {
+       console.log(res);
         var result = JSON.parse(res);
-        console.log(res);
+        
+       /* console.log(res);*/
         $.each(result, function(key, value){
+             
             $("#container-paquetes").append(
                 "<section onclick=InfoServPaq('Paquete_"+ value.id_paquete+"') id='Paquete_"+ value.id_paquete+"' class='conatine-paquetes'>" +
                     "<a>"+value.paq_titulo+"</a>" +
                 "</section>"
             );
-            document.getElementById('Paquete_'+ value.id_paquete).style.backgroundImage = "url('img/" + value.paq_source + "')";
+            document.getElementById('Paquete_'+ value.id_paquete).style.backgroundImage = "url('img/" + value.paq_sorce + "')";
         });
     });
 }
@@ -139,7 +142,7 @@ function InfoServPaq(id){ /* Aqui llega Servicio_1 es un arguumento es un valor 
             method: "POST",
             data:{peticion:p, idsp:id[1]} /*Aqui se mandara un valor de un array asociativo parseado a objeto en javascript aqui toma la posicion 1 para obtener el numero en este caso "1" y saber exactamente cual imagen selecciono Aqui en data puedes solo declararla dandole una cadena string o pasandole parametro al cual le asignas un valor declarado previamente*/
         }).done(function(res){ /* confirma si se realizo con exito la peticion de los datos procesados en php*/
-           console.log(res);
+            
         var result = JSON.parse(res);/* del objeto Json lo pasa a objeto javascript El comando JSON Parse analiza el contenido de una cadena con formato JSON y extrae los valores que puede almacenar en un campo o variable  . Este comando deserializa los datos JSON JSON Parse por lo tanto puede ser utilizado para validar cadenas JSON*/
         $('.Modal2-title>strong').empty();/* Esto es por si deja el titulo y texto de otra imagen pendiente revisar*/
         $(".Modal2-text").empty();
@@ -194,7 +197,7 @@ function InfoServPaq(id){ /* Aqui llega Servicio_1 es un arguumento es un valor 
                 $(".Modal2-text").append("<section id='ContainerPaquetes'></section>");/* Aqui dentro de .Modal2-text agrega al section #containerPaquetes*/
                 $("#imgModal2").attr("src","img/" + result['informacion'].paq_source2);/* Aqui accede al #imgModal2 y modifica el src y agrega la imagen*/
                 $('.Modal2-title>strong').text(result['informacion'].paq_titulo);/* Aqui despues de la etiqueta strong agrega el titulo*/
-                $.each(result['estudios'], function(key, value) {
+                $.each(result['paquetes'], function(key, value) {
                     var arreglo_especificaciones = value.especificaciones.split(",");/* Aqui al valor de estudios esta con comas hace la separacion con el split como si estuviera dando enter y poniendolos en un arreglo y los asigna a una variable*/
                     console.log(arreglo_especificaciones);
                     var lista = "<ul id='ContainerPaquetes_serv_"+value.id_estudio_especificacion+"'><li class='title_Paquetes'><strong>"+value.est_titulo+"</strong></li>";/* Aqui va a recorrer el each el elemento dependiendo de los resultados que tenga en este caso seran son 3*/
@@ -357,3 +360,25 @@ $(".btn-scroll").click(function() {/* Los menus y los div's con la clase btn-scr
 
 
     
+
+
+
+
+
+
+
+    // Se recuperan los valores de grafica1 y grafica2  
+    
+    (globaldatosgrafica1 != undefined) ? globaldatosgrafica1.sort((a, b) => a.idequipo - b.idequipo) : (globalgrafica1 != undefined) ? globalgrafica1.sort((a, b) => a.idequipo - b.idequipo) : '';
+    $("#termometro").empty();                                                                                                       //es cuando se filtro una unidad se recarga la pagina y el input se queda en blanco y se le da enter
+    (op == 2) ?  grafica1(globaltermometrobuscar, '2',consultaminmax): (op==undefined) ? grafica1(globalgrafica1,'1',consultaminmax):(op == 1 && globaldatosgrafica1 != undefined) ? grafica1(globaldatosgrafica1,'1',consultaminmax) : (op == 1 && globaldatosgrafica1== undefined)? grafica1(globalgrafica1,'1',consultaminmax):'';
+    $("#rangotiempo").focus(); 
+    
+     
+    f2 = moment().format("YYYY-07-09 10:53")+':00';// fecha actual 
+    f1 = moment(f2).add(-1, 'hours').format("YYYY-MM-DD HH:mm") + ':00'; // fecha 1 hora antes
+    localStorage.setItem('rangotiempo', $("#rangotiempo").val());
+    localStorage.setItem('fechafin',f2);
+    localStorage.setItem('fechainicio', f1);
+    (op == 2) ? grafica2(globaltemperaturabuscar,0,'2',consultaminmax,'1') : (op==undefined) ? peticiongrafica2(globalids,f1,f2,consultaminmax,'1') : (op == 1 ) ? peticiongrafica2(globalids,f1,f2,consultaminmax,'1') :'' ; // es cuando en buscar unidad se filtra, se recarga y se le da enter
+    $("#rangotiempo").focus();

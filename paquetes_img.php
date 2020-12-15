@@ -7,6 +7,7 @@ if(mysqli_connect_errno())
 else
 {
 		$varAjax=$_POST['peticion'];/* 'traer paquetes'*/
+		
 		switch ($varAjax)
 		{
 			case 'traer_paquetes':
@@ -33,24 +34,24 @@ else
 										'informacion'=>array
 										(
 											'id_paquete'=>'1',
-											'paq_titulo'=>'Ser Mujer',
+											'paq_titulo'=>'Boda',
 											'paq_precio'=>'2180',/* Aqui tiene una expresion regular definida para que al inicio anteponga signo de pesos '$'*/
 											'paq_estatus'=>'1',
-											'paq_source'=>'principal-ser_mujer2018-08-15 09_41_52.jpg',
-											'paq_source2'=>'secundaria-ser_mujer2018-08-15 09_41_52.jpg',
+											'paq_source'=>'pboda.jpg',
+											'paq_source2'=>'sboda.jpg',
 										),
 
-										'estudios'=>array
+										'paquetes'=>array
 										(
 											
-												array('est_titulo'=>'ginecologia',
-												'especificaciones'=>'papanicolau',),
+												array('est_titulo'=>'corte de cabello',
+												'especificaciones'=>'despunte',),
 
-												array('est_titulo'=>'imagenologia',
-												'especificaciones'=>'Mamografía,Densitometría (columna y cadera),Ultrasonido Pélvico,Ultrasonido Mamario',),
+												array('est_titulo'=>'Peinado',
+												'especificaciones'=>'para cabello largo,paracabello corto,recogidos,flequillo',),
 												
-												array('est_titulo'=>'muestra de sangre',
-												'especificaciones'=>'quimica',),
+												array('est_titulo'=>'maquillaje',
+												'especificaciones'=>'lorem',),
 											
 										)
 									);
@@ -63,20 +64,20 @@ else
 										'informacion'=>array
 										(
 											'id_paquete'=>'2',
-											'paq_titulo'=>'Cáncer de mama',
+											'paq_titulo'=>'Maquillaje de noche',
 											'paq_precio'=>'790',
 											'paq_estatus'=>'1',
-											'paq_source'=>'principal-cancer_de_mama20180815094249.jpg',
-											'paq_source2'=>'secundaria-cancer_de_mama2018-08-15 09_42_49.jpg',
+											'paq_source'=>'pmaqnoche.jpg',
+											'paq_source2'=>'smaqnoche.jpg',
 										),
 
-										'estudios'=>array
+										'paquetes'=>array
 										(
-												array('est_titulo'=>'Imagenología',
-												'especificaciones'=>'Ultrasonido Mamario,Mamografía',),
+												array('est_titulo'=>'Decoracion de uñas',
+												'especificaciones'=>'consequat. Duis aute irure in, reprehenderit',),
 
-												array('est_titulo'=>'Muestra de sangre',
-												'especificaciones'=>'Antígeno CA 15.3',),
+												array('est_titulo'=>'maquillaje',
+												'especificaciones'=>'Excepteur sint occaecat, cupidatat non',),
 										)
 									);
 									echo json_encode($array,JSON_UNESCAPED_UNICODE);
@@ -88,20 +89,21 @@ else
 										'informacion'=>array
 										(
 											'id_paquete'=>'3',
-											'paq_titulo'=>'Cáncer de mama / Osteoporosis',
+											'paq_titulo'=>'Color de cabello',
 											'paq_precio'=>'1200', 
 											'paq_estatus'=>'1',
-											'paq_source'=>'principal-cdm_osteoporosis20180815095840.jpg',
-											'paq_source2'=>'secundaria-cdm_osteoporosis20180815095840.jpg',
+											'paq_source'=>'ptinte.jpg',
+											'paq_source2'=>'stinte.jpg',
 										),
 
-										'estudios'=>array
+										'paquetes'=>array
 										(
-												array('est_titulo'=>'Imagenología',
-												'especificaciones'=>'Ultrasonido Mamario,Mamografía',),
+												array('est_titulo'=>'Corte de cabello',
+												'especificaciones'=>'Lorem ipsum sit amet, consectetur adipisicing elit,',),
 
-												array('est_titulo'=>'Muestra de sangre',
-												'especificaciones'=>'Antígeno CA 15.3',),
+												array('est_titulo'=>'Mdecoloracion de cabello',
+												'especificaciones'=>'Aenim ad minim veniam,
+                                    			 quis nostrud exercitation ullamco ',),
 										)
 									);
 									echo json_encode($array,JSON_UNESCAPED_UNICODE);
@@ -113,26 +115,31 @@ else
 										'informacion'=>array
 										(
 											'id_paquete'=>'4',
-											'paq_titulo'=>'Adulto Mayor Femenino',
+											'paq_titulo'=>'Peindados',
 											'paq_precio'=>'2900', 
 											'paq_estatus'=>'1',
-											'paq_source'=>'principal-adulto_mayor_femenino20180815095913.jpg',
-											'paq_source2'=>'secundaria-adulto_mayor_femenino20180815095913.jpg',
+											'paq_source'=>'ppeinados.jpg',
+											'paq_source2'=>'speinados.jpg',
 										),
 
-										'estudios'=>array
+										'paquetes'=>array
 										(
-												array('est_titulo'=>'Enfermería',
-												'especificaciones'=>'Peso y talla,Electrocardiograma,Presión arterial',),
+												array('est_titulo'=>'peinado',
+												'especificaciones'=>'Lorem ipsum sit amet, consectetur adipisicing',),
 
-												array('est_titulo'=>'Imagenología',
-												'especificaciones'=>'Densitometría (columna y cadera),Ultrasonido Mamario,Tele de Tórax (1 posición),Mamografía,Ultrasonido de abdomen total',),
+												array('est_titulo'=>'maquilaje',
+												'especificaciones'=>'orem ipsum sit amet, consectetur adipisicing,
+                                    			tempor incididunt ut labore et magna aliqua. Ut enim ad minim veniam,
+                                    			quis nostrud exercitation ullamco laboris nisi ut ',),
 
-												array('est_titulo'=>'Muestra de orina',
-												'especificaciones'=>'Examen general de orina,Microalbuminuria',),
+												array('est_titulo'=>'decoracion de uñas',
+												'especificaciones'=>'Lorem ipsum sit amet, consectetur adipisicing,',),
 
-												array('est_titulo'=>'Muestra de sangre',
-												'especificaciones'=>'Perfil Hepático,Antígeno CA 15.3,Perfil Reumático,Química Sanguínea IV,Perfil de Lípidos,Biometría Hemática,Perfil Iónico,Antígeno CA 125,Hemoglobina Glicosilada',),
+												array('est_titulo'=>'decoloración',
+												'especificaciones'=>'orem ipsum sit amet, consectetur adipisicing, sed do eiusmod
+                                    			tempor incididunt ut labore et magna aliqua. Ut enim ad minim veniam,
+                                    			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    			consequat.',),
 										)
 									);
 									echo json_encode($array,JSON_UNESCAPED_UNICODE);
@@ -144,26 +151,29 @@ else
 										'informacion'=>array
 										(
 											'id_paquete'=>'5',
-											'paq_titulo'=>'Paquete Integral Masculino',
+											'paq_titulo'=>'Tendencias',
 											'paq_precio'=>'1630', 
 											'paq_estatus'=>'1',
-											'paq_source'=>'principal-paquete_integral_masculino20180815100033.jpg',
-											'paq_source2'=>'secundaria-paquete_integral_masculino20180815100033.jpg',
+											'paq_source'=>'ptendencia.jpg',
+											'paq_source2'=>'stendencia.jpg',
 										),
 
-										'estudios'=>array
+										'paquetes'=>array
 										(
-												array('est_titulo'=>'Enfermería',
-												'especificaciones'=>'Peso y talla,Electrocardiograma,Presión arterial',),
+												array('est_titulo'=>'Tendencia',
+												'especificaciones'=>'onsequat. Duis aute irure in reprehenderit, in voluptate velit ',),
 
-												array('est_titulo'=>'Imagenología',
-												'especificaciones'=>'Tele de Tórax (1 posición),Ultrasonido de abdomen inferior',),
+												array('est_titulo'=>'Color',
+												'especificaciones'=>'voluptate velit esse,
+                                    			cillum eu fugiat ',),
 
-												array('est_titulo'=>'Muestra de orina',
-												'especificaciones'=>'Examen general de orina,Microalbuminuria',),
+												array('est_titulo'=>'peinado',
+												'especificaciones'=>'ad minim veniam,
+                                    			 quis nostrud ',),
 
-												array('est_titulo'=>'Muestra de sangre',
-												'especificaciones'=>'Antígeno específico de próstata,Química Sanguínea IV,Hemoglobina Glicosilada,Biometría Hemática,Perfil de Lípidos,Perfil Hepático',),
+												array('est_titulo'=>'tratamiento',
+												'especificaciones'=>'Lorem ipsum sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    			tempor incididunt ut ',),
 										)
 									);
 									echo json_encode($array,JSON_UNESCAPED_UNICODE);
@@ -175,143 +185,27 @@ else
 										'informacion'=>array
 										(
 											'id_paquete'=>'6',
-											'paq_titulo'=>'Chequeo de Próstata',
+											'paq_titulo'=>'Rizado',
 											'paq_precio'=>'680', 
 											'paq_estatus'=>'1',
-											'paq_source'=>'principal-chequeo_de_prostata20180815100138.jpg',
-											'paq_source2'=>'secundaria-chequeo_de_prostata20180815100138.jpg',
+											'paq_source'=>'prizos.jpg',
+											'paq_source2'=>'srizos.jpg',
 										),
 
-										'estudios'=>array
+										'paquetes'=>array
 										(
-												array('est_titulo'=>'Imagenología',
-												'especificaciones'=>'Ultrasonido prostáticol',),
+												array('est_titulo'=>'rizos-alisado',
+												'especificaciones'=>'consectetur adipisicing elit',),
 
-												array('est_titulo'=>'Muestra de orina',
-												'especificaciones'=>'Examen general de orina',),
+												array('est_titulo'=>'tratamientos',
+												'especificaciones'=>'quis nostrud exercitationa',),
 
-												array('est_titulo'=>'Muestra de sangre',
-												'especificaciones'=>'Antígeno específico de próstata',),
+												array('est_titulo'=>'extensiones',
+												'especificaciones'=>'Duis aute irure in reprehenderit',),
 										)
 									);
 									echo json_encode($array,JSON_UNESCAPED_UNICODE);
 									break;	
-
-								case '7':
-									$array=array
-									(
-										'informacion'=>array
-										(
-											'id_paquete'=>'7',
-											'paq_titulo'=>'Paquete Infantil',
-											'paq_precio'=>'385', 
-											'paq_estatus'=>'1',
-											'paq_source'=>'principal-paquete_infantil20180815100243.jpg',
-											'paq_source2'=>'secundaria-paquete_infantil20180815100243.jpg',
-										),
-
-										'estudios'=>array
-										(
-												array('est_titulo'=>'Muestra de orina',
-												'especificaciones'=>'Examen general de orina',),
-
-												array('est_titulo'=>'Muestra de sangre',
-												'especificaciones'=>'Reacciones febriles,Química sanguínea básica (glucosa,colesterol y triglicéridos),Biometría Hemática',),
-
-												array('est_titulo'=>'Muestra heces fecales',
-												'especificaciones'=>'Coproparasitoscópico único',),
-										)
-									);
-									echo json_encode($array,JSON_UNESCAPED_UNICODE);
-									break;	
-
-								case '8':
-									$array=array
-									(
-										'informacion'=>array
-										(
-											'id_paquete'=>'8',
-											'paq_titulo'=>'Mujer Joven, Mujer Sana',
-											'paq_precio'=>'890', 
-											'paq_estatus'=>'1',
-											'paq_source'=>'principal-mujer_joven_mujer_sana20180815100326.jpg',
-											'paq_source2'=>'secundaria-mujer_joven_mujer_sana20180815100326.jpg',
-										),
-
-										'estudios'=>array
-										(
-												array('est_titulo'=>'Ginecología',
-												'especificaciones'=>'Papanicolaou',),
-
-												array('est_titulo'=>'Imagenología',
-												'especificaciones'=>'Ultrasonido Mamario',),
-
-												array('est_titulo'=>'Muestra de orina',
-												'especificaciones'=>'Examen general de orina',),
-
-												array('est_titulo'=>'Muestra de sangre',
-												'especificaciones'=>'Antígeno CA 15.3,Química Sanguínea VI,Biometría Hemática',),
-										)
-									);
-									echo json_encode($array,JSON_UNESCAPED_UNICODE);
-									break;	
-
-								case '9':
-									$array=array
-									(
-										'informacion'=>array
-										(
-											'id_paquete'=>'9',
-											'paq_titulo'=>'Adulto Mayor Masculino',
-											'paq_precio'=>'2260', 
-											'paq_estatus'=>'1',
-											'paq_source'=>'principal-adulto_mayor_masculino20180815100402.jpg',
-											'paq_source2'=>'secundaria-adulto_mayor_masculino20180815100402.jpg',
-										),
-
-										'estudios'=>array
-										(
-												array('est_titulo'=>'Enfermería',
-												'especificaciones'=>'Presión arterial,Peso y talla,Electrocardiograma en reposo',),
-
-												array('est_titulo'=>'Imagenología',
-												'especificaciones'=>'Ultrasonido de abdomen total,Densitometría (columna y cadera),Tele de Tórax (1 posición),Rodillas comparativas',),
-
-												array('est_titulo'=>'Muestra de orina',
-												'especificaciones'=>'Microalbuminuria,Examen general de orina',),
-
-												array('est_titulo'=>'Muestra de sangre',
-												'especificaciones'=>'Perfil de Lípidos,Biometría Hemática,Antígeno carcinoembrionario,Perfil Iónico,Antígeno específico de próstata,Perfil Hepático,Hemoglobina Glicosilada,Química Sanguínea IV',),
-										)
-									);
-									echo json_encode($array,JSON_UNESCAPED_UNICODE);
-									break;
-
-								case '10':
-									$array=array
-									(
-										'informacion'=>array
-										(
-											'id_paquete'=>'10',
-											'paq_titulo'=>'Básico Masculino',
-											'paq_precio'=>'470', 
-											'paq_estatus'=>'1',
-											'paq_source'=>'principal-basico_masculino20180815100448.jpg',
-											'paq_source2'=>'secundaria-basico_masculino20180815100448.jpg',
-										),
-
-										'estudios'=>array
-										(
-												array('est_titulo'=>'Muestra de orina',
-												'especificaciones'=>'Examen general de orina',),
-
-												array('est_titulo'=>'Muestra de sangre',
-												'especificaciones'=>'Antígeno específico de próstata,Química Sanguínea VI,Biometría Hemática',),
-										)
-									);
-									echo json_encode($array,JSON_UNESCAPED_UNICODE);
-									break;	
-
 							}/* ####### cierre de switch #######*/
 			break;
  		}/* ####### Cierre del switch #######*/

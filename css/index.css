@@ -35,6 +35,13 @@ h1{
   margin: 0;
   padding: 0;
 }
+.swiper-slide > .todo{
+width:500px;
+display:flex;
+margin-left:10px;
+ 
+  
+}
 h2{
   color: white;
   font-family: 'poppinsregular';
@@ -45,7 +52,9 @@ h3{
   font-family: 'poppinsregular';
   font-size: 17px;
 }
-
+.todo{
+  text-align: left;
+}
 .container-ppal{ /* el contenedor principal se pone de manera por default con su ancho en 100% height auto */
   background-color:#000;
   width: 100%;/* define el ancho para la parte flexible*/
@@ -86,6 +95,15 @@ z-index: 100;/* para que este elemento este apilado jerarquicamente */
   background-repeat: no-repeat;/* que no se repita la imagen */
   background-position: center;/*  [top | center | bottom] */
    
+}
+.logo{
+  width: 130px;
+  height:110px;
+}
+.imgbaner{
+  margin:0em auto;
+  width: 1300px;
+  height: 600px;;
 }
 .header-menu{
 
@@ -254,7 +272,7 @@ color:#6F6B70;
 }
 
 .container-tittle__tittles1{/* a este div o elemento le da 500 px de ancho*/
- 
+ color:#FFFFFFFF;
   width: 500px;
   height: 4em;
   margin: 0 auto;/* aqui centra al elemento*/
@@ -262,16 +280,17 @@ color:#6F6B70;
   font-family: 'poppinsregular';
   cursor: pointer;
   margin: 20px;/* aplica los 4 lados*/
-  font-size: 28px;/* tamaño de la fuente*/
+  font-size: 35px;/* tamaño de la fuente*/
   text-align: center;
    
 }
 .colorTittle{
-  color: #3EB649 !important;
+  color: #BBA73A !important;
+  font-family: 'poppinsbold'
 }
  
 .colorMora{
-  color: #B12A84 !important;
+  color: #FFFFFF !important;
   font-family: 'poppinsbold' !important;
   letter-spacing: 1pt;
 }
@@ -303,13 +322,13 @@ color:#6F6B70;
    overflow: hidden;/* como estas trabajando un div de efectos y se sale de tu section debes de darle overflow hidden aqui en section */
 }
 #container-membresia{
-  background-image:url('../img/membresia_1.jpg');
+  background-image:url('../img/especialidad1.jpg');
 }
 #container-seremp{
-  background-image:url('../img/servicio_a_empresa.jpg');
+  background-image:url('../img/maquillaje.jpg');
 }
 #container-servdo{
-  background-image:url('../img/servicio_a_domicilio.jpg');
+  background-image:url('../img/planchado.jpg');
 }
 
 .container-animate__down{ /* div | defines los tamaños estandar y bajas el div .container-animate__down*/
@@ -341,12 +360,14 @@ color:#6F6B70;
   text-align:center;/* para centrar le*/
   line-height:40px;
   border-radius:5px 5px 0px 0px;
-  background-color:#3EB649;
+  background-color:#EF0478;
   color:white;
   font-family:'poppinsregular';
   font-size:20px;
 }
-
+.backgroundNMV{
+  background-color: #FF59C7FF;
+}
 .container-membresia__tittle{ /* segundo titulo en color blanco*/
   color:white;
   font-family:'poppinsregular';
@@ -382,17 +403,19 @@ color:#6F6B70;
   flex-direction:column;/* Solo medidas estandar */
   justify-content:center;
   align-items:center;
-  color: #6F6B70;
+
 
 }
 .container-tittle__tittles2{/* Conocenos aqui ya se le aplica el tipo de fuente el tamaño de la letra*/
   font-family: 'poppinsbold' !important;
   font-size:56px;
   text-align: center;
-
+  color: #BBA73A;
    
 }
+
 .container-tittle__text{/* seleccione una opcion para conocer más*/
+  color:#EABDFFFF;
   font-family:'poppinsregular';
   font-size:14px;
   margin-top:15px;
@@ -431,16 +454,16 @@ width:95%;
   position:relative;
   overflow:hidden;
 
-}
- #container-qsomos{
-  background-image:url('../img/quienes_somos2.jpg');
-}
 
+}
+#container-qsomos{
+  background-image:url('../img/conocenos.jpg');
+}
 #container-mision{
-  background-image:url('../img/mision2.jpg');
+  background-image:url('../img/mision.jpg');
 }
 #container-vision{
-  background-image:url('../img/vision2.jpg');
+  background-image:url('../img/vision.jpg');
 }
 
 .container-ho2{
@@ -605,7 +628,7 @@ width:95%;
   flex-direction:column;/* Para que caigan los elementos horizontales  el titulo y abajo el texto*/
   justify-content: center;
   align-items: center;
-  background-image: url('../img/logodna_transparente.png');/* Se le pone una imagen de fondo transparente pero con efecto de phoshop*/
+  /*background-image: url('../img/logodna_transparente.png');*//* Se le pone una imagen de fondo transparente pero con efecto de phoshop*/
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;/* la escala al tamaño del elemento*/
@@ -616,7 +639,7 @@ width:95%;
   font-family: 'poppinsregular';
   text-align: center;
   font-size: 26px;
-  color:#3EB649 !important;
+  color:#B218D8 !important;
   margin: 5px;
   display: flex;
   position:relative;/* Puede llevarlo o no no afecta el flujo o inclusive el flex-direction:column*/
@@ -783,11 +806,13 @@ width:95%;
 
 .derechos{
   color: white;
+  font-weight: bold;
   font-size:12px;
   font-family: 'poppinsregular';
 }
 .container-footer{
-  background-color:#6F6B70;
+  background-color:#6A2AFF;
+  opacity:  ;
   width: 100%;
   height: 7em;
   display:flex;
@@ -799,13 +824,13 @@ width:95%;
 .footer-btn__flotante{
   width: 70px;
   height: 60px;
-  background: #6F6B70;
+  background: #6A2AFF;
   position: absolute;
   bottom:110px;
   right:5px;
   border-radius:5px 5px 0px 0px;
   
-  background-image: url('../img/flecha_arriba.jpg');
+  background-image: url('../img/farriba.jpg');
   background-repeat: no-repeat;
   background-size: 80%;
   background-position: center;
