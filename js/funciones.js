@@ -357,28 +357,3 @@ $(".btn-scroll").click(function() {/* Los menus y los div's con la clase btn-scr
             $(".infoSolicitud").fadeOut();
         }
     });
-
-
-    
-
-
-
-
-
-
-
-    // Se recuperan los valores de grafica1 y grafica2  
-    
-    (globaldatosgrafica1 != undefined) ? globaldatosgrafica1.sort((a, b) => a.idequipo - b.idequipo) : (globalgrafica1 != undefined) ? globalgrafica1.sort((a, b) => a.idequipo - b.idequipo) : '';
-    $("#termometro").empty();                                                                                                       //es cuando se filtro una unidad se recarga la pagina y el input se queda en blanco y se le da enter
-    (op == 2) ?  grafica1(globaltermometrobuscar, '2',consultaminmax): (op==undefined) ? grafica1(globalgrafica1,'1',consultaminmax):(op == 1 && globaldatosgrafica1 != undefined) ? grafica1(globaldatosgrafica1,'1',consultaminmax) : (op == 1 && globaldatosgrafica1== undefined)? grafica1(globalgrafica1,'1',consultaminmax):'';
-    $("#rangotiempo").focus(); 
-    
-     
-    f2 = moment().format("YYYY-07-09 10:53")+':00';// fecha actual 
-    f1 = moment(f2).add(-1, 'hours').format("YYYY-MM-DD HH:mm") + ':00'; // fecha 1 hora antes
-    localStorage.setItem('rangotiempo', $("#rangotiempo").val());
-    localStorage.setItem('fechafin',f2);
-    localStorage.setItem('fechainicio', f1);
-    (op == 2) ? grafica2(globaltemperaturabuscar,0,'2',consultaminmax,'1') : (op==undefined) ? peticiongrafica2(globalids,f1,f2,consultaminmax,'1') : (op == 1 ) ? peticiongrafica2(globalids,f1,f2,consultaminmax,'1') :'' ; // es cuando en buscar unidad se filtra, se recarga y se le da enter
-    $("#rangotiempo").focus();

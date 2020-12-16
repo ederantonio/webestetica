@@ -4,30 +4,35 @@
   padding:0;
 }
 
-/* ------ container ppal ------ */
- @font-face {
-    font-family: 'poppinsregular';
-    src: url('../fuentes/poppinsregular.woff2') format('woff2'),
-         url('../fuentes/poppinsregular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+/*==========================================================
+------------------/ fuentes  
+============================================================ */
+
+@font-face {
+  font-family: 'poppinsregular';
+  src: url('../fuentes/poppinsregular.woff2') format('woff2'),
+  url('../fuentes/poppinsregular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 
 }
- @font-face {
-    font-family: 'poppinsbold';
-    src: url('../fuentes/poppinsbold.woff2') format('woff2'),
-         url('../fuentes/poppinsbold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
 
+@font-face {
+  font-family: 'poppinsbold';
+  src: url('../fuentes/poppinsbold.woff2') format('woff2'),
+  url('../fuentes/poppinsbold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal; 
 }
+
 li {
-list-style: none;/* quita las viñetas de la lista */
+  list-style: none;/* quita las viñetas de la lista */
 }
-a{
-text-decoration:none; /* quita el subrayado de los enlaces */
 
+a{
+  text-decoration:none; /* quita el subrayado de los enlaces */ 
 }
+
 h1{
   color: white;
   font-family: 'poppinsbold';
@@ -35,26 +40,32 @@ h1{
   margin: 0;
   padding: 0;
 }
+
 .swiper-slide > .todo{
-width:500px;
-display:flex;
-margin-left:10px;
- 
-  
+  width:500px;
+  display:flex;
+  margin-left:10px; 
 }
+
 h2{
   color: white;
   font-family: 'poppinsregular';
   font-size: 52px;
 }
+
 h3{
   color: white;
   font-family: 'poppinsregular';
   font-size: 17px;
 }
+
 .todo{
   text-align: left;
 }
+
+/*==========================================================
+------------------/ Container Principal  
+============================================================ */
 .container-ppal{ /* el contenedor principal se pone de manera por default con su ancho en 100% height auto */
   background-color:#000;
   width: 100%;/* define el ancho para la parte flexible*/
@@ -63,21 +74,22 @@ h3{
   position: absolute;/* posicion absoluta toma como referencia a la ventana del navegador*/
   display: flex; /* para la parte flexible */
   flex-direction: column;/* column: los elementos se colocan verticalmente de arriba abajo.  */
-  align-items: center;/* para la alineacion en x de los elementos*/
-   
+  align-items: center;/* para la alineacion en x de los elementos*/ 
 }
  
 .btn-scroll{
   cursor: pointer;
 }
+
 .header-ppal{
-width: 95%;/* solo reduce el ancho del header respecto al navegador*/
-height: 7em;/* se define su altura normal*/
-position: fixed;/* esta afuera del flujo normal de la pagina, al hacer scroll en la pagina el elemento seguira en la misma posicion */
-top:0px;/* respecto a top toma como referencia la parte de arriba*/
-display: block;/* esta propiedad define que el tag estara en bloque*/
-z-index: 100;/* para que este elemento este apilado jerarquicamente */
+  width: 96%;/* solo reduce el ancho del header respecto al navegador*/
+  height: 7em;/* se define su altura normal*/
+  position: fixed;/* esta afuera del flujo normal de la pagina, al hacer scroll en la pagina el elemento seguira en la misma posicion */
+  top:0px;/* respecto a top toma como referencia la parte de arriba*/
+  display: block;/* esta propiedad define que el tag estara en bloque*/
+  z-index: 100;/* para que este elemento este apilado jerarquicamente */
 }
+
 .header-ppal > div{
   background:#000;
   display: flex;
@@ -85,6 +97,7 @@ z-index: 100;/* para que este elemento este apilado jerarquicamente */
   height: 100%;
   position: relative;
 } 
+
 .header-logo{
   
   display: flex;
@@ -145,7 +158,7 @@ cursor: pointer;
 .header-btnMenuResponsive{
 display:none;/* Estara oculto*/
 height: 100%;
-width: calc(100% - 200px);/*le dejas un espacio al elemento El ancho de 100%(pero tiene el logo y el menu) - 200px quedara un resultado de la resta un ejemplo estaria dejando un 80% de espacio solo para el menu*/
+width: calc(100% - 0px);/*le dejas un espacio al elemento El ancho de 100%(pero tiene el logo y el menu) - 200px quedara un resultado de la resta un ejemplo estaria dejando un 80% de espacio solo para el menu*/
 }
 
 .header-btnMenuResponsive > div{
@@ -206,7 +219,7 @@ border-bottom:solid 1px #BBA73A !important;
   position: relative;/* define la posicion de acuerdo el flujo que lleva la pagina*/
 }
  .swiper-slide {
-
+  border:1px solid #000;
   background-position:center;
   background-size:cover;/* con este valor escala la imagen al mayor tamaño sin estirarla y la deja centrada a comparacion a los otros valores como auto | auto auto etc*/
   display:flex;
@@ -323,6 +336,7 @@ color:#6F6B70;
 }
 #container-membresia{
   background-image:url('../img/especialidad1.jpg');
+ /* max-width: 100%; */
 }
 #container-seremp{
   background-image:url('../img/maquillaje.jpg');
@@ -444,7 +458,7 @@ width:95%;
 }
  */
 .container-sec_2 > section{
-  width:984px;
+  width:95%;
   height:400px;
   margin:10px;
    
@@ -811,8 +825,7 @@ width:95%;
   font-family: 'poppinsregular';
 }
 .container-footer{
-  background-color:#6A2AFF;
-  opacity:  ;
+  background-color:#6A2AFF; 
   width: 100%;
   height: 7em;
   display:flex;
@@ -844,11 +857,10 @@ width:95%;
   width: auto;/* auto toma el ancho del texto en este caso si se le da 100% abre al tamaño de la ventana del navegador*/
   height: auto;
   position: fixed;/* Lo deja fijo con respecto a la derecha y de abajo 20px*/
-  right: 0;
+  right:0px;
   bottom: 20px;
-  z-index: 20;
-  padding: 10px;
-  display:none  ;
+  z-index: 20; 
+  display:none;
 }
 
 .infoSolicitud > div{
@@ -877,10 +889,26 @@ width:95%;
 /* ------ Responsive ------ */
 @media only screen and (max-width: 920px){
 
-
-  .container-footer{
-    background-color: teal;
-  }
+/* .swuno{  
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-position: 300px 500px;
+  background-size: cover; 
+} */
+.swiper-slide{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  /* background-attachment: fixed; */
+  background-position: -530px 100px; 
+}
+/* body {
+  background-image: url('w3css.gif');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50px 150px;
+} */
+  
   .header-ppal{
     width: 100%;
   }
@@ -901,7 +929,7 @@ width:95%;
     top: 4em;
 
     flex-direction: column;
-    background-color: white;
+    background:#000;
   }
 
   .ModalMax > div > section{
@@ -927,10 +955,7 @@ width:95%;
   }
 }
 @media only screen and (max-width: 685px){
-  .container-footer{
-    background-color: yellow;
-  }
-
+ 
 
   h1{
     font-size: 62px;
