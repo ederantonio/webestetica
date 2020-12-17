@@ -652,9 +652,10 @@ cursor: pointer;
 ============================================================ */
 
 .container-map{
+  width: 600px;
   margin: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: center;
   justify-content: center;
   align-items: center;
 }
@@ -729,7 +730,7 @@ cursor: pointer;
   width: auto; 
   height: auto;
   position: fixed; 
-  right:0px;
+  right:5px;
   bottom: 20px;
   z-index: 20; 
   display:none;
@@ -769,7 +770,7 @@ cursor: pointer;
     background-repeat: no-repeat;
     background-size: cover; 
     /* background-attachment: fixed; */
-    background-position: -530px 100px; 
+     
   }
 
   .header-ppal{
@@ -825,7 +826,12 @@ cursor: pointer;
 }
 
 @media only screen and (max-width: 685px){
-  
+   
+  iframe{
+    width:400px;
+    background:orange;
+  }
+
   h1{
     font-size: 62px;
     text-align: center;
@@ -919,6 +925,10 @@ cursor: pointer;
 }
 
 @media only screen and (max-width: 440px){
+  iframe{
+    width:300px;
+    background:orange;
+  }
   .container-ModalMin{
     width: 98%;
   }
@@ -992,22 +1002,28 @@ cursor: pointer;
     height: auto;
     padding-bottom: 50px;
   }
+
   .container-map{
     margin: 0px;
   }
+
   .email_txt{
     font-size: 15px !important;
   }
+
   .web_txt{
     font-size: 10px !important;
   }
+
   #ModalGalery{
     width: 316px;
     height: 200px;
   }
+
   .container-tittle__tittles1{
     font-size: 22px;
   }
+  
   .Modal2-title{
     font-size: 22px;
   }
