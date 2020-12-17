@@ -42,9 +42,9 @@
         =============================================================== -->
 
 
-        <!-- ===============================================================
-        ---------/ Slider inicio
-        =============================================================== -->
+    <!-- ===============================================================
+    ---------/ Slider inicio
+    =============================================================== -->
     <div class="space bc-negro" id="link-Inicio"></div><!--con este div pone un espacio  y hace que las imagenes del slider swiper baje al tamaño estandard o al tamaño natural si no se pone sube la imagen se le da estilos en css pero solo con poner el div es suficiente para bajar la imagen o puede que se use mas a delante para otras cosas en la media querys-->
     <div class="container-slider bc-negro" id="link-Inicio__slider"><!--####### Swiperslider ####### -->
         <div class="swiper-wrapper" > 
@@ -95,8 +95,7 @@
 
     <!-- ===============================================================
         ---------/ Container aplicacion, maquillaje, planchado
-        =============================================================== -->
-         
+        =============================================================== --> 
     <div class="container-sec bc-negro"> 
         <!-- Membresia-->
         <section id="container-membresia"><!-- Seccion de Membresias -->
@@ -164,6 +163,7 @@
         </div>  
         <div class="space_min bc-negro"></div>
         
+
         <!-- ===============================================================
         ---------/ Container conocenos, mision, vision inicia
         =============================================================== --> 
@@ -273,67 +273,51 @@
             </div>
         </div>
         <!-- ===============================================================
-        ---------/ Paquetes inicia
+        ---------/ Paquetes termina
         =============================================================== -->
         
+    
+        <div class="space bc-negro"></div> 
+        <div class="container-tittle bc-negro">
+            <span class="container-tittle__tittles2" id="link-Contacto">Contacto</span>
+        </div> 
+        <div class="space_min bc-negro"></div>
+
 
         <!-- ===============================================================
         ---------/ Contacto inicia
         =============================================================== --> 
-        <div class="space bc-negro"></div> 
-        <div class="container-tittle bc-negro">
-            <span class="container-tittle__tittles2" id="link-Contacto">Contacto</span>
-        </div>
-
-        <div class="space_min bc-negro"></div>
-
         <div class="container-sec"><!--container sec por ende deja todo en columna por eso usa la clase container-ho2 para ahi poner en row los elementos-->
-        <div class="container-ho2">  <!-- Esta clase se puede omitir se uso mas que nada para el llenado de todos los servicios y paquetes para evitar o permitir desbordamientos-->
-                <!-- <form class="container-form" id="form-Contactanos" action="" method="">
-                    
-                        <input type="text" name="NombreContacto" value="" class="input-basic" placeholder="Nombre *"id="NombreContacto"/>
-                        <span class="MMError" id="MErrorConNom">Error: El Nombre demasiado corto</span>
-
-                        <input type="text" name="EmailContacto" value="" class="input-basic" placeholder="Email *" id="EmailContacto"/>
-                        <span class="MMError" id="MErrorConEmail">Error: El Nombre demasiado corto</span>
-
-                        <input type="text" name="TelefonoContacto" value="" class="input-basic" placeholder="Teléfono *" id="TelefonoContacto">
-                        <span class="MMError" id="MErrorConTel">Error: El Nombre demasiado corto</span>
-
-                        <textarea type="textarea" name="MensajeConacto" rows="8" cols="50" class="textare-basic" placeholder="Mensaje*" id="MensajeConacto"/></textarea>
-                        <span class="MMError" id="MErrorMensajeContacto">Error: El Nombre demasiado corto</span>
-
-                        <div id="RecaptchaField2" data-callback="imNotARobot2"></div>
-                        <span class="MMError" id="MErrorRecaptchaField2">Error: No has realizado esta sección</span>
-                        <span class="MMError" id="MErrorNoRobotContacto">Error: El Nombre demasiado corto</span>
-
-                        <div class="container-form__btn">
-                            <button type="button" name="button" class="btn-form background-colorVerd" id="btn-Contactanos"><strong>Enviar</strong></button>
-                            <div class="loader" id="loaderContacto"></div>
-                        </div>
-                        <span class="MMError" id="AlertEnvioMsContacto"></span>
-                </form> -->
+            <div class="container-ho2">  <!-- Esta clase se puede omitir se uso mas que nada para el llenado de todos los servicios y paquetes para evitar o permitir desbordamientos-->
+                
                 <div class="container-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3517.500476746477!2d-105.46293085165736!3d28.161691097193806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86eb1586ea571333%3A0x24b1a838a5f3b2f5!2sCentro%20de%20Desarrollo%20Comunitario%20Linda%20Vista!5e0!3m2!1ses-419!2smx!4v1608161213873!5m2!1ses-419!2smx" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                <!-- <section class="map-basic">
-                    
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3600.833111943373!2d-103.4033063!3d25.5106118!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868fdc86bbd825df%3A0x617ad525fbd14268!2sCentro+Saulo!5e0!3m2!1ses-419!2smx!4v1566422794235!5m2!1ses-419!2smx" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                        
-                </section>
-                <span class="contacto-info__tittle colorTittle"><strong>LOCAL TORREÓN</strong></span>
-                <span class="contacto-info__text">Blv. Revolución 1515 Ote., Col. Torreó. Torreón Coah.</span>
-                <span class="contacto-info__text">(A un costado de un supermercado)</span>
-                <span class="contacto-info__text">Tel. (618)722 99 03</span>
-                <span class="contacto-info__text">correo@gmail.com.mx</span> -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3517.500476746477!2d-105.46293085165736!3d28.161691097193806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86eb1586ea571333%3A0x24b1a838a5f3b2f5!2sCentro%20de%20Desarrollo%20Comunitario%20Linda%20Vista!5e0!3m2!1ses-419!2smx!4v1608161213873!5m2!1ses-419!2smx" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                
                 </div>
             </div>
         </div>
+        <!-- ===============================================================
+        ---------/ Contacto termina
+        =============================================================== --> 
+        
+
+        <!-- ===============================================================
+        ---------/ footer inicia
+        =============================================================== -->                
         <div class="container-footer">
             <div class="footer-btn__flotante btn-scroll" data-id="link-Inicio"></div>
             <div class="container-derechos">
                 <p class="derechos"> Todos los Derechos quedan reservados </p>
             </div>
         </div>
+        <!-- ===============================================================
+        ---------/ footer termina
+        =============================================================== --> 
+
+
+        <!-- ===============================================================
+        ---------/ info inicia
+        =============================================================== --> 
         <div class="infoSolicitud" id="infoSolicitudWaFa">
             <div class="">
                 <span><strong>Agenda tu cita</strong></span>
@@ -341,6 +325,9 @@
                 <span>Correo: correo@gmail.com</span>
             </div>
         </div> 
+        <!-- ===============================================================
+        ---------/ info termina
+        =============================================================== --> 
 </div><!--termina container-ppal--> 
 
 <script src="js/jquery.js" charset="utf-8"></script><!-- jQuery principal -->

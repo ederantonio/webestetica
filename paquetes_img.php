@@ -6,7 +6,7 @@ if(mysqli_connect_errno())
 }
 else
 {
-		$varAjax=$_POST['peticion'];/* 'traer paquetes'*/
+		$varAjax=$_POST['peticion']; 
 		
 		switch ($varAjax)
 		{
@@ -22,7 +22,7 @@ else
 
 
 			case 'traer_infopaquete':
-			$var=$_POST['idsp'];/* llega '1'*/
+			$var=$_POST['idsp'];
 			$data = json_decode($var);
 			/*$file=file_get_contents('paquetes.json');
 			$json=json_decode($file,true);*/
@@ -35,7 +35,7 @@ else
 										(
 											'id_paquete'=>'1',
 											'paq_titulo'=>'Boda',
-											'paq_precio'=>'2180',/* Aqui tiene una expresion regular definida para que al inicio anteponga signo de pesos '$'*/
+											'paq_precio'=>'2180', 
 											'paq_estatus'=>'1',
 											'paq_source'=>'pboda.jpg',
 											'paq_source2'=>'sboda.jpg',
@@ -206,9 +206,9 @@ else
 									);
 									echo json_encode($array,JSON_UNESCAPED_UNICODE);
 									break;	
-							}/* ####### cierre de switch #######*/
+							} 
 			break;
- 		}/* ####### Cierre del switch #######*/
-}/* ####### Cierre de else ####### */
+ 		} 
+} 
 
 ?>

@@ -26,11 +26,11 @@
 }
 
 li {
-  list-style: none;/* quita las viñetas de la lista */
+  list-style: none; 
 }
 
 a{
-  text-decoration:none; /* quita el subrayado de los enlaces */ 
+  text-decoration:none;   
 }
 
 h1{
@@ -66,15 +66,15 @@ h3{
 /*==========================================================
 ------------------/ Container Principal  
 ============================================================ */
-.container-ppal{ /* el contenedor principal se pone de manera por default con su ancho en 100% height auto */
+.container-ppal{ 
   background-color:#000;
-  width: 100%;/* define el ancho para la parte flexible*/
-  height: auto;/* define la altura el tamaño minimo, va respetando la altura de acuerdo a los elementos que lleva a dentro*/
-  min-width: 319px;/*esta parte no define nada se puede quitar */
-  position: absolute;/* posicion absoluta toma como referencia a la ventana del navegador*/
-  display: flex; /* para la parte flexible */
-  flex-direction: column;/* column: los elementos se colocan verticalmente de arriba abajo.  */
-  align-items: center;/* para la alineacion en x de los elementos*/ 
+  width: 100%; 
+  height: auto; 
+  min-width: 319px; 
+  position: absolute; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;  
 }
  
 .btn-scroll{
@@ -82,12 +82,12 @@ h3{
 }
 
 .header-ppal{
-  width: 95%;/* solo reduce el ancho del header respecto al navegador*/
-  height: 7em;/* se define su altura normal*/
-  position: fixed;/* esta afuera del flujo normal de la pagina, al hacer scroll en la pagina el elemento seguira en la misma posicion */
-  top:0px;/* respecto a top toma como referencia la parte de arriba*/
-  display: block;/* esta propiedad define que el tag estara en bloque*/
-  z-index: 100;/* para que este elemento este apilado jerarquicamente */
+  width: 95%; 
+  height: 7em; 
+  position: fixed; 
+  top:0px; 
+  display: block; 
+  z-index: 100; 
 }
 
 .header-ppal > div{
@@ -101,78 +101,79 @@ h3{
 .header-logo{
   
   display: flex;
-  width:130px;/* determinas el espacio del ancho*/
-  height:100%;/* determinas el espacio de la altura */
+  width:130px; 
+  height:100%; 
   background-image:url('../img/logobarber.png');
-  background-size:85%;/* definir el tamaño pero de la imagen de fondo*/
-  background-repeat: no-repeat;/* que no se repita la imagen */
-  background-position: center;/*  [top | center | bottom] */
+  background-size:85%; 
+  background-repeat: no-repeat; 
+  background-position: center; 
    
 }
+
 .logo{  
   width: 130px;
   height:110px;
 }
+
 .imgbaner{
   margin:0em auto;
   width: 1300px;
   height: 600px;;
 }
+
 .header-menu{
 
-  width:calc(100% - 170px);/* ""el simbolo de menos debe ir separado" aqui del total del tamaño le resta el tamaño del logotipo*/
-  height: 100%;/* altura al 100% para el responsive*/
+  width:calc(100% - 170px); 
+  height: 100%; 
 }
-
 
 .header-menu > ul
-{ /* aqui trabajamos el ul vamos escalando*/
+{  
   width:100%;
   height:100%;
-  display:flex;/*el contenedor se comporta como un bloque, es decir, ocupa todo el espacio horizontal disponible*/
-  /*flex-direction:row;*//* para seguir el flujo de los links del nav*/
-  justify-content:flex-end;/* Alinear items desde el final en el eje principal */
-  align-items:center;/* es como una alineacion en x*/
+  display:flex; 
+  /*flex-direction:row;*/ 
+  justify-content:flex-end; 
+  align-items:center; 
 }
+
 .header-menu > ul > li > a{
-display: block;/*Esta propiedad se puedeomitir ya que el comportamiento lo define arriba */
-margin: 2px;/* este es para hacer la separacion de cada enlace */
-padding: 10px 10px 10px 10px; /*trabaja los rellenos de cada enlace*/
-font-family:'poppinsregular';/* se aplican las fuentes a los enlaces*/
-font-size:13px;/* se aplica el tamaño del texto */
-display:flex;/* se define que se flexible para la parte de los enlaces*/
+display: block; 
+margin: 2px; 
+padding: 10px 10px 10px 10px; 
+font-family:'poppinsregular'; 
+font-size:13px; 
+display:flex; 
 /*flex-direction:row;*/
-justify-content: center;/* para la alineacion de los items*/
-align-items: center;/* para la alineacion en x */
+justify-content: center; 
+align-items: center; 
 color: #FFFFFF;
 border-bottom: solid 1px #000;
 transition: border .5s ease;
-letter-spacing: 1pt;/* Da espacios entre las letras */
-text-align: center;/* centra el texto dentro del elemento*/
-cursor: pointer;
-
+letter-spacing: 1pt; 
+text-align: center; 
+cursor: pointer; 
 }
+
 .header-menu > ul > li > a:hover{
  border-bottom:solid 1px #BBA73A;
 }
  
 .header-btnMenuResponsive{
-display:none;/* Estara oculto*/
-height: 100%;
-width: calc(100% - 0px);/*le dejas un espacio al elemento El ancho de 100%(pero tiene el logo y el menu) - 200px quedara un resultado de la resta un ejemplo estaria dejando un 80% de espacio solo para el menu*/
+  display:none; 
+  height: 100%;
+  width: calc(100% - 0px); 
 }
 
-.header-btnMenuResponsive > div{
-
+.header-btnMenuResponsive > div{ 
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;/* para ponerlo a laderecha*/
+  justify-content: flex-end; 
 }
 
-.header-btnMenuResponsive > div > section{
- 
+.header-btnMenuResponsive > div > section{ 
   width: 50px;
   height: 50px;
   margin: 10px;
@@ -190,47 +191,51 @@ width: calc(100% - 0px);/*le dejas un espacio al elemento El ancho de 100%(pero 
   border-radius: 1px;
   background-color: #6F6B70;
 }
-
- 
  
 .txtShadow{
-  text-shadow: 1px 1px 1px #000;/* aqui solo da el efecto como de sombra pero define los colores y tamaños en los h1, h2, h3*/
+  text-shadow: 1px 1px 1px #000; 
 }
+
 ::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 7px;
-        cursor: pointer;
-    }
-::-webkit-scrollbar-thumb {
-        border-radius: 7px;
-        background-color: #6E6A6F;
-        -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
-    }
-/* ------ slider ------ */
-.container-slider{
-  width: 95%;/* define el mismo ancho que la parte de arriba*/
-  height:100vh;/* define la altura con vh para el responsive */
-  overflow: hidden;/* Overflow se utiliza para indicar al navegador de nuestro ordenador lo que debe hacer con el contenido que no cabe dentro de una capa (div) que segun las dimensiones que le hayamos dado este no quema en el mismo. hidden
-    El contenido es recortado y no se muestran barras de posición. y que el contenido quede dentro sin mostrar las barras de despazamiento*/
-  position: relative;/* define la posicion de acuerdo el flujo que lleva la pagina*/
+  -webkit-appearance: none;
+  width: 7px;
+  cursor: pointer;
 }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 7px;
+  background-color: #6E6A6F;
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+
+/*==========================================================
+------------------/ Slider 
+============================================================ */
+.container-slider{
+  width: 95%; 
+  height:100vh; 
+  overflow: hidden;  
+  position: relative; 
+}
+
  .swiper-slide {
   border:1px solid #000;
   background-position:center;
-  background-size:cover;/* con este valor escala la imagen al mayor tamaño sin estirarla y la deja centrada a comparacion a los otros valores como auto | auto auto etc*/
+  background-size:cover;
   display:flex;
   height: 100vh;
   justify-content: center;
   align-items: center;
-  flex-direction:column;/* aqui en columna abarca todo el elemento, luego con el align-items se centra y con el flex- end inicia de derecha pero con el height de arriba esta en height vh que toma como referencia al total de la altura del navegador*/
+  flex-direction:column;
   
 } 
 .swiper-slide > h1{
-  line-height: 65px;/* separa las lienas de texto es el espacio de una linea de texto con la de abajo*/
-  margin:5px;/*aqui solo abre el elemento con el margin ayudando un poco al line-height pero no es tan necesario aplica los 4 lados arriba | derecha | abajo | izquierda*/
+  line-height: 65px; 
+  margin:5px; 
 }
 
-.swiper-slide > h2 > span{ /* solo define el tipo de fuente del span*/
+.swiper-slide > h2 > span{  
   font-family: 'poppinsbold' !important;
 }
 
@@ -253,46 +258,51 @@ width: calc(100% - 0px);/*le dejas un espacio al elemento El ancho de 100%(pero 
   cursor: pointer;
   margin: 10px;
 }
-.swiper-slide > iframe{ /* Esta parte no esta declarada en html y no afecta si lo quitamos*/
-width: 100%;
- height: 100%;
+
+.swiper-slide > iframe{  
+  width: 100%;
+  height: 100%;
 }
-.swiper-slide > iframe a{/* Esta parte no esta declarada en html y no afecta si lo quitamos*/
+
+.swiper-slide > iframe a{ 
   display: none !important;
 }
-.space{/* maneja espacios con div*/
+
+.space{ 
   width:100%;
   height:7em;
 }
+
 .space_min{
   width:100%;
   height:2em;
 }
 
 /* Container-tittle*/
-.container-tittle{ /* Para los titulos como Conócenos selecciona una opcioón */
-width:100%;
-height:auto;
-display:flex;
-flex-direction:column; 
-justify-content:center;
-align-items:center;
-color:#6F6B70;
+.container-tittle{  
+  width:100%;
+  height:auto;
+  display:flex;
+  flex-direction:column; 
+  justify-content:center;
+  align-items:center;
+  color:#6F6B70;
 }
 
-.container-tittle__tittles1{/* a este div o elemento le da 500 px de ancho*/
- color:#FFFFFFFF;
+.container-tittle__tittles1{ 
+  color:#FFFFFFFF;
   width: 500px;
   height: 4em;
-  margin: 0 auto;/* aqui centra al elemento*/
+  margin: 0 auto; 
   display: block;
   font-family: 'poppinsregular';
   cursor: pointer;
-  margin: 20px;/* aplica los 4 lados*/
-  font-size: 35px;/* tamaño de la fuente*/
+  margin: 20px; 
+  font-size: 35px; 
   text-align: center;
    
 }
+
 .colorTittle{
   color: #BBA73A !important;
   font-family: 'poppinsbold'
@@ -302,14 +312,15 @@ color:#6F6B70;
   color: #FFFFFF !important;
   font-family: 'poppinsbold' !important;
   letter-spacing: 1pt;
-}
+} 
  
- 
-.bc-negro{/* ####### Esta clase la contienen todos los espacios #######*/
+.bc-negro{ 
   background-color: #000;
 }
   
-/* Container sec */
+/*==========================================================
+------------------/ Container sec  
+============================================================ */
 .container-sec{
  
   width:95%;
@@ -319,8 +330,8 @@ color:#6F6B70;
   justify-content: center;
   align-items:center;
 }
-.container-sec > section{/* el section contiene a la imagen y se aplica estilos a dicho elemento*/
-  
+
+.container-sec > section{ 
   width:318px;
   height:400px;
   margin:10px;
@@ -328,47 +339,48 @@ color:#6F6B70;
   background-position:center;
   background-size:cover;
   position:relative;
-   overflow: hidden;/* como estas trabajando un div de efectos y se sale de tu section debes de darle overflow hidden aqui en section */
+   overflow: hidden; 
 }
+
 #container-membresia{
   background-image:url('../img/especialidad1.jpg');
  /* max-width: 100%; */
 }
+
 #container-seremp{
   background-image:url('../img/maquillaje.jpg');
 }
+
 #container-servdo{
   background-image:url('../img/planchado.jpg');
 }
 
-.container-animate__down{ /* div | defines los tamaños estandar y bajas el div .container-animate__down*/
- 
+.container-animate__down{  
   width:100%;
   height:100%;
-  position:absolute; /*se sobre pone encima de donde lo colocas*/
-   
-  bottom:-100%;/*baja el div en Y | y baja el section que tiene el texto que esta dentro del div*/
-    
+  position:absolute;  
+  bottom:-100%;  
 }
-.container-animate__down > section{/* div > es el section de los textos*/
+
+.container-animate__down > section{ 
   width: 100%;
   height: 100%;
   position:relative;
-  background-color:rgba(0,0,0,0.6);/* es el color negro tenue */
+  background-color:rgba(0,0,0,0.6); 
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
 }
 
-.container-NameServ{ /* Primer titulo el de color verde*/
+.container-NameServ{  
   width:260px;
   height:2em ;
   display:block;
-  position: absolute;/* lo sobrepone*/
-  top:-2em;/* absolute en  Y por default es 0 por default es ir bajando si le pones 1 2em si le pone -2em sube*/
-  margin:0em auto;/* pafra centrar el elemento span*/
-  text-align:center;/* para centrar le*/
+  position: absolute; 
+  top:-2em; 
+  margin:0em auto; 
+  text-align:center; 
   line-height:40px;
   border-radius:5px 5px 0px 0px;
   background-color:#EF0478;
@@ -376,28 +388,31 @@ color:#6F6B70;
   font-family:'poppinsregular';
   font-size:20px;
 }
+
 .backgroundNMV{
   background-color: #FF59C7FF;
 }
-.container-membresia__tittle{ /* segundo titulo en color blanco*/
+.container-membresia__tittle{  
   color:white;
   font-family:'poppinsregular';
   font-size:22px;
 }
  
-.container-membresia__text{/* los parrafos el | los textos*/
-  color:white;/* color del texto*/
-  font-family:'poppinsregular';/* el tipo de fuente*/
+.container-membresia__text{ 
+  color:white; 
+  font-family:'poppinsregular'; 
   font-size:14px;
-  line-height:25px;/* es el espacio de un renglon con otro*/
-  width:80%;/*el ancho del elemento */
+  line-height:25px; 
+  width:80%; 
   height:auto;
-  text-align:center;/* centrar el texto*/
-  margin-top:10px;/* el espacio de los 4 lados del elemento*/
+  text-align:center; 
+  margin-top:10px; 
   line-height:18px;
 }
 
-/* Container-tittle */
+/*==========================================================
+------------------/ Container title  
+============================================================ */
 .container-sec_2{
   width:95%;
   height:auto;
@@ -406,26 +421,22 @@ color:#6F6B70;
   justify-content: center;
   align-items:center;
 }
-.container-tittle{
-
+.container-tittle{ 
   width:100%;
-  height:auto;/* medida estandar en los elementos padre para no definirle un tamaño en especifico*/
+  height:auto; 
   display:flex;
-  flex-direction:column;/* Solo medidas estandar */
+  flex-direction:column; 
   justify-content:center;
-  align-items:center;
-
-
+  align-items:center;  
 }
-.container-tittle__tittles2{/* Conocenos aqui ya se le aplica el tipo de fuente el tamaño de la letra*/
+.container-tittle__tittles2{ 
   font-family: 'poppinsbold' !important;
   font-size:56px;
   text-align: center;
-  color: #BBA73A;
-   
+  color: #BBA73A; 
 }
 
-.container-tittle__text{/* seleccione una opcion para conocer más*/
+.container-tittle__text{ 
   color:#EABDFFFF;
   font-family:'poppinsregular';
   font-size:14px;
@@ -435,9 +446,8 @@ color:#6F6B70;
 }
 
 /* Container-sec__ho*/
-.container-sec_2{
-
-width:95%;
+.container-sec_2{ 
+  width:95%;
   height:auto;
   display:flex;
   flex-direction:column;
@@ -457,35 +467,34 @@ width:95%;
 .container-sec_2 > section{
   width:95%;
   height:400px;
-  margin:10px;
-   
+  margin:10px; 
   background-position:center;
   background-repeat:no-repeat;
   background-size:cover;
   position:relative;
-  overflow:hidden;
-
-
+  overflow:hidden; 
 }
+
 #container-qsomos{
   background-image:url('../img/conocenos.jpg');
 }
+
 #container-mision{
   background-image:url('../img/mision.jpg');
 }
+
 #container-vision{
   background-image:url('../img/vision.jpg');
 }
 
-.container-ho2{
- 
+.container-ho2{ 
   width:100%;
   height:100%;
   display:flex;
-  flex-wrap: wrap;
-
+  flex-wrap: wrap; 
   justify-content: center;
 }
+
 .container-ho2 > section{
   width:380px;
   height:200px;
@@ -508,10 +517,11 @@ width:95%;
   font-size:18px;
   line-height:22px;
   width:95%;
-}
+} 
 
-
-/* ------ Modal ------ */
+/*==========================================================
+------------------/ Modal 
+============================================================ */
 .ModalMax{
   width: 100%;
   height: 100%;
@@ -519,7 +529,7 @@ width:95%;
   top: 0;
   left: 0;
   z-index:100;
-   display:none;
+  display:none;
 }
 
 .ModalMax > div{
@@ -530,279 +540,144 @@ width:95%;
   justify-content: center;
   align-items: center;
   position: relative;
-}
-
-/*.ModalMax > div > section{ ***Toda esta parte le pertenece al ModalMax donde iba la promocion del dia del padre***
-  width: 770px;
-  height: 350px;
-  background-color: white;
-  border-radius: 15px;
-  display: flex;
-   
-}
-.ModalMax > div > section > p{
-  width: 65%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.ModalMax > div > section > figure{
-  width: 35%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-}
-.ModalMax > div > section > figure > span{  
-  width:  50px;
-  height: 50px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'poppinsbold' !important;
-  font-size: 5em;
-  color: white;
-  cursor: pointer;
-}
-
-.ModalMax-text__title{
-  font-family: 'Poppins-Bold' !important;
-  font-size: 42px;
-  text-align: center;
-  line-height: 50px;
-  color: #3EB649;
-  width: 90%;
-  margin-bottom: 10px;
-}
-
-.ModalMax-text__text{
-  width: 90%;
-  font-size: 16px;
-  padding-top: 5px;
-  color: #6f6b70;
-  font-family: 'POPPINS-REGULAR';
-  line-height: 25px;
-  height: 45%;
-  overflow: auto;
-}
-
-#ModalMax-text__btnContact{
-  padding: 5px 20px 5px 20px !important;
-  background: #B12A84;
-  border: none;
-  border-radius: 5px;
-  font-family: 'Poppins-Bold' !important;
-  color: white;
-  margin: 10px;
-  cursor: pointer;
-}*/
+} 
 
 .container-ModalMin{
-  background-color: white;/* Pinta el elemento en color blanco viene siendo el rectangulo que se despliega al dar click*/
+  background-color: white; 
   width: 760px;
   height: 310px;
   display: flex;
-  position: relative;/* puede ir con flex box*/
+  position: relative; 
 }
+
 .container-ModalMin > figure{
   width: 280px;
-  height:100%;/* aqui puede ir tambien auto */
-  overflow: hidden;/* Este se puede omitir*/
- 
+  height:100%; 
+  overflow: hidden;  
 }
+
 .container-ModalMin > figure > img{
-  width: 280px;/* se deja en 280px al ancho del elemento si se pone cover lo deja al tamaño real de la imagen}*/
+  width: 280px; 
 }
+
 .btn_close, .btn-closeMGalery{
   width: 50px;
   height: 50px;
   position: absolute;
-  right: 5px;/* se despega 5px apartir del lado derecho*/
+  right: 5px; 
   top: 5px;
-  background-image: url('../img/icono_cerrar.png');/* la imagen de cerrar*/
+  background-image: url('../img/icono_cerrar.png'); 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
 }
-.container-ModalMin > section{/* Toma el elemento mas grande y le restas por el elemento mas chico*/
+
+.container-ModalMin > section{ 
   width: calc(100% - 280px);
   height: 90%;
   display: flex;
-  flex-direction:column;/* Para que caigan los elementos horizontales  el titulo y abajo el texto*/
+  flex-direction:column; 
   justify-content: center;
   align-items: center;
-  /*background-image: url('../img/logodna_transparente.png');*//* Se le pone una imagen de fondo transparente pero con efecto de phoshop*/
+  /*background-image: url('../img/logodna_transparente.png');*/ 
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;/* la escala al tamaño del elemento*/
+  background-size: cover; 
 }
+
 .Modal2-title, .Modal2-precio{
-  width: 85%;/* le da un ancho , aqui el titulo se da brincos de renglon por que se reduce en el 100% el titulo queda extendido se lee completo*/
-  /*height:auto;*//* como es un titulo pues con auto esta bien */
+  width: 85%; 
+  /*height:auto;*/ 
   font-family: 'poppinsregular';
   text-align: center;
   font-size: 26px;
   color:#B218D8 !important;
   margin: 5px;
   display: flex;
-  position:relative;/* Puede llevarlo o no no afecta el flujo o inclusive el flex-direction:column*/
+  position:relative; 
   line-height:1.5em;
   justify-content: center;
   align-items: center;
 }
- .Modal2-precio{
-   width: 95% !important;
- }
-.Modal2-text{/* Esta parte es donde va el texto los parrafos*/
- color:white;
+
+.Modal2-precio{
+  width: 95% !important;
+}
+
+.Modal2-text{ 
+  color:white;
   width: 85%;
   height: 70%;
-  overflow: auto;/* Para poner barras de desplazamiento si hay excedentes*/
+  overflow: auto; 
 }
+
 .Modal2-text >p{
   width: 100%;
-  height: auto; /*En los altura se puede ir jugando con los valores auto, 100%, 70% de acuerdo a lo que se requiera*/
+  height: auto;  
   text-align:justify;
   margin-top: 10px;
   font-size: 14px !important;
   font-family: 'poppinsregular';
   color: #6F6B70;
 }
-.Modal2-text > section{/* ####### Este es el que pone dentro de .Modal-text que ya esta previamente configurado el section que lo contiene junto con el figure y solo le da formato a los textos de los paquetes ,Paquetes cuando le da click a la imagen ####### */
-  width: 100%;/* medida standar */
-  height: auto;/* auto va abriendo conforme va cayendo los textos*/
-  display:flex;/*la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible. Los elementos flexibles pueden ser estirados para utilizar el espacio disponible proporcional a su factor de crecimiento flexible o su factor de contracción flexible para evitar desbordamiento. */
-  flex-wrap:wrap;/*extiende el area y donde quede el slimite pasa el elemento hacia abajo flex-wrap:  nowrap | wrap | wrap-reverse  Evita o permite el desbordamiento (multilinea).
-  solo es cuestion del formato que se pretenda ya que si se maneja con flex-direction row y asi queda solo con el flujo normal pero este queda mas separado*/
 
+.Modal2-text > section{ 
+  width: 100%; 
+  height: auto; 
+  display:flex;
+  flex-wrap:wrap; 
 }
+
 .Modal2-text > section > ul{
   /*background-color: teal;*/
-  margin: 5px;/* un margen de lo 4 lados*/
-  width: 180px;/* se le dio 180 por que al abrir mas el ancho deja las listas en una sola columna, entonces se redujo para que cupieran 2 arriba y uno abajo*/
-  line-height:19px;/* Para dar espacio entre un renglon a otro*/
+  margin: 5px; 
+  width: 180px;
+  line-height:19px; 
 }
 .Modal2-text > section > ul > li{
   font-size: 14px;
   font-family: 'poppinsregular';
-  color: #6F6B70;/* un color gris*/
+  color: #6F6B70; 
 }
 
 .title_Paquetes{
   font-size: 18px !important;
   color:#B12A84 !important;
-}
+} 
 
+ 
+/*==========================================================
+------------------/ Contacto 
+============================================================ */
 
-/* ####### Container form ####### */
-.container-form{
-    display: flex;
-    flex-direction:column;
-    margin: 10px;
-    padding: 5px;
-  }
-  .input-basic, .textare-basic{
-    width: 450px;
-    max-width: 450px;
-    min-width: 450px;
-    padding:16px;
-    font-size:14px;
-    font-family: 'poppinsregular';
-    margin: 5px;
-    border-radius: 8px;
-    border: solid 1px #6F6B70;
-    
-  }
-
-  .input-basic::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    font-size: 13px !important;
-  }
-  .input-basic::-moz-placeholder { /* Firefox 19+ */
-    font-size: 13px !important;
-  }
-  .input-basic:-ms-input-placeholder { /* IE 10+ */
-    font-size: 13px !important;
-  }
-  .input-basic:-moz-placeholder { /* Firefox 18- */
-    font-size: 13px !important;
-  }
-  .input-basic::placeholder { /* Firefox 18- */
-    font-size: 13px !important;
-  }
-
-  .container-form__btn{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;/* Puede ir flex-direction tambien*/
-    justify-content: flex-start;
-    align-items: center;
-  }
-  .btn-form{
-
-    width: 175px;
-    height: 33px;
-    border-radius: 5px;
-    background-color: #17ABE9;
-    color: white;
-    
-    font-family: 'poppinsregular';
-    font-size: 14px;
-    letter-spacing: 1pt;
-    margin: 10px;
-  }
-
-  .MMError{
-  width: 100%;
-  text-align: center;
-  margin: 0px 0px 5px 0px;
-  font-family: 'poppinsregular';
-  display: none;
-  color: #3EB649;
-}
-.loader {
-    display: none;
-    border: 5px solid #ededed; /* Light grey */
-    border-top: 5px solid #6F6B70;/* Blue */
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    animation: spin .9s linear infinite;
-}
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
 .container-map{
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .map-basic{
-    width: 450px;
-    height: 318px;
-    margin: 25px 0px 5px 0px;
-  }
-  .map-basic > iframe{
-    width: 100%;
-    height: 100%;
-  }
-  .contacto-info__tittle{
-    width: 100%;
-    text-align:center;
-    font-family: 'poppinsregular';
-    font-size: 12px;
-    margin: 10px;
-  }
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-basic{
+  width: 450px;
+  height: 318px;
+  margin: 25px 0px 5px 0px;
+}
+
+.map-basic > iframe{
+  width: 100%;
+  height: 100%;
+}
+
+.contacto-info__tittle{
+  width: 100%;
+  text-align:center;
+  font-family: 'poppinsregular';
+  font-size: 12px;
+  margin: 10px;
+}
+
 .contacto-info__text{
   width: 90%;
   text-align:center;
@@ -813,14 +688,14 @@ width:95%;
   justify-content: center;
   align-items: center;
 }
-
-
+ 
 .derechos{
   color: white;
   font-weight: bold;
   font-size:12px;
   font-family: 'poppinsregular';
 }
+
 .container-footer{
   background-color:#6A2AFF; 
   width: 100%;
@@ -828,9 +703,9 @@ width:95%;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  align-items:center;
-  
+  align-items:center; 
 }
+
 .footer-btn__flotante{
   width: 70px;
   height: 60px;
@@ -838,22 +713,22 @@ width:95%;
   position: absolute;
   bottom:110px;
   right:5px;
-  border-radius:5px 5px 0px 0px;
-  
+  border-radius:5px 5px 0px 0px; 
   background-image: url('../img/farriba.jpg');
   background-repeat: no-repeat;
   background-size: 80%;
   background-position: center;
   cursor: pointer;
 }
+
 .btn-scroll{
   cursor: pointer;
 }
 
 .infoSolicitud{
-  width: auto;/* auto toma el ancho del texto en este caso si se le da 100% abre al tamaño de la ventana del navegador*/
+  width: auto; 
   height: auto;
-  position: fixed;/* Lo deja fijo con respecto a la derecha y de abajo 20px*/
+  position: fixed; 
   right:0px;
   bottom: 20px;
   z-index: 20; 
@@ -865,13 +740,14 @@ width:95%;
   height: 150px;
   border-radius:50%;
   -moz-border-radius: 50%;
-     -webkit-border-radius: 50%;
+  -webkit-border-radius: 50%;
   background-color: #FAFF89;
   display: flex;
   flex-direction: column;
   justify-content:center;
   padding:1em;  ;
 }
+
 .infoSolicitud > div > span{
   padding: 2px 5px 1px 5px;
   text-align: center;
@@ -881,40 +757,33 @@ width:95%;
   line-height: 18px;
   letter-spacing: 1pt;
 }
-
-
-/* ------ Responsive ------ */
+ 
+/*==========================================================
+------------------/ Responsive  
+============================================================ */
 @media only screen and (max-width: 920px){
 
-/* .swuno{  
-  background-repeat: no-repeat;
-  background-attachment: fixed; 
-  background-position: 300px 500px;
-  background-size: cover; 
-} */
-.swiper-slide{
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; 
-  /* background-attachment: fixed; */
-  background-position: -530px 100px; 
-}
-/* body {
-  background-image: url('w3css.gif');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50px 150px;
-} */
   
+  .swiper-slide{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    /* background-attachment: fixed; */
+    background-position: -530px 100px; 
+  }
+
   .header-ppal{
     width: 100%;
   }
+
   .header-menu{
     display: none;
   }
+
   .header-btnMenuResponsive{
     display: block;
   }
+
   .header-menu{
     width: 100%;
     position: absolute;
@@ -923,16 +792,16 @@ width:95%;
 
   .header-menu > ul{
     height: auto;
-    top: 4em;
-
+    top: 4em; 
     flex-direction: column;
     background:#000;
   }
- 
+
   .ModalMax > div > section{
     width: 670px;
     height: 280px;
   }
+
   .ModalMax-text__title{
     font-size: 45px;
   }
@@ -940,20 +809,23 @@ width:95%;
   .ModalMax-text__text{
     font-size: 14px;
   }
+
   .container-ModalMin{
     width: 640px;
   }
+
   #link-galeria{
     height: 350px !important;
   }
+
   #ModalGalery{
     width: 650px;
     height: 350px;
-  }
+  } 
 }
-@media only screen and (max-width: 685px){
- 
 
+@media only screen and (max-width: 685px){
+  
   h1{
     font-size: 62px;
     text-align: center;
@@ -980,6 +852,7 @@ width:95%;
   .container-tittle__tittles1{
     width: 95% !important;
   }
+
   .container-tittle__tittles2{
     font-size: 42px;
   }
@@ -993,47 +866,58 @@ width:95%;
     font-size: 12px;
     line-height: 15px;
   }
+
   .container-sec__ho > section > .container-animate__down >section >.container-NameServ{
     font-size: 18px;
   }
+
   .container-sec__ho > section > .container-animate__down >section >.container-membresia__text{
     font-size: 16px;
     line-height: 20px;
     width: 92%;
   }
+
   .container-ModalMin{
     width: 95%;
   }
+
   .container-ModalMin > figure{
     width: 200px;
   }
+
   .container-ModalMin > section{
     width: calc(100% - 200px);
   }
+
   .map-basic {
     width: 95%;
   }
+
   #link-galeria{
     height: 500px !important;
   }
+
   .galery_img{
     flex-direction: column !important;
   }
+
   .galery_img > a{
     width: 100%;
   }
+
   #ModalGalery{
     width: 450px;
     height: 250px;
   }
+
   .infoSolicitud > div > span{
     padding: 1px 1px 1px 1px;
     font-size: 12px;
     line-height: 12px;
     letter-spacing: normal;
-  }
-
+  } 
 }
+
 @media only screen and (max-width: 440px){
   .container-ModalMin{
     width: 98%;
@@ -1051,7 +935,7 @@ width:95%;
   }
 
   h2{
-      font-size: 32px;
+    font-size: 32px;
   }
 
   .swiper-slide > h3{
@@ -1069,76 +953,64 @@ width:95%;
   .ModalMax-text__text{
     font-size: 10px;
   }
+
   .container-tittle__tittles3{
     font-size: 24px;
   }
+
   .container-form{
     justify-content: center;
     align-items: center;
   }
+
   .input-basic, .texare-basic{
     width: 240px;
     max-width: 240px;
     min-width: 240px;
   }
+
   .container-form__btn{
     width: auto;
     justify-content: center;
     align-items: center;
   }
+
   .container-form__file{
     width: 270px;
     margin: 5px;
     height: 40px;
   }
+
   .btn-form{
     width: 270px;
     margin: 5px;
     height: 40px;
   }
+
   #Fondo-SeparteEquipo{
     background-size: contain;
     height: auto;
     padding-bottom: 50px;
   }
-    .container-map{
-      margin: 0px;
-    }
-    .email_txt{
-      font-size: 15px !important;
-    }
-    .web_txt{
-      font-size: 10px !important;
-    }
-    #ModalGalery{
-      width: 316px;
-      height: 200px;
-    }
-    .container-tittle__tittles1{
-      font-size: 22px;
-    }
-    .Modal2-title{
-      font-size: 22px;
-    }
+  .container-map{
+    margin: 0px;
+  }
+  .email_txt{
+    font-size: 15px !important;
+  }
+  .web_txt{
+    font-size: 10px !important;
+  }
+  #ModalGalery{
+    width: 316px;
+    height: 200px;
+  }
+  .container-tittle__tittles1{
+    font-size: 22px;
+  }
+  .Modal2-title{
+    font-size: 22px;
+  }
 }
 
-  /*.container-form__file{
-    width: 175px;
-    height: 33px;
-    background-color:  #3EB649 ;
-    margin: 10px;
-    border-radius: 5px;
-  }
-  .container-form__file > label{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'POPPINS-REGULAR';
-    font-size: 14px;
-    letter-spacing: .5pt;
-    cursor: pointer;
-  }*/
+ 
