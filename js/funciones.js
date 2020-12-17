@@ -36,6 +36,8 @@ var swiper = new Swiper('#link-Inicio__slider', {
 $(".container-sec > section").mouseenter(function() {
         var idSec = $(this).attr("id");
         idSec = "#" + idSec + ">div>section"
+       
+            //#container-servdo>div>section)
         $(idSec).animate({ "top": "-=400px" }, 200 );
     }).mouseleave(function() {
         var idSec = $(this).attr("id");
@@ -331,9 +333,11 @@ $('#ModalMax2').fadeIn();
 
 
 
-
+var idanterior;
 $(".btn-scroll").click(function() {/* Los menus y los div's con la clase btn-scroll al dar click entrara aqui*/
     /*alert('funciona');*/
+
+      
         var idpos = $(this).attr("data-id");/* con this dices solo alque haya invocado lafuncion, this hace referencia al elemento que está llamando o usando la función Accede ala tributo html para modificarlo*/
        /*en idpos llega link-QuienesSomos*/
         idpos ="#"+idpos;/* le dices que llevara primero el '#' arma el id #link-Inicio*/
@@ -343,6 +347,14 @@ $(".btn-scroll").click(function() {/* Los menus y los div's con la clase btn-scr
         $("html, body").animate({/* Algunos navegadores se desplazan por la configuración scrollTop en BODY y otros en HTML.*/
                  scrollTop:idposactual 
          }, 1000);/* Esta unidad de medida esta en milisegundos 1000ms = 1 segudo*/
+
+        // var id = $(this).attr("id");//Obtiene el id sin el hastag
+        // id = "#"+id;
+        
+        // $(id).css("color","#BBA73A");
+        //   idanterior = id;
+        //   console.log(id)
+        // console.log(idanterior);
     });
 
 
@@ -357,3 +369,8 @@ $(".btn-scroll").click(function() {/* Los menus y los div's con la clase btn-scr
             $(".infoSolicitud").fadeOut();
         }
     });
+
+
+
+
+ 

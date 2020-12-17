@@ -5,8 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" href="css/swiper.min.css">   
-            <title>Barberia shop</title>
-	<!-- Aqui va lo de los iconos --> 
+            <title>Barberia shop</title> 
 </head>
 <div class="container-ppal">
     <!-- ===============================================================
@@ -19,12 +18,12 @@
             </figure>
             <nav class="header-menu">
                 <ul>
-                    <li><a class="btn-scroll color-link" data-id="link-Inicio">INICIO</a></li>
-                    <li><a class="btn-scroll" data-id="link-QuienesSomos">NOSOTROS</a></li>
-                    <li><a class="btn-scroll" data-id="link-Servicios">SERVICIOS</a></li>
-                    <li><a class="btn-scroll" data-id="link-Paquetes">PAQUETES</a></li>
+                    <li><a class="  btn-scroll color-link" data-id="link-Inicio"  id="inicio">INICIO</a></li>
+                    <li><a class="  btn-scroll" data-id="link-QuienesSomos" id="nosotros">NOSOTROS</a></li>
+                    <li><a class="  btn-scroll" data-id="link-Servicios" id="servicios">SERVICIOS</a></li>
+                    <li><a class="  btn-scroll" data-id="link-Paquetes" id="paquetes">PAQUETES</a></li>
                     <!-- <li><a id="btn_ResultLinea">SESIÓN</a></li> -->
-                    <li><a  class="contacto btn-scroll" data-id="link-Contacto" >CONTACTO</a></li>
+                    <li><a  class="  btn-scroll" data-id="link-Contacto" id="contacto">CONTACTO</a></li>
                 </ul>
             </nav>
             <div class="header-btnMenuResponsive">
@@ -97,6 +96,7 @@
     <!-- ===============================================================
         ---------/ Container aplicacion, maquillaje, planchado
         =============================================================== -->
+         
     <div class="container-sec bc-negro"> 
         <!-- Membresia-->
         <section id="container-membresia"><!-- Seccion de Membresias -->
@@ -137,7 +137,7 @@
             </div>
         </section> 
         <!-- Servicio a domicilio-->
-        <section id="container-servdo">
+        <section id="container-servdo"  >
             <div class="container-animate__down">
                 <section>
                     <span class="container-NameServ"><strong>Planchado de cabello</strong></span>
@@ -314,7 +314,7 @@
                         <span class="MMError" id="AlertEnvioMsContacto"></span>
                 </form> -->
                 <div class="container-map">
-                <iframe scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=Residencial%20el%20Fresno,%20Torre%C3%B3n,%20Coahuila%20Torre%C3%B3n+(direccion)&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="520" height="400" frameborder="0"></iframe> <a href='https://www.horando.de/en/'>HORANDO</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=67ea099f2f4909f7b5c0e9484d1ba4e54e4c5ddd'></script>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3517.500476746477!2d-105.46293085165736!3d28.161691097193806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86eb1586ea571333%3A0x24b1a838a5f3b2f5!2sCentro%20de%20Desarrollo%20Comunitario%20Linda%20Vista!5e0!3m2!1ses-419!2smx!4v1608161213873!5m2!1ses-419!2smx" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 <!-- <section class="map-basic">
                     
                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3600.833111943373!2d-103.4033063!3d25.5106118!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868fdc86bbd825df%3A0x617ad525fbd14268!2sCentro+Saulo!5e0!3m2!1ses-419!2smx!4v1566422794235!5m2!1ses-419!2smx" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
