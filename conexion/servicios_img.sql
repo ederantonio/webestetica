@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `db_servpaq`
+-- Base de datos: `epiz_27473161_servpaq`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `servicios_img`
+-- Estructura de tabla para la tabla `epiz_27473161_servpaq`
 --
 
 CREATE TABLE `servicios_img` (

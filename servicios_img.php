@@ -1,6 +1,6 @@
 <?php
 /*include'./conexion/conexionDB.php';*/
-include('./conexion/conexionDB.php');
+include ('./conexion/conexionDB.php');
 if(mysqli_connect_errno()){ 
 	echo "Fallo la conexon a la base de datos";
 }
@@ -18,8 +18,11 @@ else
 		while($data=mysqli_fetch_assoc($consulta))
 		{	 
 			$array_data[]=$data;
-		} 	 
-		echo json_encode($array_data,JSON_UNESCAPED_UNICODE);  
+		} 
+		 
+		// echo("<script>console.log('PHP: " . json_encode($array_data) . "');</script>");
+ 
+		echo json_encode($array_data);  
 		break;
 		
 		case 'traer_infoservicio':

@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `db_servpaq`
+-- Base de datos: `epiz_27473161_servpaq`
 --
 
 -- --------------------------------------------------------

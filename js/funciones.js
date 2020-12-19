@@ -69,22 +69,25 @@ $("#header-btnMenuResponsive__btn").click(function() {
   
 
 function servicios() 
-{
+{ 
     $.ajax({
-        url: "servicios_img.php",
-        method: "POST",
-        data: { peticion: "traer_imagenes"}
-    }).done(function(res) { 
-        var result = JSON.parse(res); 
-        $.each(result, function(key, value){ 
-            $("#container-servicios").append( 
-                "<section onclick=InfoServPaq('Servicio_"+ value.id_servicio+"') id='Servicio_"+ value.id_servicio+"'>" +
-                    "<a>"+ value.ser_titulo +"</a>" +
-                "</section>"
-            );
-            document.getElementById('Servicio_'+ value.id_servicio).style.backgroundImage = "url('img/" + value.ser_source_principal + "')"; 
-        });
-    });
+        method: 'POST',
+        url: 'servicios_img.php', 
+        data: {peticion: "traer_imagenes"}, 
+        dataType:'json'
+    }).done( resultado => {  
+        console.log(resultado);
+           for(var i=0;i<resultado.length;i++){ 
+           $("#container-servicios").append(
+            `
+                <section onclick=InfoServPaq('Servicio_${resultado[i].id_servicio}') id='Servicio_${resultado[i].id_servicio}' > 
+                    <a> ${resultado[i].ser_titulo} </a> 
+                </section>
+            `
+           )
+           $( `#Servicio_${resultado[i].id_servicio}`).css("background-image","url('img/"+resultado[i].ser_source_principal+"')")
+        } 
+    }); 
 }
  
 
@@ -94,10 +97,8 @@ function paquetes()
         url: "paquetes_img.php",
         method: "POST",
         data: { peticion: "traer_paquetes"}
-    }).done(function(res) {
-       console.log(res);
-        var result = JSON.parse(res); 
-        $.each(result, function(key, value){ 
+    }).done(function(res) { 
+        $.each(JSON.parse(res), function(key, value){ 
             $("#container-paquetes").append(
                 "<section onclick=InfoServPaq('Paquete_"+ value.id_paquete+"') id='Paquete_"+ value.id_paquete+"' class='conatine-paquetes'>" +
                     "<a>"+value.paq_titulo+"</a>" +
@@ -111,6 +112,7 @@ function paquetes()
 
 function InfoServPaq(id)
 {  
+    console.log(id);
     id = id.split("_");  
     var spurl = ''; 
     var p = '';  
