@@ -40,7 +40,9 @@ h1{
   margin: 0;
   padding: 0;
 }
-
+/* #exampleModal{
+    transform: translateX(-180px);  
+}  */
 .swiper-slide > .todo{
   width:500px;
   display:flex;
@@ -57,8 +59,11 @@ h3{
   color: white;
   font-family: 'poppinsregular';
   font-size: 17px;
-}
-
+} 
+/* sets the link to the width of the entire panel title */
+/* .panel-title > a {
+  display: block;
+} */
 .todo{
   text-align: left;
 }
@@ -157,6 +162,7 @@ cursor: pointer;
 
 .header-menu > ul > li > a:hover{
  border-bottom:solid 1px #BBA73A;
+ text-decoration:none;
 }
  
 .header-btnMenuResponsive{
@@ -758,7 +764,46 @@ cursor: pointer;
   line-height: 18px;
   letter-spacing: 1pt;
 }
- 
+/*==========================================================
+------------------/ Acordion con flechas
+============================================================ */
+.panel-heading .accordion-plus-toggle:before {
+   
+  font-family: FontAwesome;
+  content: "\f077";
+  float: right;
+  color: #2f2e3a;
+}
+.panel-heading .accordion-plus-toggle.collapsed:before {
+   
+  content: "\f078";
+  color: #2f2e3a;
+}
+.panel-title > a{
+  color:#2f2e3a;
+}
+.panel-title a:hover{ 
+  color:#2f2e3a; 
+  text-decoration:none;
+  
+}
+.panel-group{
+  width:430px;
+} 
+.modal-content{
+  min-width:800px;
+}
+.panel{
+  width:400px;
+}
+.services-reserva{
+   
+   
+  width:340px;
+}
+.radios{
+  color:#6F6B70;
+}
 /*==========================================================
 ------------------/ Responsive  
 ============================================================ */

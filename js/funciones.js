@@ -254,7 +254,7 @@ $(".btn-scroll").click(function() {
     //   console.log(id)
     // console.log(idanterior);
 });
-
+ 
 
 $(window).scroll(function() {
     var powin = Math.floor($(window).scrollTop());
@@ -268,7 +268,28 @@ $(window).scroll(function() {
     }
 });
 
+ 
 
-
+$(()=> {
+    $('input:radio[name=exampleRadios]').change(function() {
+        var valor;
+        valor = this.value;
+        $(".services-reserva").html(`
+            <div class="">${valor}</div>
+        
+        `);
+        // if (this.value == 'cortecaballero') {
+        //       valor = this.value;
+        //     console.log(valor);
+        //     $(".services-reserva").html(valor);
+        // }
+        // else if (this.value == 'expresscorte') {
+            
+        //       valor = this.value;
+        //       console.log(valor);
+        //     $(".services-reserva").html(valor);
+        // }
+    });
+});
 
  

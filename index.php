@@ -6,6 +6,10 @@
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" href="css/swiper.min.css">  
     <link href="img/favicon.png" rel="shortcut icon">
+    <!---------/ Boostrap Css/-------- -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <!---------/Font awesome /-------- -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Estetica</title> 
 </head>
 <div class="container-ppal">
@@ -23,6 +27,10 @@
                     <li><a class="  btn-scroll" data-id="link-QuienesSomos" id="nosotros">NOSOTROS</a></li>
                     <li><a class="  btn-scroll" data-id="link-Servicios" id="servicios">SERVICIOS</a></li>
                     <li><a class="  btn-scroll" data-id="link-Paquetes" id="paquetes">PAQUETES</a></li>
+                    <li><a  class=""  data-toggle="modal" data-target="#exampleModal" id="contacto">HAZ CITA</a></li>
+                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Launch demo modal
+                    </button> -->
                     <!-- <li><a id="btn_ResultLinea">SESIÓN</a></li> -->
                     <li><a  class="  btn-scroll" data-id="link-Contacto" id="contacto">CONTACTO</a></li>
                 </ul>
@@ -327,9 +335,110 @@
         <!-- ===============================================================
         ---------/ info termina
         =============================================================== --> 
-</div><!--termina container-ppal--> 
 
-<script src="js/jquery.js" charset="utf-8"></script><!-- jQuery principal -->
+        <!-- ===============================================================
+        ---------/ Modal
+        =============================================================== --> 
+        <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  >
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel"><b>Seleccionar servicios</b></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body  ">
+                        <div class="row">
+
+                            <div class="panel-group" id="accordion7401210" role="tablist" aria-multiselectable="false">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading mb-4" role="tab" id="heading8122873">
+                                        <h5 class="panel-title ml-3">
+                                            <a role="button" data-toggle="collapse" class="accordion-plus-toggle collapsed  " data-parent="#accordion7401210" href="#collapse8122873" aria-expanded="false" aria-controls="collapse8122873">Corte de Pelo</a>
+                                        </h5> 
+                                    </div>
+                                    <div id="collapse8122873" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading8122873">
+                                        <div class="panel-body mb-5">
+                                           
+                                                <div class="form-check   ml-3">
+                                                    <input class="form-check-input" type="radio" name="exampleRadios" id=" " value="cortecaballero">
+                                                    <label class="form-check-label radios" for="exampleRadios1">
+                                                        Corte de pelo para caballero
+                                                    </label>
+                                                </div>
+                                                <div class="form-check ml-3">
+                                                    <input class="form-check-input" type="radio" name="exampleRadios" id=" " value="expresscorte">
+                                                    <label class="form-check-label radios" for="exampleRadios1">
+                                                        Corte de pelo express
+                                                    </label>
+                                                </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading mb-4" role="tab" id="heading411391">
+                                        <h5 class="panel-title ml-3">
+                                            <a role="button" data-toggle="collapse" class="accordion-plus-toggle collapsed" data-parent="#accordion7401210" href="#collapse411391" aria-expanded="false" aria-controls="collapse411391">Arreglo barba y bigote</a>
+                                        </h5>
+                                    </div>
+                                    <div id="collapse411391" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading411391">
+                                        <div class="panel-body mb-5">
+                                            
+                                                <div class="form-check   ml-3">
+                                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                                                            <label class="form-check-label radios" for="exampleRadios1">
+                                                                Barba y Bigote
+                                                            </label>
+                                                        
+                                                </div>
+                                                <div class="form-check ml-3">
+                                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                                                            <label class="form-check-label radios" for="exampleRadios1">
+                                                                Barba y Bigote
+                                                            </label>
+                                                        </div>
+                                                </div>
+                                            
+                                        </div>
+                                    </div> 
+                                <div class="panel panel-default">
+                                    <div class="panel-heading mb-4" role="tab" id="heading2183316">
+                                        <h5 class="panel-title   ml-3">
+                                            <a role="button" data-toggle="collapse" class="accordion-plus-toggle collapsed" data-parent="#accordion7401210" href="#collapse2183316" aria-expanded="false" aria-controls="collapse2183316">Panel 3</a>
+                                        </h5>
+                                    </div>
+                                    <div id="collapse2183316" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2183316">
+                                        <div class="panel-body mb-5">Lorem ipsum dolor sic amet!</div>
+                                    </div>
+                                </div> 
+                            </div> 
+                            <div class="  ml-2">
+                            <span>Paquete Capital Deluxe</span>
+                            <span class="services-reserva"></span>
+                                
+                            </div>
+                             
+                            
+                        </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ===============================================================
+        ---------/ Modal termina
+        =============================================================== --> 
+</div><!--termina container-ppal--> 
+ 
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+<!-- <script src="js/jquery.js" charset="utf-8"></script>  -->
 <script src="js/swiper.min.js" charset="UTF-8"></script><!-- plugin del slider-->
 <script src="js/funciones.js" charset="utf-8"></script><!-- jquery para los efectos-->
 
