@@ -272,12 +272,21 @@ $(window).scroll(function() {
 
 $(()=> {
     $('input:radio[name=exampleRadios]').change(function() {
-        var valor;
-        valor = this.value;
-        $(".services-reserva").html(`
-            <div class="">${valor}</div>
-        
+         
+        var valor = this.value;  
+        var cadena = valor.split("$");
+        var texto = cadena[0];
+        var precio = cadena[1];
+            $(".services-reserva").html(`
+            <div class="mt-2">
+                <i class="fas fa-gift icono-servicio"></i> ${texto}<br>
+                <span class="precios-servicios">$ ${precio}</span>
+                
+            </div> 
         `);
+        
+      
+         
         // if (this.value == 'cortecaballero') {
         //       valor = this.value;
         //     console.log(valor);
