@@ -271,6 +271,67 @@ $(window).scroll(function() {
  
 
 $(()=> {
+     
+    $('#btnAnt').click(function()
+	{
+		var size = $('.slider').find('.s_element').length;//3
+		 
+		$('.slider').find('.s_element').each(
+			function(index,value){// 0 y elemento1 html
+				 
+				if($(value).hasClass('s_visible'))// Al principio inicia aqui por regresa true por que tiene la clase s_visible
+				{
+					//$(value).slideUp();
+					$(value).fadeToggle();
+					$(value).removeClass('s_visible');//quita la clase a 1
+					
+					if(index==0)// la 0 es la la ultima pantalla
+					{ 
+						$($('.slider').find('.s_element').get(0)).fadeToggle();
+						$($('.slider').find('.s_element').get(0)).addClass('s_visible');
+						return false;
+					}
+					else  
+					{
+						 
+						$($('.slider').find('.s_element').get(index-1)).fadeToggle();
+						$($('.slider').find('.s_element').get(index-1)).addClass('s_visible');	
+						return false;
+					}
+				}
+		});
+    });
+    
+	$('#btnSig').click(function()
+	{
+		var size = $('.slider').find('.s_element').length;
+		 
+		$('.slider').find('.s_element').each(
+			function(index,value){
+				 
+				if($(value).hasClass('s_visible'))// Al iniciar entrara a los if ya que tienen por default la clase s_visible
+				{
+					$(value).fadeToggle();
+					$(value).removeClass('s_visible');
+					
+					if(index+1<size)
+					{ 
+						 
+						$($('.slider').find('.s_element').get(index+1)).fadeToggle();
+						$($('.slider').find('.s_element').get(index+1)).addClass('s_visible');
+						return false;
+					}
+                    else if(index == 2)
+                    { 
+						$($('.slider').find('.s_element').get(2)).fadeToggle();
+						$($('.slider').find('.s_element').get(2)).addClass('s_visible');	
+						return false;
+					} 
+				}
+		    });
+	});
+	
+ 
     $('input:radio[name=exampleRadios]').change(function() {
          
         var valor = this.value;  

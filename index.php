@@ -353,27 +353,13 @@
 
                     <div class="row">
                         
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Servicios</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Personal</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Fecha</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Detalles</a>
-                            </li>
-                            
-                        </ul>
-                        <div class="tab-content" id="myTabContent" style="width:430px;">
+                        <article class="article-slider">
+                            <div class="slider m-1">
+                                <div id="ele1" class="s_element s_visible"  > 
+                                    
 
 
-                            <div class="tab-pane fade show active mt-4" id="home" role="tabpanel" aria-labelledby="home-tab"> 
-                               
-                                <div class="panel-group" id="accordion7401210" role="tablist" aria-multiselectable="false">
+                                <div class="panel-group" id="accordion7401210" role="tablist" aria-multiselectable="false" style="background:teal">
 
                                     <div class="panel panel-default">
                                         <div class="panel-heading mb-4" role="tab" id="heading8122873"><!-- Distancia entre titulos de los panel-->
@@ -456,29 +442,59 @@
                                         </div>
                                     </div> 
 
-                                </div><!-- Panel --> 
-                              
-    
+                                    </div><!-- Panel --> 
 
-                            </div>
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                
-                                <div class="form-check  d-flex align-items-center ml-3" style="background:orange">
-                                    <input class="form-check-input " type="radio" name="exampleRadios" id=" " value="Paquete Clásico $430.00">
-                                    <div class="service"> </div><!-- circulo-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 </div>
+                                <div id="ele2" class="s_element">
+                                    2 
+                                </div>
+                                <div id="ele3" class="s_element">
+                                    3 
+                                </div>
+                            </div> 
+                        </article>  
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+                   
+                         
+ 
+              
                                  
                                 
-
-                            </div>
-                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                3
-                            </div>
-                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                4
-                            </div> 
-
-                        </div><!-- tab content-->
 
                         <div class="" >
                             <h5 class="ml-4 panel-title"><a>Servcios</a> </h5>
@@ -499,12 +515,13 @@
                     
                     </div> <!-- row-->  
 
-                    
-
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                     
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
+
+                     
                 </div><!-- modal body-->
             </div>
         </div>
@@ -517,7 +534,7 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 <!-- <script src="js/jquery.js" charset="utf-8"></script>  -->
-<script src="js/swiper.min.js" charset="UTF-8"></script><!-- plugin del slider-->
+<script src="js/swiper.min.js" charset="UTF-8"></script><!-- plugin del slider--> 
 <script src="js/funciones.js" charset="utf-8"></script><!-- jquery para los efectos-->
 
 </body>
