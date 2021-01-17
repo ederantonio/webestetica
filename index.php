@@ -343,186 +343,185 @@
         <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  >
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="exampleModalLabel"><b>Seleccionar servicios</b></h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
+                    <div class="modal-header">
+                        <h4 class="modal-title" ><b>Seleccionar Servicios</b></h4> 
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                     
+                    <div class="modal-body">
+                        <span class="alerta"></span>
+                        <div class="row">
+                         
+                            <article class="article-slider mt-4">
+                                <div class="slider m-1">
+                                    <div id="ele1" class="s_element s_visible">  
+                                        <div class="panel-group" id="accordion7401210" role="tablist" aria-multiselectable="false">
 
-                    <div class="row">
-                        
-                        <article class="article-slider">
-                            <div class="slider m-1">
-                                <div id="ele1" class="s_element s_visible"  > 
-                                    
-
-
-                                <div class="panel-group" id="accordion7401210" role="tablist" aria-multiselectable="false" style="background:teal">
-
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading mb-4" role="tab" id="heading8122873"><!-- Distancia entre titulos de los panel-->
-                                            <h5 class="panel-title ml-3">
-                                                <a role="button" data-toggle="collapse" class="accordion-plus-toggle collapsed  " data-parent="#accordion7401210" href="#collapse8122873" aria-expanded="false" aria-controls="collapse8122873">Corte de Pelo</a>
-                                                
-                                            </h5> 
-                                        </div>
-                                        <div id="collapse8122873" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading8122873">
-                                            <div class="panel-body mb-5"> 
-                                                <div class="form-check ml-3"   >
-                                                    <input class="form-check-input btn-radios" type="radio" name="exampleRadios" id=" " value="Corte de pelo para caballero $320.00">
-                                                    <label class="form-check-label radios alt" for="exampleRadios1">
-                                                            Corte de pelo para caballero 
-                                                    </label> 
+                                            <div class="panel panel-default"><!-- Panel 1-->
+                                                <div class="panel-heading mb-4" role="tab" id="heading8122873"><!-- Distancia entre titulos de los panel-->
+                                                    <h5 class="panel-title ml-3">
+                                                        <a role="button" data-toggle="collapse" class="accordion-plus-toggle collapsed  " data-parent="#accordion7401210" href="#collapse8122873" aria-expanded="false" aria-controls="collapse8122873">Corte de Pelo</a>
+                                                    </h5> 
                                                 </div>
-                                                <span class="precios">$320.00</span>
+                                                <div id="collapse8122873" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading8122873">
+                                                    <div class="panel-body mb-5"> 
+                                                        <div class="form-check ml-3"   >
+                                                            <input class="form-check-input btn-radios" type="radio" name="serviciosradios" id=" " value="Corte de pelo para caballero $320.00">
+                                                            <label class="form-check-label radios alt" for="exampleRadios1">
+                                                                    Corte de pelo para caballero 
+                                                            </label> 
+                                                        </div>
+                                                        <span class="precios">$320.00</span>
 
-                                                <div class="form-check mt-3 ml-3">
-                                                    <input class="form-check-input btn-radios" type="radio" name="exampleRadios" id=" " value="Corte de pelo express $280.0">
-                                                    <label class="form-check-label radios alt" for="exampleRadios1">
-                                                            Corte de pelo express 
-                                                    </label>
+                                                        <div class="form-check mt-3 ml-3">
+                                                            <input class="form-check-input btn-radios" type="radio" name="serviciosradios" id=" " value="Corte de pelo express $280.0">
+                                                            <label class="form-check-label radios alt" for="exampleRadios1">
+                                                                    Corte de pelo express 
+                                                            </label>
+                                                        </div>
+                                                        <span class="precios">$280.00</span> 
+                                                    </div>
                                                 </div>
-                                                <span class="precios">$280.00</span> 
                                             </div>
-                                        </div>
+
+                                            <div class="panel panel-default"><!-- Panel 2-->
+                                                <div class="panel-heading  mb-4" role="tab" id="heading411391">
+                                                    <h5 class="panel-title ml-3">
+                                                        <a role="button" data-toggle="collapse" class="accordion-plus-toggle collapsed" data-parent="#accordion7401210" href="#collapse411391" aria-expanded="false" aria-controls="collapse411391">Arreglo barba y bigote</a>
+                                                    </h5>
+                                                </div>
+                                                <div id="collapse411391" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading411391">
+                                                    <div class="panel-body mb-4">
+                                                        
+                                                            <div class="form-check   ml-3">
+                                                                <input class="form-check-input btn-radios" type="radio" name="serviciosradios" id=" " value="Barba y Bigote $220.00">
+                                                                <label class="form-check-label radios alt" for="exampleRadios1">
+                                                                    Barba y Bigote
+                                                                </label>  
+                                                            </div>
+                                                            <span class="precios">$220.00</span>
+                                                            <div class="form-check mt-3 ml-3">
+                                                                <input class="form-check-input btn-radios" type="radio" name="serviciosradios" id=" " value="Bigote $100.00">
+                                                                <label class="form-check-label radios alt" for="exampleRadios1">
+                                                                Bigote
+                                                                </label>
+                                                            </div>
+                                                            <span class="precios">$100.00</span>
+                                                    </div> 
+                                                </div>
+                                            </div> 
+
+                                            <div class="panel panel-default"><!-- Panel 3-->
+                                                <div class="panel-heading mb-4" role="tab" id="heading2183316">
+                                                    <h5 class="panel-title   ml-3">
+                                                        <a role="button" data-toggle="collapse" class="accordion-plus-toggle collapsed" data-parent="#accordion7401210" href="#collapse2183316" aria-expanded="false" aria-controls="collapse2183316">Paquetes (corte de pelo + barba)</a>
+                                                    </h5>
+                                                </div>
+                                                <div id="collapse2183316" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2183316">
+                                                    <div class="panel-body mb-5">
+                                                        <div class="form-check   ml-3">
+                                                            <input class="form-check-input btn-radios" type="radio" name="serviciosradios" id=" " value="Paquete Clásico $430.00">
+                                                            <label class="form-check-label radios alt" for="exampleRadios1">
+                                                                Paquete Clásico
+                                                            </label>  
+                                                        </div>
+                                                        <span class="precios">$430.00</span>
+                                                        <div class="form-check mt-3 ml-3">
+                                                            <input class="form-check-input btn-radios" type="radio" name="serviciosradios" id=" " value="Paquete Capital $450.00">
+                                                            <label class="form-check-label radios alt" for="exampleRadios1">
+                                                            Paquete Capital
+                                                            </label>
+                                                        </div>
+                                                        <span class="precios">$450.00</span> 
+                                                    </div>
+                                                </div>
+                                            </div>  
+                                        </div><!-- Panel group-->  
+                                    </div><!-- ele1 -->
+                        
+                                    <div id="ele2" class="s_element">
+                                            
+                                            <div class="form-check ml-2 d-flex align-items-center radio-personal">
+                                                <input class="form-check-input btn-radios" type="radio" name="personalradios" id=" " value="Rodrigo Salazar">
+                                                <div class="circulo ml-2">
+                                                </div>
+                                                <div class="ml-3">
+                                                    <div class="nombre-personal"><b>Alondra Salazar</b></div> 
+                                                    <div class="cargo">Barbero/Peluquero</div>
+                                                </div> 
+                                                
+                                            </div>
+                                            
+                                            <div class="form-check ml-2 mt-3 d-flex align-items-center radio-personal">
+                                                <input class="form-check-input btn-radios" type="radio" name="personalradios" id=" " value="Alondra Salazar">
+                                                <div class="circulo ml-2">
+                                                </div>
+                                                <div class="ml-3">
+                                                    <div class="mt-1 nombre-personal"><b>Alfonso Uribe</b></div> 
+                                                    <div class="cargo">Barbero/Peluquero</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-check ml-2 mt-3 d-flex align-items-center radio-personal">
+                                                <input class="form-check-input btn-radios" type="radio" name="personalradios" id=" " value="Pedro Hernandez">
+                                                <div class="circulo ml-2">
+                                                </div>
+                                                <div class="ml-3">
+                                                    <div class="mt-1 nombre-personal"><b>Pedro Hernandez</b></div> 
+                                                    <div class="cargo">Barbero/Peluquero</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-check ml-2 mt-3 d-flex align-items-center radio-personal">
+                                                <input class="form-check-input btn-radios" type="radio" name="personalradios" id=" " value="Raymundo Torres">
+                                                <div class="circulo ml-2">
+                                                </div>
+                                                <div class="ml-3">
+                                                    <div class="mt-1 nombre-personal"><b>Raymundo Torres</b></div> 
+                                                    <div class="cargo">Barbero/Peluquero</div>
+                                                </div>
+                                            </div>
+                                             
+                                        
+
                                     </div>
 
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading  mb-4" role="tab" id="heading411391">
-                                            <h5 class="panel-title ml-3">
-                                                <a role="button" data-toggle="collapse" class="accordion-plus-toggle collapsed" data-parent="#accordion7401210" href="#collapse411391" aria-expanded="false" aria-controls="collapse411391">Arreglo barba y bigote</a>
-                                            </h5>
-                                        </div>
-                                        <div id="collapse411391" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading411391">
-                                            <div class="panel-body mb-4">
-                                                
-                                                    <div class="form-check   ml-3">
-                                                        <input class="form-check-input btn-radios" type="radio" name="exampleRadios" id=" " value="Barba y Bigote $220.00">
-                                                        <label class="form-check-label radios alt" for="exampleRadios1">
-                                                            Barba y Bigote
-                                                        </label>  
-                                                    </div>
-                                                    <span class="precios">$220.00</span>
-                                                    <div class="form-check mt-3 ml-3">
-                                                        <input class="form-check-input btn-radios" type="radio" name="exampleRadios" id=" " value="Bigote $100.00">
-                                                        <label class="form-check-label radios alt" for="exampleRadios1">
-                                                        Bigote
-                                                        </label>
-                                                    </div>
-                                                    <span class="precios">$100.00</span>
-                                            </div> 
-                                        </div>
-                                    </div> 
-
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading mb-4" role="tab" id="heading2183316">
-                                            <h5 class="panel-title   ml-3">
-                                                <a role="button" data-toggle="collapse" class="accordion-plus-toggle collapsed" data-parent="#accordion7401210" href="#collapse2183316" aria-expanded="false" aria-controls="collapse2183316">Paquetes (corte de pelo + barba)</a>
-                                            </h5>
-                                        </div>
-                                        <div id="collapse2183316" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2183316">
-                                            <div class="panel-body mb-5">
-                                                <div class="form-check   ml-3">
-                                                    <input class="form-check-input btn-radios" type="radio" name="exampleRadios" id=" " value="Paquete Clásico $430.00">
-                                                    <label class="form-check-label radios alt" for="exampleRadios1">
-                                                        Paquete Clásico
-                                                    </label>  
-                                                </div>
-                                                <span class="precios">$430.00</span>
-                                                <div class="form-check mt-3 ml-3">
-                                                    <input class="form-check-input btn-radios" type="radio" name="exampleRadios" id=" " value="Paquete Capital $450.00">
-                                                    <label class="form-check-label radios alt" for="exampleRadios1">
-                                                    Paquete Capital
-                                                    </label>
-                                                </div>
-                                                <span class="precios">$450.00</span>
-                                            </div>
-                                        </div>
-                                    </div> 
-
-                                    </div><!-- Panel --> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                </div>
-                                <div id="ele2" class="s_element">
-                                    2 
-                                </div>
-                                <div id="ele3" class="s_element">
-                                    3 
-                                </div>
-                            </div> 
-                        </article>  
-                    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-                   
-                         
- 
-              
-                                 
-                                
-
-                        <div class="" >
-                            <h5 class="ml-4 panel-title"><a>Servcios</a> </h5>
-                                
-                            <div class="resultado ml-3 m-1"> 
-                                <div class="services-reserva ml-2"></div> 
-                                <div class="ml-3" >
-                                    <i class="fas fa-map-marker-alt ml-2 mt-3"></i>
-                                    <span class="ml-3">Selene del Rio Estética </span>
+                                    <div id="ele3" class="s_element">
+                                        3 
+                                    </div>
                                 </div> 
-                                <div class="direccion">   
-                                    Av. Monterrey 118 B, colonia<br>
-                                    Roma Norte, CP. 06700 
-                                </div> 
+                            </article>  
+                        
+    
+
+                            <div class="mt-4" >
+                                <h5 class="ml-4 panel-title"><a>Detalles</a> </h5>
                                     
-                            </div> 
+                                <div class="resultado ml-3 m-1">  
+                                    <div class="services-reserva "></div> 
+                                    <div class="personal-reserva "></div>
+                                    <div class="ml-3 mt-3 ubicacion-reserva" >
+                                        <i class="fas fa-map-marker-alt  mt-3"></i>
+                                        <span class="ml-3  resultado-nombre">Selene del Rio Estética </span>
+                                    </div> 
+                                    <div class="direccion">   
+                                        Av. Monterrey 118 B, colonia<br>
+                                        Roma Norte, CP. 06700 
+                                    </div> 
+                                        
+                                </div> 
+                            </div>
+                        
+                        </div> <!-- row-->  
+
+                        <div class="modal-footer"> 
+                                <button type="button" class="btn btn-secondary" id="btnAnt"  >Regresar</button><!--data-dismiss="modal"-->
+                                <button type="button" class="btn btn-primary" id="btnSig">Continuar</button>
                         </div>
-                    
-                    </div> <!-- row-->  
 
-                    <div class="modal-footer">
-                     
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-
-                     
-                </div><!-- modal body-->
+                        
+                    </div><!-- modal body-->
+                </div>
             </div>
         </div>
         <!-- ===============================================================

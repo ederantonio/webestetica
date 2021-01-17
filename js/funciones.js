@@ -271,14 +271,42 @@ $(window).scroll(function() {
  
 
 $(()=> {
-     
+
+    $('input:radio[name=serviciosradios]').change(function() {/*detecta seleccion de radio y muestra detalle*/
+         
+        let valor = this.value;  
+        let cadena = valor.split("$");
+        let texto = cadena[0];
+        let precio = cadena[1];
+            $(".services-reserva").html(`
+            <div class="mt-2">
+                <i class="fas fa-gift icono-servicio"></i><span class="nombre-detalles"> ${texto}</span><br>
+                <span class="precios-servicios">$ ${precio}</span>
+                
+            </div> 
+        `); 
+        $(".alerta").remove();
+    });
+    $('input:radio[name=personalradios]').change(function() {
+         
+        let value = this.value;  
+        let string = value.split("$");
+        let textopersonal = string[0];
+        
+            $(".personal-reserva").html(`
+            <div class="">
+                <i class="fas fa-user icono-servicio"></i><span class="nombre-detalles"> ${textopersonal}</span> <br> 
+            </div> 
+        `); 
+    });
+    
+    /* ---------/Boton anterior /-------- */
     $('#btnAnt').click(function()
 	{
 		var size = $('.slider').find('.s_element').length;//3
 		 
 		$('.slider').find('.s_element').each(
-			function(index,value){// 0 y elemento1 html
-				 
+            function(index,value){// 0 y elemento1 html 
 				if($(value).hasClass('s_visible'))// Al principio inicia aqui por regresa true por que tiene la clase s_visible
 				{
 					//$(value).slideUp();
@@ -293,6 +321,7 @@ $(()=> {
 					}
 					else  
 					{
+                        
 						 
 						$($('.slider').find('.s_element').get(index-1)).fadeToggle();
 						$($('.slider').find('.s_element').get(index-1)).addClass('s_visible');	
@@ -300,66 +329,70 @@ $(()=> {
 					}
 				}
 		});
-    });
-    
-	$('#btnSig').click(function()
-	{
-		var size = $('.slider').find('.s_element').length;
+    }); 
+
+    /* ------------/ Boton Siguiente /---------- */
+    $(document).on('click','#btnSig',function(e){
+        e.preventDefault();  
+         
+        var seleccionado=0,sinseleccionar=0,i=0;
+        $("input[name=serviciosradios]").each(function (index,elem) {  // se contabiliza los seleccionados / deseleccionados
+            if($(this).is(':not(:checked)')) 
+                sinseleccionar += 1; 
+            else 
+                seleccionado += 1; 
+        }); 
+
+        var seleccionados=0,sinseleccionars=0,i=0;
+        $("input[name=serviciosradios]").each(function (index,elem) {  
+            if($(this).is(':not(:checked)')) 
+                sinseleccionars += 1; 
+            else 
+                seleccionados += 1; 
+        }); 
+         
+
+
+
+
+
+
+        if(sinseleccionar == 6){ //cuando estan vacios los radios button de la seccion servicios solo se coloca el alerta
+            $(".alerta").html(`
+                <div class="alert alert-warning d-flex justify-content-center" role="alert">
+                   Seleccionar servicio
+                </div>  
+            `); 
+        }
+       
+        else // Si no estan todos vacios permite avanzar
+        {
+            var size = $('.slider').find('.s_element').length; 
+            $('.slider').find('.s_element').each(
+                function(index,value){ 
+                    if($(value).hasClass('s_visible'))// Al iniciar entrara a los if ya que tienen por default la clase s_visible
+                    {
+                        $(value).fadeToggle();
+                        $(value).removeClass('s_visible'); 
+                        if(index+1<size)
+                        {  
+                            $($('.slider').find('.s_element').get(index+1)).fadeToggle();
+                            $($('.slider').find('.s_element').get(index+1)).addClass('s_visible');
+                            return false;
+                        }
+                        else if(index == 2)
+                        { 
+                            $($('.slider').find('.s_element').get(2)).fadeToggle();
+                            $($('.slider').find('.s_element').get(2)).addClass('s_visible');	
+                            return false;
+                        } 
+                }
+            });
+        }
+  
 		 
-		$('.slider').find('.s_element').each(
-			function(index,value){
-				 
-				if($(value).hasClass('s_visible'))// Al iniciar entrara a los if ya que tienen por default la clase s_visible
-				{
-					$(value).fadeToggle();
-					$(value).removeClass('s_visible');
-					
-					if(index+1<size)
-					{ 
-						 
-						$($('.slider').find('.s_element').get(index+1)).fadeToggle();
-						$($('.slider').find('.s_element').get(index+1)).addClass('s_visible');
-						return false;
-					}
-                    else if(index == 2)
-                    { 
-						$($('.slider').find('.s_element').get(2)).fadeToggle();
-						$($('.slider').find('.s_element').get(2)).addClass('s_visible');	
-						return false;
-					} 
-				}
-		    });
-	});
-	
- 
-    $('input:radio[name=exampleRadios]').change(function() {
-         
-        var valor = this.value;  
-        var cadena = valor.split("$");
-        var texto = cadena[0];
-        var precio = cadena[1];
-            $(".services-reserva").html(`
-            <div class="mt-2">
-                <i class="fas fa-gift icono-servicio"></i> ${texto}<br>
-                <span class="precios-servicios">$ ${precio}</span>
-                
-            </div> 
-        `);
-        
-      
-         
-        // if (this.value == 'cortecaballero') {
-        //       valor = this.value;
-        //     console.log(valor);
-        //     $(".services-reserva").html(valor);
-        // }
-        // else if (this.value == 'expresscorte') {
-            
-        //       valor = this.value;
-        //       console.log(valor);
-        //     $(".services-reserva").html(valor);
-        // }
-    });
+	}); 
+     
 });
 
  
