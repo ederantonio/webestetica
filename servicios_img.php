@@ -1,12 +1,9 @@
 <?php
 /*include'./conexion/conexionDB.php';*/
-include ('./conexion/conexionDB.php');
-if(mysqli_connect_errno()){ 
-	echo "Fallo la conexon a la base de datos";
-}
+include ('./conexion/conexionDB.php'); 
  
-else
-{
+ 
+ 
 
 	$varAjax=$_POST['peticion']; 
 	/*$varAjax="traer_imagenes";*/
@@ -40,7 +37,7 @@ else
 	
 
 
-}
+ 
 
  
 

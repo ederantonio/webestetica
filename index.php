@@ -3,7 +3,10 @@
 <head>
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- -----------/ Css calendar /-------------->
+     
 	<link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/clndr.css">
 	<link rel="stylesheet" href="css/swiper.min.css">  
     <link href="img/favicon.png" rel="shortcut icon">
     <!---------/ Boostrap Css/-------- -->
@@ -11,6 +14,7 @@
     <!---------/Font awesome /-------- -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/9cf8a80e3d.js" crossorigin="anonymous"></script>
+     
     <title>Estetica</title> 
 </head>
 <div class="container-ppal">
@@ -101,7 +105,7 @@
         =============================================================== --> 
 
     <div class="space_min bc-negro"></div><!-- ---/ comentario/--- -->
-
+     
 
     <!-- ===============================================================
         ---------/ Container aplicacion, maquillaje, planchado
@@ -222,7 +226,9 @@
         <!-- ===============================================================
         ---------/ Container conocenos, mision, vision termina
         =============================================================== -->  
-
+        
+        
+       
          
         <div class="space bc-negro"  id="link-Servicios"></div> 
         <div class="container-tittle bc-negro">
@@ -237,7 +243,7 @@
         <div class="container-sec bc-negro">
             <div class="container-ho2" id="container-servicios">
                 
-            </div>
+            </div>  
         </div>
         <!-- ===============================================================
         ---------/ Servicios termina
@@ -304,6 +310,30 @@
                 </div>
             </div>
         </div>
+        <h1 style="background:teal">eder</h1>
+            <div class="container">  
+                <div class="cal1"></div> 
+                <div id="selected-date" class="cal2"></div> 
+            </div> 
+            <script type="text/template" id="clndr-template">
+                <div class="clndr-controls">
+                    <div class="clndr-previous-button">&lsaquo;</div>
+                    <div class="month"><%= month %></div>
+                    <div class="clndr-next-button">&rsaquo;</div>
+                </div>
+                <div class="clndr-grid">
+                    <div class="days-of-the-week">
+                    <% _.each(daysOfTheWeek, function (day) { %>
+                        <div class="header-day"><%= day %></div>
+                    <% }); %>
+                        <div class="days">
+                        <% _.each(days, function (day) { %>
+                            <div class="<%= day.classes %>"><%= day.day %></div>
+                        <% }); %>
+                        </div>
+                    </div>
+                </div> 
+            </script>
         <!-- ===============================================================
         ---------/ Contacto termina
         =============================================================== --> 
@@ -344,7 +374,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" ><b>Seleccionar Servicios</b></h4> 
+                        <h3 class="modal-title" ><b>Seleccionar Servicios</b></h3> 
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
@@ -445,7 +475,8 @@
                                             
                                             <div class="form-check ml-2 d-flex align-items-center radio-personal">
                                                 <input class="form-check-input btn-radios" type="radio" name="personalradios" id=" " value="Rodrigo Salazar">
-                                                <div class="circulo ml-2">
+                                                <div class="circulo ml-2 d-flex justify-content-center">
+                                                    <img class="img-personal" src="img/chicouno.png"  />
                                                 </div>
                                                 <div class="ml-3">
                                                     <div class="nombre-personal"><b>Alondra Salazar</b></div> 
@@ -456,7 +487,8 @@
                                             
                                             <div class="form-check ml-2 mt-3 d-flex align-items-center radio-personal">
                                                 <input class="form-check-input btn-radios" type="radio" name="personalradios" id=" " value="Alondra Salazar">
-                                                <div class="circulo ml-2">
+                                                <div class="circulo ml-2 d-flex justify-content-center">
+                                                    <img class="img-personal" src="img/chicodos.png"/>
                                                 </div>
                                                 <div class="ml-3">
                                                     <div class="mt-1 nombre-personal"><b>Alfonso Uribe</b></div> 
@@ -465,7 +497,8 @@
                                             </div>
                                             <div class="form-check ml-2 mt-3 d-flex align-items-center radio-personal">
                                                 <input class="form-check-input btn-radios" type="radio" name="personalradios" id=" " value="Pedro Hernandez">
-                                                <div class="circulo ml-2">
+                                                <div class="circulo ml-2 d-flex justify-content-center">
+                                                    <img class="img-personal" src="img/chicotres.png" />
                                                 </div>
                                                 <div class="ml-3">
                                                     <div class="mt-1 nombre-personal"><b>Pedro Hernandez</b></div> 
@@ -474,7 +507,8 @@
                                             </div>
                                             <div class="form-check ml-2 mt-3 d-flex align-items-center radio-personal">
                                                 <input class="form-check-input btn-radios" type="radio" name="personalradios" id=" " value="Raymundo Torres">
-                                                <div class="circulo ml-2">
+                                                <div class="circulo ml-2 d-flex justify-content-center">
+                                                    <img class="img-personal" src="img/chicocuatro.png"/>
                                                 </div>
                                                 <div class="ml-3">
                                                     <div class="mt-1 nombre-personal"><b>Raymundo Torres</b></div> 
@@ -486,10 +520,9 @@
 
                                     </div>
 
-                                    <div id="ele3" class="s_element">
-                                        3 
-                                    </div>
-                                </div> 
+                                    <div id="ele3" class="s_element"> 
+                                        
+                                    </div>  
                             </article>  
                         
     
@@ -528,13 +561,28 @@
         ---------/ Modal termina
         =============================================================== --> 
 </div><!--termina container-ppal--> 
- 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-<!-- <script src="js/jquery.js" charset="utf-8"></script>  -->
+<!-- ----------/ JQUERY Y BOOSTRAP /----------->
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<!-- ---------/ LIBRERIA CALENDARIO /--------- -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js"></script>
+<script src="js/clndr.js"></script> 
+<!-- ---------/ LIBRERIA SLIDER /----------->
 <script src="js/swiper.min.js" charset="UTF-8"></script><!-- plugin del slider--> 
+<!-- ---------/ LIBRERIA BOOSTRAP /----------->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>  
+  
+<!-- -----------/ FUNCIONES /------------->
 <script src="js/funciones.js" charset="utf-8"></script><!-- jquery para los efectos-->
+
+ 
+ 
+ 
+
+
+
+
 
 </body>
 </html>

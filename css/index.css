@@ -60,6 +60,9 @@ h3{
   font-family: 'poppinsregular';
   font-size: 17px;
 } 
+.modal-title{
+  color:#000;
+}
 /* sets the link to the width of the entire panel title */
 /* .panel-title > a {
   display: block;
@@ -72,7 +75,7 @@ h3{
 ------------------/ Container Principal  
 ============================================================ */
 .container-ppal{ 
-  background-color:#000;
+  background-color:rgb(14, 14, 14);
   width: 100%; 
   height: auto; 
   min-width: 319px; 
@@ -321,7 +324,7 @@ cursor: pointer;
 } 
  
 .bc-negro{ 
-  background-color: #000;
+ /* background-color: #000;*/
 }
   
 /*==========================================================
@@ -886,7 +889,7 @@ cursor: pointer;
 }
  
 #ele3{
-  background:gray; 
+   
 }
 /* =========================================================
 -------------------/ Slider personal
@@ -898,7 +901,7 @@ cursor: pointer;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  background: #5cb85c;
+  background: #38fae0;
 }
  
 .nombre-personal{ 
@@ -915,6 +918,10 @@ cursor: pointer;
   font-size:14px;
   color:#757575;
   font-style:italic;
+}
+.img-personal{
+  width:55px;
+  height:66px;
 }
 
 /*==========================================================

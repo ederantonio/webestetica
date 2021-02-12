@@ -65,7 +65,7 @@ $("#header-btnMenuResponsive__btn").click(function() {
     } 
 });  
     servicios(); 
-    paquetes();
+     paquetes();
   
 
 function servicios() 
@@ -75,8 +75,7 @@ function servicios()
         url: 'servicios_img.php', 
         data: {peticion: "traer_imagenes"}, 
         dataType:'json'
-    }).done( resultado => {  
-        console.log(resultado);
+    }).done( resultado => {    
            for(var i=0;i<resultado.length;i++){ 
            $("#container-servicios").append(
             `
@@ -97,7 +96,7 @@ function paquetes()
         url: "paquetes_img.php",
         method: "POST",
         data: { peticion: "traer_paquetes"}
-    }).done(function(res) { 
+    }).done(function(res) {   
         $.each(JSON.parse(res), function(key, value){ 
             $("#container-paquetes").append(
                 "<section onclick=InfoServPaq('Paquete_"+ value.id_paquete+"') id='Paquete_"+ value.id_paquete+"' class='conatine-paquetes'>" +
@@ -388,10 +387,13 @@ $(()=> {
                         } 
                 }
             });
-        }
-  
-		 
-	}); 
+        } //else 	 
+	}); //Btn sig
+    var clndr = {}; 
+     
+    var lotsOfEvents = [];
+
+    
      
 });
 
