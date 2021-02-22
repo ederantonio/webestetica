@@ -80,7 +80,7 @@ function servicios()
            $("#container-servicios").append(
             `
                 <section onclick=InfoServPaq('Servicio_${resultado[i].id_servicio}') id='Servicio_${resultado[i].id_servicio}' > 
-                    <a> ${resultado[i].ser_titulo} </a> 
+                    <a style='text-decoration:none;color:white'> ${resultado[i].ser_titulo} </a> 
                 </section>
             `
            )
@@ -100,7 +100,7 @@ function paquetes()
         $.each(JSON.parse(res), function(key, value){ 
             $("#container-paquetes").append(
                 "<section onclick=InfoServPaq('Paquete_"+ value.id_paquete+"') id='Paquete_"+ value.id_paquete+"' class='conatine-paquetes'>" +
-                    "<a>"+value.paq_titulo+"</a>" +
+                    "<a style='text-decoration:none;color:white'>"+value.paq_titulo+"</a>" +
                 "</section>"
             );
             document.getElementById('Paquete_'+ value.id_paquete).style.backgroundImage = "url('img/" + value.paq_sorce + "')";
@@ -111,7 +111,7 @@ function paquetes()
 
 function InfoServPaq(id)
 {  
-    console.log(id);
+     
     id = id.split("_");  
     var spurl = ''; 
     var p = '';  
@@ -147,7 +147,7 @@ function InfoServPaq(id)
                     $.each(value.ser_descripcion.split("."), function( index, value ) { 
                         if (value.length > 10) {       
                             $(".Modal2-text").append(
-                                "<p>" + value + ".</p>"
+                                "<article class='serpaqtextos'>" + value + ".</article>"
                             ); 
                         }
                     });
@@ -166,7 +166,7 @@ function InfoServPaq(id)
                            
                             if (value3.length > 10) {  
                                 $(".Modal2-text").append( 
-                                    "<p>" + value3 + ".</p>"
+                                    "<article class='serpaqtextos'>" + value3 + ".</article>"
                                 );
                             }
                         }); 
@@ -183,7 +183,7 @@ function InfoServPaq(id)
                 $('.Modal2-title>strong').text(result['informacion'].paq_titulo); 
                 $.each(result['paquetes'], function(key, value) {
                     var arreglo_especificaciones = value.especificaciones.split(","); 
-                    console.log(arreglo_especificaciones);
+              
                     var lista = "<ul id='ContainerPaquetes_serv_"+value.id_estudio_especificacion+"'><li class='title_Paquetes'><strong>"+value.est_titulo+"</strong></li>"; 
                     $.each(arreglo_especificaciones, function(index, esp) {  
                         lista+= "<li>"+esp+"</li>"; 
@@ -273,7 +273,7 @@ $(()=> {
 
     $('input:radio[name=serviciosradios]').change(function() {/*detecta seleccion de radio y muestra detalle*/
          
-        let valor = this.value;  
+        let valor = this.value; 
         let cadena = valor.split("$");
         let texto = cadena[0];
         let precio = cadena[1];
@@ -286,19 +286,13 @@ $(()=> {
         `); 
         $(".alerta").remove();
     });
-    $('input:radio[name=personalradios]').change(function() {
-         
-        let value = this.value;  
+    $('input:radio[name=personalradios]').change(function() { 
+        let value = this.value;   
         let string = value.split("$");
         let textopersonal = string[0];
-        
-            $(".personal-reserva").html(`
-            <div class="">
-                <i class="fas fa-user icono-servicio"></i><span class="nombre-detalles"> ${textopersonal}</span> <br> 
-            </div> 
-        `); 
-    });
-    
+        personal(textopersonal); 
+    }); 
+     
     /* ---------/Boton anterior /-------- */
     $('#btnAnt').click(function()
 	{
@@ -306,6 +300,7 @@ $(()=> {
 		 
 		$('.slider').find('.s_element').each(
             function(index,value){// 0 y elemento1 html 
+                
 				if($(value).hasClass('s_visible'))// Al principio inicia aqui por regresa true por que tiene la clase s_visible
 				{
 					//$(value).slideUp();
@@ -319,9 +314,7 @@ $(()=> {
 						return false;
 					}
 					else  
-					{
-                        
-						 
+					{ 
 						$($('.slider').find('.s_element').get(index-1)).fadeToggle();
 						$($('.slider').find('.s_element').get(index-1)).addClass('s_visible');	
 						return false;
@@ -332,69 +325,110 @@ $(()=> {
 
     /* ------------/ Boton Siguiente /---------- */
     $(document).on('click','#btnSig',function(e){
-        e.preventDefault();  
-         
-        var seleccionado=0,sinseleccionar=0,i=0;
-        $("input[name=serviciosradios]").each(function (index,elem) {  // se contabiliza los seleccionados / deseleccionados
+        e.preventDefault(); 
+
+        $("#default").attr("checked",true);// Se coloca el radio button en checked
+        personal($("#default").val());// Se pasa el value al mensaje para mostrarlo del lado derecho
+
+        var sinseleccionar=0;
+        $("input[name=serviciosradios]").each(function (index,elem) {  // Contabiliza los seleccionados / deseleccionados
             if($(this).is(':not(:checked)')) 
-                sinseleccionar += 1; 
-            else 
-                seleccionado += 1; 
-        }); 
-
-        var seleccionados=0,sinseleccionars=0,i=0;
-        $("input[name=serviciosradios]").each(function (index,elem) {  
-            if($(this).is(':not(:checked)')) 
-                sinseleccionars += 1; 
-            else 
-                seleccionados += 1; 
-        }); 
+                sinseleccionar += 1;  
+        });  
+        if(sinseleccionar ==6){ // cuando 
+            msj(".alerta",'servicio');
+        } 
          
-
-
-
-
-
-
-        if(sinseleccionar == 6){ //cuando estan vacios los radios button de la seccion servicios solo se coloca el alerta
-            $(".alerta").html(`
-                <div class="alert alert-warning d-flex justify-content-center" role="alert">
-                   Seleccionar servicio
-                </div>  
-            `); 
-        }
-       
-        else // Si no estan todos vacios permite avanzar
-        {
-            var size = $('.slider').find('.s_element').length; 
-            $('.slider').find('.s_element').each(
-                function(index,value){ 
-                    if($(value).hasClass('s_visible'))// Al iniciar entrara a los if ya que tienen por default la clase s_visible
-                    {
-                        $(value).fadeToggle();
-                        $(value).removeClass('s_visible'); 
-                        if(index+1<size)
-                        {  
-                            $($('.slider').find('.s_element').get(index+1)).fadeToggle();
-                            $($('.slider').find('.s_element').get(index+1)).addClass('s_visible');
-                            return false;
-                        }
-                        else if(index == 2)
-                        { 
-                            $($('.slider').find('.s_element').get(2)).fadeToggle();
-                            $($('.slider').find('.s_element').get(2)).addClass('s_visible');	
-                            return false;
-                        } 
-                }
+        else if($('#ele3').hasClass('s_visible'))
+        { 
+            var sinseleccionhoras=0;
+            $("input[name=radiohoras]").each(function (index,elem) {  // Contabiliza los seleccionados / deseleccionados
+                if($(this).is(':not(:checked)')){
+                    sinseleccionhoras += 1; 
+                }   
             });
-        } //else 	 
+             console.log(sinseleccionhoras);
+             console.log($(".fechaseleccionada").text());
+            /* ------------/ Validacion sin seleccion de elementos /------------*/
+            if((!$(".day").hasClass('selected') && sinseleccionhoras == 11) || 
+              ($(".day").hasClass('selected') && sinseleccionhoras == 11) || 
+              (!$(".day").hasClass('selected') && sinseleccionhoras==10 ))
+            {  
+                msj(".mensajehoras","Seleccionar Fecha / hora");
+            }
+            else{
+                $(".mensajehoras").remove();
+                siguiente();
+                var fechaselect = $(".fechaseleccionada").text();
+                $(".fecha-reserva").html(`
+                <div class="">
+                    <i class="far fa-calendar-alt"></i><span class="nombre-detalles ml-2"  > ${fechaselect}</span>  
+                </div> 
+                `);
+            }  
+        } 
+        else // Si hay elementos seleccionados permite avanzar
+        { 
+            if((!$(".day").hasClass('selected') && sinseleccionhoras == 11) || 
+              ($(".day").hasClass('selected') && sinseleccionhoras == 11) || 
+              (!$(".day").hasClass('selected') && sinseleccionhoras==10 ) ||  
+              ($(".fechaseleccionada").text() == 'No disponible' && sinseleccionhoras ==11)  ||
+              ($(".fechaseleccionada").text() == 'No disponible'  && sinseleccionhoras==10))
+            {  
+                msj(".mensajehoras","Seleccionar Fecha / hora");
+            }
+            siguiente();   
+        }   	 
 	}); //Btn sig
-    var clndr = {}; 
-     
-    var lotsOfEvents = [];
 
-    
-     
+
+     function siguiente(){
+        var size = $('.slider').find('.s_element').length; 
+        $('.slider').find('.s_element').each(function(index,value){
+   
+            if($(value).hasClass('s_visible'))// Al iniciar entrara a los if ya que tienen por default la clase s_visible
+            {
+                $(value).fadeToggle();
+                $(value).removeClass('s_visible'); 
+                if(index+1<size)
+                {  
+                    $($('.slider').find('.s_element').get(index+1)).fadeToggle();
+                    $($('.slider').find('.s_element').get(index+1)).addClass('s_visible');
+                    return false;
+                }
+                else if(index == 3)// Al iniciar en 0 de 0 a 3 son 4 pantallas,  entonces al llegar a 3 el index le colocamos un limite y solo mostrara hasta ahi
+                { 
+                    $($('.slider').find('.s_element').get(3)).fadeToggle();// efecto
+                    $($('.slider').find('.s_element').get(3)).addClass('s_visible');// para mostrar	
+                    return false;
+                } 
+            }
+        });
+     }
+    function personal(nombre){ // Nombre del Personal
+        $(".personal-reserva").html(`
+        <div class="">
+            <i class="fas fa-user icono-servicio"></i><span class="nombre-detalles"> ${nombre}</span> <br> 
+        </div> 
+        `); 
+    }
+    function msj(clase,desc){ // Mensaje de error warning al no seleccionar un servicio
+        
+        if(clase == '.mensajehoras'){
+            $('.mensajehoras').html(`
+            <div class="alert alert-warning d-flex justify-content-center" role="alert">
+                ${desc} 
+            </div>  
+            `);
+        }
+        else{
+            $(clase).html(`
+            <div class="alert alert-warning d-flex justify-content-center" role="alert">
+                Seleccionar ${desc}
+            </div>  
+            `);
+        }
+    } 
 });
 
  

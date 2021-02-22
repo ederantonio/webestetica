@@ -1,5 +1,5 @@
 <?php
-   include 'db.php';
+   include './conexion/db.php';
     $eventDate = $_POST['eventDate'];
     $query="select * from event where date = '" . $eventDate . "'";
     $result = mysqli_query($conn,$query) or die('Query failed: ' . mysql_error());

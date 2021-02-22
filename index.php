@@ -117,7 +117,7 @@
                 <section>
                     <span class="container-NameServ"><strong>Aplicación de uñas</strong></span>
                     <span class="container-membresia__tittle"><strong>Aplicación de uñas</strong></span>
-                    <p class="container-membresia__text">
+                    <article class="container-membresia__text">
 
                         Lorem ipsum sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et  magna aliqua. Ut enim ad minim veniam,
@@ -129,7 +129,7 @@
                         •  TLorem ipsum  sit amet. <br><br>
                         •  Es vitalicia <br>
                             
-                    </p>
+                    </article>
                 </section>
             </div>
         </section>
@@ -139,13 +139,13 @@
             <section>
                 <span class="container-NameServ"><strong>Maquillaje</strong></span><!-- Es el primer titulo-->
                 <span class="container-membresia__tittle"><strong>Maquillaje</strong></span><!-- Segundo titulo -->
-                <p class="container-membresia__text">
+                <article class="container-membresia__text">
                     Lorem ipsum sit amet, consectetur adipisicing elit, sed do eiusmod
                     tempor incididunt ut labore et  magna aliqua. Ut enim ad minim veniam,
                     
                     <br><br>
                     Contacto: correo@gmail.com.mx<!-- con los espacios en los textos logra que se centre el texto -->
-                </p>
+                </article>
             </section>      
             </div>
         </section> 
@@ -155,12 +155,12 @@
                 <section>
                     <span class="container-NameServ"><strong>Planchado de cabello</strong></span>
                     <span class="container-membresia__tittle"><strong>Planchado de cabello</strong></span>
-                    <p class="container-membresia__text">
+                    <article class="container-membresia__text">
                         Lorem ipsum sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et magna aliqua. Ut enim ad minim veniam,
                         s
                         
-                    </p>
+                    </article>
                 </section>
             </div>
         </section>  
@@ -173,7 +173,7 @@
         <div class="space bc-negro" id="link-QuienesSomos"></div> 
         <div class="container-tittle bc-negro">
             <span class="container-tittle__tittles2">Nosotros</span>
-            <p class="container-tittle__text">Conócenos</p>
+            <!-- <p class="container-tittle__text">Conócenos</p> -->
         </div>  
         <div class="space_min bc-negro"></div>
         
@@ -187,10 +187,10 @@
                     <section>
                         <span class="container-NameServ backgroundNMV"><strong>¡Conócenos!</strong></span>
                         <span class="container-membresia__tittle"><strong>¡Conócenos!</strong></span>
-                        <p class="container-membresia__text">
+                        <article class="container-membresia__text">
                             Lorem ipsum sit amet, consectetur adipisicing elit, sed do eiusmod
                             tempor incididunt ut labore et magna aliqua. Ut enim ad minim veniam.
-                        </p>
+                        </article>
                     </section>
                 </div>
             </section>
@@ -199,9 +199,9 @@
                             <section>
                                 <span class="container-NameServ backgroundNMV"><strong class="">Misión</strong></span>
                                 <span class="container-membresia__tittle"><strong>Misión</strong></span>
-                                <p class="container-membresia__text">
+                                <article class="container-membresia__text">
                                 Crear experiencias positivas, a través de un servicio innovador.
-                                </p>
+                                </article>
                             </section>
                         </div>
             </section>
@@ -211,14 +211,14 @@
                     <section>
                         <span class="container-NameServ backgroundNMV"><strong>Visión</strong></span>
                         <span class="container-membresia__tittle"><strong>Visión</strong></span>
-                        <p class="container-membresia__text">
+                        <article class="container-membresia__text">
                         Lorem ipsum sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat. Duis aute irure in reprehenderit in voluptate velit esse
                         cillum eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                         proident, sunt in  qui officia deserunt mollit anim id est laborum.
-                        </p>
+                        </article>
                     </section>
                 </div>
             </section> 
@@ -233,10 +233,10 @@
         <div class="space bc-negro"  id="link-Servicios"></div> 
         <div class="container-tittle bc-negro">
             <span class="container-tittle__tittles2">Servicios</span>
-            <p class="container-tittle__text">Elige tu mejor opción</p>
+            <!-- <p class="container-tittle__text">Elige tu mejor opción</p> -->
         </div>
         <div class="space-min bc-negro"></div>
-
+        <div class="space_min bc-negro"></div>
         <!-- ===============================================================
         ---------/ Servicios inicia
         =============================================================== --> 
@@ -275,7 +275,7 @@
         <div class="space bc-negro" id="link-Paquetes"></div><!--Es un espacio en blanco--> 
         <div class="container-tittle bc-negro"><!-- Container del letrero Paquetes-->
             <span class="container-tittle__tittles2">Paquetes</span>
-            <p class="container-tittle__text">Tenemos los pauetes adaptados a tus eventos</p>
+            <!-- <p class="container-tittle__text">Tenemos los pauetes adaptados a tus eventos</p> -->
         </div> 
         <div class="space_min bc-negro"></div>
 
@@ -309,31 +309,7 @@
                 <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN7Kzdpnbj4YRXukZ_tIZJos&key=AIzaSyBwAk3u-wZbpvrGazyGRp9ZxioQheso_UQ" allowfullscreen></iframe> 
                 </div>
             </div>
-        </div>
-        <h1 style="background:teal">eder</h1>
-            <div class="container">  
-                <div class="cal1"></div> 
-                <div id="selected-date" class="cal2"></div> 
-            </div> 
-            <script type="text/template" id="clndr-template">
-                <div class="clndr-controls">
-                    <div class="clndr-previous-button">&lsaquo;</div>
-                    <div class="month"><%= month %></div>
-                    <div class="clndr-next-button">&rsaquo;</div>
-                </div>
-                <div class="clndr-grid">
-                    <div class="days-of-the-week">
-                    <% _.each(daysOfTheWeek, function (day) { %>
-                        <div class="header-day"><%= day %></div>
-                    <% }); %>
-                        <div class="days">
-                        <% _.each(days, function (day) { %>
-                            <div class="<%= day.classes %>"><%= day.day %></div>
-                        <% }); %>
-                        </div>
-                    </div>
-                </div> 
-            </script>
+        </div> 
         <!-- ===============================================================
         ---------/ Contacto termina
         =============================================================== --> 
@@ -345,7 +321,7 @@
         <div class="container-footer">
             <div class="footer-btn__flotante btn-scroll" data-id="link-Inicio"></div>
             <div class="container-derechos">
-                <p class="derechos"> Todos los Derechos quedan reservados </p>
+                <article class="derechos"> Todos los Derechos quedan reservados </article>
             </div>
         </div>
         <!-- ===============================================================
@@ -374,7 +350,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title" ><b>Seleccionar Servicios</b></h3> 
+                        <h3 class="modal-title " ><b>Seleccionar Servicios</b></h3> 
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
@@ -471,16 +447,16 @@
                                         </div><!-- Panel group-->  
                                     </div><!-- ele1 -->
                         
-                                    <div id="ele2" class="s_element">
+                                    <div id="ele2" class="s_element" >
                                             
                                             <div class="form-check ml-2 d-flex align-items-center radio-personal">
-                                                <input class="form-check-input btn-radios" type="radio" name="personalradios" id=" " value="Rodrigo Salazar">
+                                                <input class="form-check-input btn-radios" type="radio" name="personalradios" id="default" value="cualquiera disponible">
                                                 <div class="circulo ml-2 d-flex justify-content-center">
-                                                    <img class="img-personal" src="img/chicouno.png"  />
+                                                    <img class="img-personal cualquiera" src="img/user.png" />
                                                 </div>
                                                 <div class="ml-3">
-                                                    <div class="nombre-personal"><b>Alondra Salazar</b></div> 
-                                                    <div class="cargo">Barbero/Peluquero</div>
+                                                    <div class="nombre-personal"><b>Cualquiera Disponible</b></div> 
+                                                    <!-- <div class="cargo">Barbero/Peluquero</div> -->
                                                 </div> 
                                                 
                                             </div>
@@ -520,19 +496,72 @@
 
                                     </div>
 
-                                    <div id="ele3" class="s_element"> 
-                                        
-                                    </div>  
+                                    <div id="ele3" class="s_element" value="3" > 
+                                        <div class="container panel-servicios"  >
+                                            <div class="contendor-calendario  d-flex align-items-start" >
+                                                <div class="container">  
+                                                    <div class="cal1"></div> 
+                                                    <div id="selected-date" class="cal2"></div> 
+                                                </div> 
+                                                <script type="text/template" id="clndr-template">
+                                                    <div class="clndr-controls">
+                                                        <div class="clndr-previous-button">&lsaquo;</div>
+                                                        <div class="month"><%= month %></div>
+                                                        <div class="clndr-next-button">&rsaquo;</div>
+                                                    </div>
+                                                    <div class="clndr-grid">
+                                                        <div class="days-of-the-week">
+                                                        <% _.each(daysOfTheWeek, function (day) { %>
+                                                            <div class="header-day"><%= day %></div>
+                                                        <% }); %>
+                                                            <div class="days">
+                                                            <% _.each(days, function (day) { %>
+                                                                <div class="<%= day.classes %>"><%= day.day %></div>
+                                                            <% }); %>
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                </script> 
+                                            </div>
+                                      
+
+                                            <div class="msjfechas mt-2 ml-3">
+                                                <i class="fas fa-clock ml-2"></i><label class="mt-3 ml-2" for=" "><b>Seleccion de Fecha:</b><span class="fechaseleccionada">  </span></label>
+                                            </div>
+                                            <div class="container row  mt-2" >                    
+                                                <div class="column1">
+                                                    <span class="cargo ml-3">Mañana</span>
+                                                    <div class="horario">
+                                                    
+                                                    </div> 
+                                                </div>
+
+                                                <div class="column2 ml-auto">
+                                                    <span class="cargo ml-3">Tarde</span>
+                                                    <div class="horario2">
+                                                    
+                                                    </div>                
+                                                </div>
+                                            </div>
+                                        </div>  
+
+                                    </div> <!-- elem3--> 
+
+                                    <div id="ele4" class="s_element"> 
+                                         
+                                    </div>
                             </article>  
                         
     
 
                             <div class="mt-4" >
+                                <div class="mensajehoras"></div>
                                 <h5 class="ml-4 panel-title"><a>Detalles</a> </h5>
                                     
                                 <div class="resultado ml-3 m-1">  
                                     <div class="services-reserva "></div> 
                                     <div class="personal-reserva "></div>
+                                    <div class="fecha-reserva"></div>
                                     <div class="ml-3 mt-3 ubicacion-reserva" >
                                         <i class="fas fa-map-marker-alt  mt-3"></i>
                                         <span class="ml-3  resultado-nombre">Selene del Rio Estética </span>
@@ -566,12 +595,14 @@
 <!-- ---------/ LIBRERIA CALENDARIO /--------- -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js"></script>
-<script src="js/clndr.js"></script> 
-<!-- ---------/ LIBRERIA SLIDER /----------->
-<script src="js/swiper.min.js" charset="UTF-8"></script><!-- plugin del slider--> 
 <!-- ---------/ LIBRERIA BOOSTRAP /----------->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+<script src="js/clndr.js"></script> 
+<script src="js/test.js"></script> 
+<!-- ---------/ LIBRERIA SLIDER /----------->
+<script src="js/swiper.min.js" charset="UTF-8"></script><!-- plugin del slider--> 
+   
   
 <!-- -----------/ FUNCIONES /------------->
 <script src="js/funciones.js" charset="utf-8"></script><!-- jquery para los efectos-->
