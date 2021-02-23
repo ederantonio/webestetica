@@ -799,7 +799,7 @@ cursor: pointer;
   text-decoration:none; 
 } 
 .panel{/*panel secundario para que pueda verse el scroll necesita ese ancho el panel*/ 
-  width:400px; 
+  width:350px; 
    
 } 
 .modal-content{/* Tamaños del contenido del modal*/
@@ -825,14 +825,17 @@ cursor: pointer;
   font-style:italic;
   margin-left:52px;
 }
+#ele1{
+  width:390px;
+}
 .panel-group { /*se coloca el scroll  y a los 300px aparecera*/
-   
+    
   height:390px; 
   overflow-y:scroll;
 }
 .resultado{
   border: 1px solid #e9e9e9;
-  height:300px;
+  min-height:300px;
   width:320px;
 }
 .direccion{
@@ -870,7 +873,7 @@ cursor: pointer;
 ============================================================*/
  
 .article-slider{
-  width:430px;
+  width:390px;
 }
 .slider/*tiene dentro ele1 , panelgroup */
 {
@@ -938,21 +941,37 @@ cursor: pointer;
   height:60px;
 }
 .panel-servicios{ /*Solo recorta el tamaño del div y coloca el scroll*/
-  height:395px; 
+  height:380px; 
   overflow:scroll; 
 }
-/* height:200px;
-overflow: auto;
-border:1px solid #000; */
+.detalles{
+  width:380px;
+   
+  height:380px; 
+  overflow:scroll; 
+}
+.alert{
+  margin:0em auto;
+  width:327px;
+}
 /*=========================================================
 ---------------/ Calendario
 =========================================================== */ 
 .clndr{ /*ancho del calendario*/
   width:356px;
 }
-.fecha-reserva{
+.fecha-reserva ,.hora-reserva{
   margin-top:30px; 
   margin-left:15px;
+}
+.formulario-cita{
+  margin-top:10px;
+}
+.nombre-contacto{
+  width:150px;
+}
+.email-contacto{
+  width:225px;
 }
 /*==========================================================
 ------------------/ Responsive  

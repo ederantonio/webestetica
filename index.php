@@ -357,7 +357,7 @@
                     </div>
                      
                     <div class="modal-body">
-                        <span class="alerta"></span>
+                         
                         <div class="row">
                          
                             <article class="article-slider mt-4">
@@ -365,7 +365,7 @@
                                     <div id="ele1" class="s_element s_visible">  
                                         <div class="panel-group" id="accordion7401210" role="tablist" aria-multiselectable="false">
 
-                                            <div class="panel panel-default"><!-- Panel 1-->
+                                            <div class="panel panel-default"><!-- Panel 1 tamaño de ancho -->
                                                 <div class="panel-heading mb-4" role="tab" id="heading8122873"><!-- Distancia entre titulos de los panel-->
                                                     <h5 class="panel-title ml-3">
                                                         <a role="button" data-toggle="collapse" class="accordion-plus-toggle collapsed  " data-parent="#accordion7401210" href="#collapse8122873" aria-expanded="false" aria-controls="collapse8122873">Corte de Pelo</a>
@@ -450,12 +450,12 @@
                                     <div id="ele2" class="s_element" >
                                             
                                             <div class="form-check ml-2 d-flex align-items-center radio-personal">
-                                                <input class="form-check-input btn-radios" type="radio" name="personalradios" id="default" value="cualquiera disponible">
+                                                <input class="form-check-input btn-radios" type="radio" name="personalradios" id="default" value="Cualquiera disponible">
                                                 <div class="circulo ml-2 d-flex justify-content-center">
                                                     <img class="img-personal cualquiera" src="img/user.png" />
                                                 </div>
                                                 <div class="ml-3">
-                                                    <div class="nombre-personal"><b>Cualquiera Disponible</b></div> 
+                                                    <div class="nombre-personal"><b>Cualquiera disponible</b></div> 
                                                     <!-- <div class="cargo">Barbero/Peluquero</div> -->
                                                 </div> 
                                                 
@@ -547,21 +547,49 @@
 
                                     </div> <!-- elem3--> 
 
-                                    <div id="ele4" class="s_element"> 
-                                         
+                                    <div id="ele4" class="s_element" style="background: "> 
+                                        <div class="container">
+                                            <form id="myForm" >  
+                                                <div class="form-row d-flex justify-content-center">
+                                                    <div class="nombre-contacto  mt-4  "> 
+                                                        <input type="text" class="campo sobremi form-control" name="name" id="name" placeholder="Nombre*"> 
+                                                    </div> 
+                                                    <div class="email-contacto ml-2   mt-4">                                                                                         
+                                                        <input type="email" name="email" placeholder="Email*" class="campo email sobremi form-control" id="email"> 
+                                                    </div>
+                                                </div> 
+
+                                                <div class=" justify-content-start mt-4"> 
+                                                    <input type="text" class="campo sobremi form-control" id="subject" name="subject" placeholder="Telefono*"> 
+                                                </div>
+                                                <div class="  mt-4"> 
+                                                    <textarea   class="campo sobremi form-control" id="description" name="description" placeholder="Comentarios*" rows="3"></textarea> 
+                                                </div>
+                                                <div class="notificacion mb-2">
+                                                    <div class="loader"></div> 
+                                                </div> 
+                                                <div class="d-flex justify-content-center btnenviar">
+                                                    <!-- <button class="btn btn-info icon mt-4 cv " id="btn-enviar">Enviar Mensaje</button>  -->
+                                                     <button type="submit" id="btn-form" class="btn btn-info icon mt-4 cv" style="display:none">Enviar Mensaje</button>  
+                                                </div>  
+                                            </form>
+                                        </div> 
                                     </div>
                             </article>  
                         
     
 
-                            <div class="mt-4" >
-                                <div class="mensajehoras"></div>
+                            <div class="detalles mt-4 ml-4" >
+                                <div class="mensajehoras">
+                                </div>
                                 <h5 class="ml-4 panel-title"><a>Detalles</a> </h5>
-                                    
-                                <div class="resultado ml-3 m-1">  
+                                <span class="alerta"></span>
+                                <div class="nota"></div> <!-- warning-->
+                                <div class="resultado ml-4 m-1">  
                                     <div class="services-reserva "></div> 
                                     <div class="personal-reserva "></div>
                                     <div class="fecha-reserva"></div>
+                                    <div class="hora-reserva"></div>
                                     <div class="ml-3 mt-3 ubicacion-reserva" >
                                         <i class="fas fa-map-marker-alt  mt-3"></i>
                                         <span class="ml-3  resultado-nombre">Selene del Rio Estética </span>
@@ -578,7 +606,7 @@
 
                         <div class="modal-footer"> 
                                 <button type="button" class="btn btn-secondary" id="btnAnt"  >Regresar</button><!--data-dismiss="modal"-->
-                                <button type="button" class="btn btn-primary" id="btnSig">Continuar</button>
+                                <button  type="button " class="btn btn-primary" id="btnSig">Continuar</button>
                         </div>
 
                         
@@ -590,7 +618,7 @@
         ---------/ Modal termina
         =============================================================== --> 
 </div><!--termina container-ppal--> 
-<!-- ----------/ JQUERY Y BOOSTRAP /----------->
+<!-- ----------/ JQUERY /----------->
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <!-- ---------/ LIBRERIA CALENDARIO /--------- -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
@@ -602,7 +630,9 @@
 <script src="js/test.js"></script> 
 <!-- ---------/ LIBRERIA SLIDER /----------->
 <script src="js/swiper.min.js" charset="UTF-8"></script><!-- plugin del slider--> 
-   
+<!-- ----------/ LIBRERIA VALIDATE FORM /---------->
+<script src="js/jquery.validate.js"  type="text/javascript"></script>
+<script src="js/additional-methods.js"  type="text/javascript"></script>
   
 <!-- -----------/ FUNCIONES /------------->
 <script src="js/funciones.js" charset="utf-8"></script><!-- jquery para los efectos-->
