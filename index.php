@@ -28,16 +28,16 @@
             </figure>
             <nav class="header-menu">
                 <ul>
-                    <li><a class="  btn-scroll color-link" data-id="link-Inicio"  id="inicio">INICIO</a></li>
-                    <li><a class="  btn-scroll" data-id="link-QuienesSomos" id="nosotros">NOSOTROS</a></li>
-                    <li><a class="  btn-scroll" data-id="link-Servicios" id="servicios">SERVICIOS</a></li>
-                    <li><a class="  btn-scroll" data-id="link-Paquetes" id="paquetes">PAQUETES</a></li>
-                    <li><a  class=""  data-toggle="modal" data-target="#exampleModal" id="contacto">HAZ CITA</a></li>
+                    <li class="enlace"><a class="  btn-scroll color-link" data-id="link-Inicio"  id="inicio">INICIO</a></li>
+                    <li class="enlace"><a class="  btn-scroll" data-id="link-QuienesSomos" id="nosotros">NOSOTROS</a></li>
+                    <li class="enlace"><a class="  btn-scroll" data-id="link-Servicios" id="servicios">SERVICIOS</a></li>
+                    <li class="enlace"><a class="  btn-scroll" data-id="link-Paquetes" id="paquetes">PAQUETES</a></li>
+                    <li class="enlace"><a  class=""  data-toggle="modal" data-target="#exampleModal" id="contacto">HAZ CITA</a></li>
                     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     Launch demo modal
                     </button> -->
                     <!-- <li><a id="btn_ResultLinea">SESIÓN</a></li> -->
-                    <li><a  class="  btn-scroll" data-id="link-Contacto" id="contacto">CONTACTO</a></li>
+                    <li class="enlace"><a  class="  btn-scroll" data-id="link-Contacto" id="contacto">CONTACTO</a></li>
                 </ul>
             </nav>
             <div class="header-btnMenuResponsive">
@@ -382,7 +382,7 @@
                                                         <span class="precios">$320.00</span>
 
                                                         <div class="form-check mt-3 ml-3">
-                                                            <input class="form-check-input btn-radios" type="radio" name="serviciosradios" id=" " value="Corte de pelo express $280.0">
+                                                            <input class="form-check-input btn-radios" type="radio" name="serviciosradios" id=" " value="Corte de pelo express $280.00">
                                                             <label class="form-check-label radios alt" for="exampleRadios1">
                                                                     Corte de pelo express 
                                                             </label>
@@ -455,7 +455,7 @@
                                                     <img class="img-personal cualquiera" src="img/user.png" />
                                                 </div>
                                                 <div class="ml-3">
-                                                    <div class="nombre-personal"><b>Cualquiera disponible</b></div> 
+                                                    <div class=" personal"><b>Cualquiera disponible</b></div> 
                                                     <!-- <div class="cargo">Barbero/Peluquero</div> -->
                                                 </div> 
                                                 
@@ -467,7 +467,7 @@
                                                     <img class="img-personal" src="img/chicodos.png"/>
                                                 </div>
                                                 <div class="ml-3">
-                                                    <div class="mt-1 nombre-personal"><b>Alfonso Uribe</b></div> 
+                                                    <div class="mt-1  personal"><b>Alfonso Uribe</b></div> 
                                                     <div class="cargo">Barbero/Peluquero</div>
                                                 </div>
                                             </div>
@@ -477,7 +477,7 @@
                                                     <img class="img-personal" src="img/chicotres.png" />
                                                 </div>
                                                 <div class="ml-3">
-                                                    <div class="mt-1 nombre-personal"><b>Pedro Hernandez</b></div> 
+                                                    <div class="mt-1  personal"><b>Pedro Hernandez</b></div> 
                                                     <div class="cargo">Barbero/Peluquero</div>
                                                 </div>
                                             </div>
@@ -487,7 +487,7 @@
                                                     <img class="img-personal" src="img/chicocuatro.png"/>
                                                 </div>
                                                 <div class="ml-3">
-                                                    <div class="mt-1 nombre-personal"><b>Raymundo Torres</b></div> 
+                                                    <div class="mt-1  personal"><b>Raymundo Torres</b></div> 
                                                     <div class="cargo">Barbero/Peluquero</div>
                                                 </div>
                                             </div>
@@ -526,7 +526,8 @@
                                       
 
                                             <div class="msjfechas mt-2 ml-3">
-                                                <i class="fas fa-clock ml-2"></i><label class="mt-3 ml-2" for=" "><b>Seleccion de Fecha:</b><span class="fechaseleccionada">  </span></label>
+                                                <i class="fas fa-clock ml-2"></i><label class="mt-3 ml-2" for=" "><b>Seleccion de Fecha:</b><span class="fechaseleccionada">  </span></label> 
+                                                <span class="fecha-formato" style="display:none"></span>
                                             </div>
                                             <div class="container row  mt-2" >                    
                                                 <div class="column1">
@@ -547,32 +548,64 @@
 
                                     </div> <!-- elem3--> 
 
-                                    <div id="ele4" class="s_element" style="background: "> 
-                                        <div class="container">
-                                            <form id="myForm" >  
-                                                <div class="form-row d-flex justify-content-center">
-                                                    <div class="nombre-contacto  mt-4  "> 
-                                                        <input type="text" class="campo sobremi form-control" name="name" id="name" placeholder="Nombre*"> 
+                                    <div id="ele4" class="s_element" > 
+                                        <div class="container  notificacion">
+                                            <div class="formulario">
+                                                <form id="myForm" >  
+                                                    <div class="form-row d-flex justify-content-center">
+                                                        <div class="nombre-contacto  mt-4  "> 
+                                                            <input type="text" class="campo sobremi form-control" name="name" id="name" placeholder="Nombre*"> 
+                                                        </div> 
+                                                        <div class="email-contacto ml-2   mt-4">                                                                                         
+                                                            <input type="email" name="email" placeholder="Email*" class="campo email sobremi form-control" id="email"> 
+                                                        </div>
                                                     </div> 
-                                                    <div class="email-contacto ml-2   mt-4">                                                                                         
-                                                        <input type="email" name="email" placeholder="Email*" class="campo email sobremi form-control" id="email"> 
-                                                    </div>
-                                                </div> 
 
-                                                <div class=" justify-content-start mt-4"> 
-                                                    <input type="text" class="campo sobremi form-control" id="subject" name="subject" placeholder="Telefono*"> 
-                                                </div>
-                                                <div class="  mt-4"> 
-                                                    <textarea   class="campo sobremi form-control" id="description" name="description" placeholder="Comentarios*" rows="3"></textarea> 
-                                                </div>
-                                                <div class="notificacion mb-2">
-                                                    <div class="loader"></div> 
-                                                </div> 
-                                                <div class="d-flex justify-content-center btnenviar">
-                                                    <!-- <button class="btn btn-info icon mt-4 cv " id="btn-enviar">Enviar Mensaje</button>  -->
-                                                     <button type="submit" id="btn-form" class="btn btn-info icon mt-4 cv" style="display:none">Enviar Mensaje</button>  
-                                                </div>  
-                                            </form>
+                                                    <div class=" justify-content-start mt-4"> 
+                                                        <input type="text" class="campo sobremi form-control" id="phone" name="phone" placeholder="Telefono* 10 digitos"> 
+                                                    </div>
+                                                    <div class="  mt-4"> 
+                                                        <textarea   class="campo sobremi form-control" id="description" name="description" placeholder="Comentarios*" rows="3"></textarea> 
+                                                    </div>
+                                                    
+                                                    <div class="d-flex justify-content-center btnenviar">  
+                                                         <button type="submit" id="btn-form" class="btn btn-info icon mt-4 cv" style="display:none">Enviar Mensaje</button>   
+                                                    </div>  
+                                                    <div class="advertencia-covid mt-3">
+                                                        <div class="container "> 
+                                                            <label class="politica-cancelacion">
+                                                            <span><b>Cancellation policy</b><span><br>
+                                                            No cancellations or changes allowed within 3 hours of the appointment.
+                                                            El tiempo de tolerancia para las citas es de 10 minutos. (El tiempo de tolerancia no aplica para servicios de 30 minutos o menos)
+                                                            </label>
+
+                                                            <label>Derivado de la contingencia por el COVID-19, solicitamos a nuestros clientes que sigan estos protocolos:</label>
+                                                            <div class="container">
+                                                                <ul> 
+                                                                    <li  >Uso obligatorio de cubrebocas.</li> 
+                                                                    <li >Asiste a tu cita sin acompañantes.</li> 
+                                                                    <li  >Las salas de espera estarán inhabilitadas.</li> 
+                                                                    <li >Usa gel antibacterial al entrar.</li> 
+                                                                    <li  >Control de temperatura a través de termómetro infrarrojo, restringiendo el acceso a quienes presenten una mayor a 37. 5ºC.</li> 
+                                                                    <li  >Prohibido el acceso a personas con síntomas catarrales (moqueo, congestión nasal o conjuntival, tos seca o productiva, lagrimeo).</li> 
+                                                                    <li  >En ninguna circunstancia podremos atender a persona pertenecientes a los grupos vulnerables.</li> 
+                                                                    <li  >En ninguna circunstancia podremos atender a persona pertenecientes a los grupos vulnerables.</li> 
+                                                                    <li  >El servicio de Corte de Pelo para niño está suspendido.</li> 
+                                                                    <li  >Nuestro sistema de beneficios está suspendido.</li>             
+                                                                </ul> 
+                                                            </div> 
+                                                            <div>GRACIAS POR TU APOYO Y COMPRENSIÓN.</div> 
+                                                            <p class="mt-5">IMPORTANTE:</p>
+                                                            <div class="mt-4">*Las citas duplicadas en 1 ó más sucursales serán canceladas automáticamente.</div>
+                                                            <div class="mb-3 mt-4 form-check">
+                                                                <input type="checkbox" class="form-check-input" name="checkbox" id="checkbox">
+                                                                <label class="form-check-label" for="exampleCheck1">Acepto</label> 
+                                                            </div> 
+                                                            <div class="msjcheckbox"></div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div> 
                                     </div>
                             </article>  
@@ -581,10 +614,14 @@
 
                             <div class="detalles mt-4 ml-4" >
                                 <div class="mensajehoras">
+                                
+                                </div>
+                                <div class="msjhoras">
+                               
                                 </div>
                                 <h5 class="ml-4 panel-title"><a>Detalles</a> </h5>
-                                <span class="alerta"></span>
-                                <div class="nota"></div> <!-- warning-->
+                                <span class="alerta"></span> 
+                                <div class="nota"></div> <!-- Advertencia de seleccion de peluquero, servicios y fechas-->
                                 <div class="resultado ml-4 m-1">  
                                     <div class="services-reserva "></div> 
                                     <div class="personal-reserva "></div>
@@ -606,7 +643,7 @@
 
                         <div class="modal-footer"> 
                                 <button type="button" class="btn btn-secondary" id="btnAnt"  >Regresar</button><!--data-dismiss="modal"-->
-                                <button  type="button " class="btn btn-primary" id="btnSig">Continuar</button>
+                                <span class="btn-cambio"><button  type="button " class="btn btn-primary" id="btnSig">Continuar</button> </span>
                         </div>
 
                         

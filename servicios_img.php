@@ -1,8 +1,6 @@
 <?php
 /*include'./conexion/conexionDB.php';*/
-include ('./conexion/conexionDB.php'); 
- 
- 
+include ('./conexion/conexionDB.php');  
  
 
 	$varAjax=$_POST['peticion']; 

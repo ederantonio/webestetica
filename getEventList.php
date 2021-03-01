@@ -4,8 +4,8 @@ $factual = $_POST['datos'];
 //echo "<script>console.log('$factual');</script>";
 // $query = mysqli_query($con, "SELECT * FROM citas where fechahora = '$factual'") 
 // or die('Query failed: ' . mysql_error()); 
-
-$total = mysqli_num_rows(mysqli_query($con,"SELECT * FROM citas where fechahora = '$factual'"));
+$sql = "SELECT * FROM citas where fechahora = '$factual'";
+$total = mysqli_num_rows(mysqli_query($con,$sql));
 if($total==0){
     $msj= 'sin registros';
     echo json_encode($msj);

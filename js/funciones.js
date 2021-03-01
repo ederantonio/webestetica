@@ -1,4 +1,5 @@
-var player, value, ytplayer;
+var clndr = {};
+var player, value, ytplayer,precio;
 
 var swiper = new Swiper('#link-Inicio__slider', {
    /* centeredSlides: true,*/
@@ -269,54 +270,148 @@ $(window).scroll(function() {
  
 
 $(()=> {
+    var radio;
+    /*------------------------/ Calendario /--------------------------*/
+    var lotsOfEvents = [];
+    var actualfecha = moment().format('YYYY-MM-DD hh:mm:ss a'); // Fecha actual 
+    var fechaeningles = moment().format('LLLL').split(',');  
+    var dia = fechaeningles[0].substring(0,3);
+    var mes = fechaeningles[1].substring(0,4); 
+    var numero = fechaeningles[1].replace(" ", "").split(' ');  
+    var año = fechaeningles[2].replace(" ", "").split(' ');  
+    $(".fechaseleccionada").html( '&nbsp;<b>'+ dia +','+ numero[1] + mes +'del'+' '+ año[0]+'</b>');// label abajo del calendario inicia en la fecha actual
+     
+        clndr.selectedDate = $('#selected-date').clndr({  
+            events: lotsOfEvents, // lotsOfEvents: date title para marcar en color verde la fecha que tiene eventos 
+            constraints: 
+            {//Limite de rango de fechas
+                startDate: moment().format('YYYY-MM-DD'),//fecha actual
+                endDate: moment().add(1, 'month').format('YYYY-MM-DD')
+            }, 
+            clickEvents: 
+            {
+                click: function (target) 
+                {   
+                    $(".fecha-formato").html(target.date._i); 
+                    var fecha = target.date._d.toString();  // Se convierte a string para poder trabajarlo Thu Feb 18 2021 00:00:00 GMT-0600 (hora estándar central)  
+                    var fechaentexto = fecha.substring(0,fecha.indexOf("00")); 
+                    var fec = fechaentexto.split(' '); 
+                    fec.pop(); 
+            
+                    if(target.element.classList[2] == 'inactive'||  //Al dar click en fechas inactivas pasadas, fin de rango del mes y del mes siguiente no hara nada 
+                        target.element.classList[1] == 'inactive'||      
+                        target.element.classList[3] == 'inactive'){ 
+                    } 
+                    else{
+                        $(".fechaseleccionada").html('<b> '+ fec[0] +','+fec[2]+' '+fec[1]+' del '+fec[3]+'</b>');  
+                    }
+                
+                    $.ajax({ // Al dar click a alguna fecha se enviara a la db para traer datos de esa fecha
+                        url: 'agregarcita.php',
+                        type : 'POST',
+                        dataType:'json', 
+                        data: {
+                            peticion:'clickfecha',
+                            eventDate : target['date']['_i']   // 2021-02-19                      
+                        }, 
+                        success: function(datos){  
+                            
+                            var arreglohorario = ['10:00am' , '11:00am','12:00pm','1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm']; 
+                            if(datos!= '')// Si hay fechas en la tabla, habra que quitarlos del arreglohorario
+                            {  
+                                var arraynorepetidos=[]; 
+                                for(var c=0;c<arreglohorario.length;c++)//se hace comparacion para dejar los que no se repiten
+                                {
+                                    var igual=false;
+                                    for(var e=0;e<datos.length;e++){
+                                        if(arreglohorario[c] == datos[e].hora){
+                                            igual=true;
+                                        } 
+                                    }
+                                    if(!igual) 
+                                    arraynorepetidos.push(parseInt(arreglohorario[c])); 
+                                } 
+                                horas(arraynorepetidos,1); 
+                            }
+                            else  { // si no hay datos deja por default todas las horas
+                                horas(arreglohorario,2);
+                            } 
+                            $('input:radio[name=radiohoras]').change(function() { 
+                                radio = this.value;
+                                
+                            });
+                        } 
+                    });// Ajax      
+                }, 
+            }, 
+            trackSelectedDate: true,// Para al seleccionar la fecha le coloca un color
+            ignoreInactiveDaysInSelection: true,// Para no seleccionar los que estan inactivos
+            template: $('#clndr-template').html()
+        }); // SelectedDate  
+     
+    
+    $("#default").attr("checked",true);// Se coloca en checked 'Cualquiera disponible'
+    personal($("#default").val());// Se pasa el value al mensaje para mostrarlo del lado derecho
+    var fechaselect;
+    /*------------------------/ Advertencia covid /--------------------------*/
+    $(document).on("click","#checkbox",function(){ // Controlar el checkbox al dar click
+        if( $("#checkbox").is(':checked') ) 
+            $(".advertencia-covid").css("border-left","4px solid #F9F9FF"); 
+        else 
+            $(".advertencia-covid").css("border-left","4px solid #C95E81"); // linea roja
+    })
 
-    $('input:radio[name=serviciosradios]').change(function() {/*detecta seleccion de radio y muestra detalle*/
-         
-        let valor = this.value; 
+    /*---------/ Radios servicios /----------*/
+    $('input:radio[name=serviciosradios]').change(function() {/*detecta seleccion de radio y muestra en detalle*/ 
+        let valor = this.value;  
         let cadena = valor.split("$");
         let texto = cadena[0];
-        let precio = cadena[1];
-            $(".services-reserva").html(`
+        precio = cadena[1]; 
+        // Se coloca el label
+        $(".services-reserva").html(`
             <div class="mt-2">
                 <i class="fas fa-gift icono-servicio"></i><span class="nombre-detalles"> ${texto}</span><br>
-                <span class="precios-servicios">$ ${precio}</span>
-                
-            </div> 
-        `); 
+                <span class="precios-servicios">$ ${precio}</span> 
+            </div>`); 
         $(".alerta").remove();
     });
+
+    /*---------/ Radios personal /-------*/
     $('input:radio[name=personalradios]').change(function() { 
         let value = this.value;
         let string = value.split("$");
-        let textopersonal = string[0];
+        let textopersonal = string[0]; 
+        // Se coloca el label
         personal(textopersonal); 
-    }); 
-     
-    /* ---------/Boton anterior /-------- */
+    });  
+
+    /* ----------/Boton anterior /--------- */
     $('#btnAnt').click(function()
-	{
-		var size = $('.slider').find('.s_element').length;//3
-		 
-		$('.slider').find('.s_element').each( function(index,value){// 0 y elemento1 html 
-            
-            
+	{ 
+		var size = $('.slider').find('.s_element').length;//3 
+		$('.slider').find('.s_element').each( function(index,value){// 0 y elemento1 html  
+             
             if($(value).hasClass('s_visible'))// Al principio inicia aqui por regresa true por que tiene la clase s_visible
-            {
-                //$(value).slideUp();
+            { 
                 $(value).fadeToggle();
-                $(value).removeClass('s_visible');//quita la clase a 1
+                $(value).removeClass('s_visible');//quita la clase a 1  
+                if(index == 3){ // Cuando va de regreso se mantiene el indice 3 en donde esta el caldendario
+                    nota(); 
+                }
+                else{
+                    $('.nota').css("display","none"); // nota de elegir barbero, fecha y hora
+                }
                 
-                if(index==0)// la 0 es la la ultima pantalla
-                { 
-                    
+                if(index==0)
+                {  
                     $($('.slider').find('.s_element').get(0)).fadeToggle();
                     $($('.slider').find('.s_element').get(0)).addClass('s_visible');
                     return false;
                 }
                 else  
-                { 
+                {    
                     $($('.slider').find('.s_element').get(index-1)).fadeToggle();
-                    $($('.slider').find('.s_element').get(index-1)).addClass('s_visible');	
+                    $($('.slider').find('.s_element').get(index-1)).addClass('s_visible'); 
                     return false;
                 }
             }
@@ -325,98 +420,152 @@ $(()=> {
      
     /* ------------/ Boton Siguiente /---------- */
     $(document).on('click','#btnSig',function(e)
-    {
+    { 
         e.preventDefault(); 
          
-        $('input:radio[name=radiohoras]').change(function() { 
-            value = this.value;  
-        });
+         
 
-        $("#default").attr("checked",true);// Se coloca el radio button en checked
-        personal($("#default").val());// Se pasa el value al mensaje para mostrarlo del lado derecho
-        
-        
         var sinseleccionar=0;
         $("input[name=serviciosradios]").each(function (index,elem) {  // Contabiliza los seleccionados / deseleccionados
             if($(this).is(':not(:checked)')) 
                 sinseleccionar += 1;  
         });  
-        if(sinseleccionar == 6){ // cuando 
+        if(sinseleccionar == 6){ // si no se selecciono ninguno se muestra el mensaje
             msj(".alerta",'servicio');
         } 
-         
         else if($('#ele3').hasClass('s_visible'))
         {    
-            var sinseleccionhoras=0;
+            var sinseleccionhoras=0,seleccionar=0;
             $("input[name=radiohoras]").each(function (index,elem) {  // Contabiliza los seleccionados / deseleccionados
                 if($(this).is(':not(:checked)')){
-                    sinseleccionhoras += 1; 
+                    sinseleccionhoras += 1; // si selecciono uno con eso
+                }
+                else{
+                    seleccionar+=1;
+                    //siguiente(seleccionar);
                 }   
-            }); 
-            /* ------------/ Validacion sin seleccion de elementos /------------*/
-            if((!$(".day").hasClass('selected') && sinseleccionhoras == 11) || 
-              ($(".day").hasClass('selected') && sinseleccionhoras == 11) || 
-              (!$(".day").hasClass('selected') && sinseleccionhoras==10 ))
+            });  
+                 
+            if((!$(".day").hasClass('selected') && sinseleccionhoras == 11) || //Validacion sin seleccion de fecha y hora
+            ($(".day").hasClass('selected') && sinseleccionhoras == 11) || 
+            (!$(".day").hasClass('selected') && sinseleccionhoras==10 )|| !$(".day").hasClass('selected')
+            ||$(".day").hasClass('selected') && radio == undefined)// cuando radio es undefined es por que no ha seleccionado nada 
             {  
                 msj(".mensajehoras","Seleccionar Fecha / hora");
-            }
-            else{
-                 
-                 
+            } 
+            else
+            { 
                 $(".mensajehoras").remove();// Quita el mensaje al seleccionar fecha y hora
-                siguiente();
+                siguiente();// avanza
+                // label hora
                 $(".hora-reserva").html(`
                     <div class="">
-                        <i class="fas fa-clock"></i><span class="nombre-detalles ml-2"  > ${value} </span>  
-                    </div> 
+                    <i class="fas fa-clock"></i><span class="nombre-fecha ml-2">${radio}</span>  
+                    </div>                    
                 `);
-                var fechaselect = $(".fechaseleccionada").text();
+
+                fechaselect = $(".fechaseleccionada").text();// label fecha
                 $(".fecha-reserva").html(`
                     <div class="">
-                        <i class="far fa-calendar-alt"></i><span class="nombre-detalles ml-2"  > ${fechaselect}&nbsp;${value} </span>  
+                        <i class="far fa-calendar-alt"></i><span class="nombre-fecha ml-2">${fechaselect}</span>  
                     </div> 
                 `);
-            }  
+            } 
+              
         } 
         else 
         { 
-            
-            // if((!$(".day").hasClass('selected') && sinseleccionhoras == 11) || 
-            // ($(".day").hasClass('selected') && sinseleccionhoras == 11) || 
-            // (!$(".day").hasClass('selected') && sinseleccionhoras==10 ) ||  
-            // ($(".fechaseleccionada").text() == 'No disponible' && sinseleccionhoras ==11)  ||
-            // ($(".fechaseleccionada").text() == 'No disponible'  && sinseleccionhoras==10))
-            // {  
-            //     msj(".mensajehoras","Seleccionar Fecha / hora");
-            // }
             siguiente();   
         }   
-	}); //Btn sig
-
+	}); //Btn sig 
+   
+     /*----------------/ Validación de formulario/-------------*/
+    $.validator.addMethod("email", function(value, element) { 
+        return this.optional(element) || /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/i.test(value);
+    }, "Email Address is invalid: Please enter a valid email address."); 
+         
+    $("#myForm").validate({ 
+        rules: {
+            name:{required:true,lettersonly:true}, 
+            email:{required:true}, 
+            phone:{required:true,digits:true },
+            description:{required:true},
+            checkbox:{required:true }, 
+        },
+        messages:{ 
+            name:'<span style="color:#C95E81">Llenar campo / incorrecto</span> ',
+            email:'<span style="color:#C95E81">Llenar campo / incorrecto</span>',
+            phone:' <span style="color:#C95E81">Llenar campo / ingresar solo números</span> ',
+            description:'<span style="color:#C95E81">Llenar campo</span>', 
+            checkbox:'<span style="color:#C95E81">Aceptar la politica de cancelación</span>',
+        } , 
+        submitHandler: function(form){ //si todos los controles cumplen con las validaciones, se ejecuta este codigo
+            // $(".loader").css("visibility","visible");  
+            jQuery.ajax({ 
+                url: 'agregarcita.php', 
+                type: 'POST',      
+                dataType: 'json',  
+                data: {
+                    peticion:'validacionfechas',
+                    servicio:$(".nombre-detalles").text(),
+                    personal:$(".nombre-personal").text(),
+                    fecha:$(".fecha-formato").text(),
+                    hora:$(".nombre-horas").text(),
+                    name: $("#name").val(),
+                    email:$("#email").val(),
+                    phone:$("#phone").val(),
+                    description:$("#description").val(), 
+                    precio:parseInt(precio)
+                },  
+                complete: function(xhr, textStatus) {
+                //se llama cuando se recibe la respuesta (no importa si es error o exito)
+                // alert("La respuesta regreso");
+                },
+                success: function(data, textStatus, xhr) { 
+                // $(".loader").css("visibility","hidden"); 
+                // $("#name").val(" ") ; 
+                // $("#email").val(" ") ; 
+                // $("#subject").val(" ") ; 
+                // $("#description").val(" ") ; 
+                // $('.notificacion').html(`
+                // <div class="alert alert-success">
+                // 	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                // 	 Enviado correctamente!
+                // </div> `); 
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                // $(".loader").css("visibility","hidden");
+                // //called when there is an error
+                // $('.notificacion').html(`
+                // <div class="alert alert-danger"> 
+                // 	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                // 	Algo ocurrio
+                    // </div> `);
+                }
+            });
+        }, 
+    });
 
     function siguiente()
-    {
+    { 
         var size = $('.slider').find('.s_element').length; 
-        $('.slider').find('.s_element').each(function(index,value){
+        $('.slider').find('.s_element').each(function(index,value){ 
           
-            if(index == 1){ // Cuando este en la pantalla del calendario se mostrara el mensaje
-                $(".nota").html(`
-                    <div class=" ml-4" " style="width:290px;"> 
-                        <span>
-                            Elige a tu barbero o si no tienes preferencia
-                            por algúno selecciona "No disponible".
-                            Selecciona la fecha y la hora de tu cita. 
-                        </span> 
-                    </div>
-                `);
-            } 
-            else if(index  == (0 || 2 || 3)){
-                $(".nota").remove();
-            }
-             
-            if($(value).hasClass('s_visible'))// Al iniciar entrara a los if ya que tienen por default la clase s_visible
-            {   
+            if(index == 1){ // Cuando este en la pantalla del calendario se mostrara el mensaje de seleccion
+                nota();
                 
+            } 
+            else if(index  == (0 || 2 || 3)){ // En las otras pantallas debe ocultarse
+                $(".nota").css('display','none');
+            }
+
+            if(index == 2 && $("#checkbox").is(":not(:checked)")   ){ // Cuando llegue a la pantalla final 
+                
+                $(".advertencia-covid").css("border-left","4px solid #C95E81");
+            }    
+            
+            if($(value).hasClass('s_visible'))// Al iniciar entrara a los if ya que tienen por default la clase s_visible
+            {    
                 $(value).fadeToggle();
                 $(value).removeClass('s_visible'); 
                 if(index+1<size)
@@ -427,8 +576,7 @@ $(()=> {
                 }
                   
                 else if(index == 3)// Al iniciar en 0 de 0 a 3 son 4 pantallas,  entonces al llegar a 3 el index le colocamos un limite y solo mostrara hasta ahi
-                { 
-                    
+                {   
                     $("#btn-form").click();
                     $($('.slider').find('.s_element').get(3)).fadeToggle();// efecto
                     $($('.slider').find('.s_element').get(3)).addClass('s_visible');// para mostrar	
@@ -442,13 +590,14 @@ $(()=> {
     {    
         $(".personal-reserva").html(`
         <div class="mt-2">
-            <i class="fas fa-user icono-servicio"></i><span class="nombre-detalles"> ${nombre}</span> <br> 
+            <i class="fas fa-user icono-servicio"></i><span class="nombre-personal"> ${nombre}</span> <br> 
         </div> 
         `); 
-    }
+    } 
 
     function msj(clase,desc)
     { // Mensaje de error warning al no seleccionar un servicio 
+         console.log(clase,desc);
         if(clase == '.mensajehoras'){
             $('.mensajehoras').html(`
             <div class="alert alert-warning d-flex justify-content-center" role="alert">
@@ -464,25 +613,87 @@ $(()=> {
             `);
         }
     }
-        
-});
-$.validator.addMethod("email", function(value, element) {
-        return this.optional(element) || /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/i.test(value);
-    }, "Email Address is invalid: Please enter a valid email address.");
 
-    $("#myForm").validate({ 
-        rules: {
-			name:{required:true},
-			email:{required:true},
-			subject:{required:true},
-			description:{required:true}
-		},
-        messages:{ 
-            name:'<span style="color:#C95E81">Llenar campo</span> ',
-            email:'<span style="color:#C95E81">Llenar campo / incorrecto</span>',
-            subject:' <span style="color:#C95E81">Llenar campo</span> ',
-            description:'<span style="color:#C95E81">Llenar campo</span>'
-        } ,
+    function nota(){
+        $(".nota").css("display","unset");
+        $(".nota").html(`
+            <div class="alert alert-secondary ml-4" " style="width:290px;"> 
+                <span>
+                    Elige a tu barbero o si no tienes preferencia
+                    por algúno selecciona "No disponible".
+                    Selecciona la fecha y la hora de tu cita. 
+                </span> 
+            </div>
+        `);
+    }
+     
+ 
+     
+
+    function horas(horarios,op)
+    { 
+        console.log(horarios,op);
+        switch(op) {
+            case 1://'existe'
+            var radioam='', radiopm='';
+            for(var d=0;d<horarios.length;d++){
+                if(horarios[d] == 10 || horarios[d] ==11){ // Si es igual a las horas 10 o 11 coloca am
+                    radioam += `
+                    <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[d] +':'+'00am'}"> 
+                        <div class="ml-2">
+                            <div class=" ">${horarios[d] +':'+'00am'}</div>
+                        </div>
+                    </div> 
+                    `;
+                }
+                else{
+                    radiopm += `
+                    <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[d] +':'+'00pm'}"> 
+                        <div class="ml-2">
+                            <div class=" ">${horarios[d] +':'+'00pm'}</div>
+                        </div>
+                    </div> 
+                    `;
+                }
+            }
+            $(".horario").html(radioam);  
+            $(".horario2").html(radiopm);
+                break;
+            case 2://'no existe'
+            var botonradios ="",botonradios2="";  
+            for(var i=0;i<horarios.length;i++){// Para ir generando los radio buttons 
+                if((i+10)<12)
+                {
+                    botonradios += `
+                    <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                    <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${10+i+':'+'00'+''+' am'}"> 
+                    <div class="ml-2">
+                        <div class=" ">${10+i+':'+'00'+''+' am'}</div>
+                    </div>
+                    </div> 
+                    `; 
+                }
+                else{
+                    botonradios2 += `
+                    <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${(i == 2) ? '12:00 pm' : i-2+':'+'00'+''+'pm'}"> 
+                        <div class="ml-2">
+                            <div class=" ">${(i == 2) ? '12:00 pm' : i-2+':'+'00'+''+' pm'}</div>
+                        </div>
+                    </div> 
+                    `;
+                }   
+            }
+            $(".horario").html(botonradios);
+            $(".horario2").html(botonradios2);
+                break;
+            default:   
+        } 
+    }
+    
          
-    });
+});
+     
  
