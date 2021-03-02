@@ -350,21 +350,22 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title " ><b>Seleccionar Servicios</b></h3> 
+                        <h3 class="modal-title " ><b><span class="seleccionar">Seleccionar</span> <span class="categoria">Servicios</span></b></h3> 
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                      
                     <div class="modal-body">
-                         
+                     
                         <div class="row">
-                         
-                            <article class="article-slider mt-4">
-                                <div class="slider m-1">
+                             <div class="load"></div>
+                            
+                            <article class="article-slider mt-4">  
+                                <div class="slider m-1">  
                                     <div id="ele1" class="s_element s_visible">  
                                         <div class="panel-group" id="accordion7401210" role="tablist" aria-multiselectable="false">
-
+                                        
                                             <div class="panel panel-default"><!-- Panel 1 tamaño de ancho -->
                                                 <div class="panel-heading mb-4" role="tab" id="heading8122873"><!-- Distancia entre titulos de los panel-->
                                                     <h5 class="panel-title ml-3">

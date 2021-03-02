@@ -972,15 +972,102 @@ cursor: pointer;
   height: 380px;;
 }
 .notificacion{  
-  height:380px; 
-  overflow:scroll; 
- }
- .advertencia-covid{
-   background:#F9F9FF;
- }
- .politica-cancelacion{
-  text-align:justify;
- }
+height:380px; 
+overflow:scroll; 
+}
+.advertencia-covid{
+  background:#F9F9FF;
+}
+.politica-cancelacion{
+text-align:justify;
+}
+.cargando{ /* la capa de div interpuesta encima del modal y donde esta colocado el spinner*/
+  
+  margin-left:-1px; 
+  background:rgb(255, 255, 255);
+  position: absolute;  
+  width:100%; 
+  height:500px;
+  z-index: 9999;
+}
+.spinner-border{
+  margin-top:7em;
+}
+.labelcargando{/* es el label colocado a la altura del spinner*/
+  position: absolute;
+  bottom:12em;
+}
+.detalles-reservahecha{ 
+  width:420px;
+  height:500px;
+}  
+.msj-reservarealizada{
+  background:peru;
+  margin-left:1em;
+  width:300px;
+  height:500px;
+}
+.msj-correo{
+   
+  background:gold;
+  width:270px;
+  height:200px;
+}
+.mapa-reservahecha{
+  
+  background:rgb(195, 0, 255);
+  width:270px;
+  height:175px;
+}
+.listado{
+  border:1px solid silver;
+  width:375px;
+  height:285px;
+}
+.fecha-reservahecha,.precio-reservahecha{
+  margin-left: 10px;
+  
+} 
+.hora-reservahecha{
+  margin-left: 12px;
+  
+} 
+.market-reservahecha{
+  margin-left: 18px;
+  
+}
+.txt-reservahecha{
+  margin-left:40px;
+  
+}
+.serv-reservahecha{
+  margin-left:12px;
+ 
+}
+.personal-reservahecha{
+  margin-left:14px;
+ 
+}
+ 
+.fecha-reservahecha,.precio-reservahecha,
+.hora-reservahecha,.market-reservahecha,
+.serv-reservahecha,.personal-reservahecha
+ {
+  font-family: 'poppinsregular';
+  font-size:16px;
+  font-weight: bold;
+}
+.label-saludo{
+  font-family: 'poppinsregular';
+  font-size:24px;
+  font-weight: bold;
+}
+.label-agradecimiento,.txt-reservahecha{
+  font-family: 'poppinsregular';
+  font-size:16px;
+  
+}
+ 
 /*==========================================================
 ------------------/ Responsive  
 ============================================================ */

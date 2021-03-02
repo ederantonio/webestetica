@@ -270,6 +270,7 @@ $(window).scroll(function() {
  
 
 $(()=> {
+     
     var radio;
     /*------------------------/ Calendario /--------------------------*/
     var lotsOfEvents = [];
@@ -390,13 +391,19 @@ $(()=> {
 	{ 
 		var size = $('.slider').find('.s_element').length;//3 
 		$('.slider').find('.s_element').each( function(index,value){// 0 y elemento1 html  
-             
+            console.log(index,value);
             if($(value).hasClass('s_visible'))// Al principio inicia aqui por regresa true por que tiene la clase s_visible
             { 
+                if(index == 1){
+                    etiquetaant(".categoria","Servicios");
+                }else if(index == 2){
+                    etiquetaant(".categoria","Personal");
+                }
                 $(value).fadeToggle();
                 $(value).removeClass('s_visible');//quita la clase a 1  
                 if(index == 3){ // Cuando va de regreso se mantiene el indice 3 en donde esta el caldendario
                     nota(); 
+                    etiquetaant(".categoria","Fecha y hora");
                 }
                 else{
                     $('.nota').css("display","none"); // nota de elegir barbero, fecha y hora
@@ -404,6 +411,7 @@ $(()=> {
                 
                 if(index==0)
                 {  
+                     etiquetaant(".categoria","Servicios");
                     $($('.slider').find('.s_element').get(0)).fadeToggle();
                     $($('.slider').find('.s_element').get(0)).addClass('s_visible');
                     return false;
@@ -417,14 +425,12 @@ $(()=> {
             }
 		});
     }); 
-     
+      
     /* ------------/ Boton Siguiente /---------- */
     $(document).on('click','#btnSig',function(e)
     { 
-        e.preventDefault(); 
-         
-         
-
+        e.preventDefault();  
+     
         var sinseleccionar=0;
         $("input[name=serviciosradios]").each(function (index,elem) {  // Contabiliza los seleccionados / deseleccionados
             if($(this).is(':not(:checked)')) 
@@ -460,7 +466,7 @@ $(()=> {
                 // label hora
                 $(".hora-reserva").html(`
                     <div class="">
-                    <i class="fas fa-clock"></i><span class="nombre-fecha ml-2">${radio}</span>  
+                    <i class="fas fa-clock"></i><span class="nombre-horas ml-2">${radio}</span>  
                     </div>                    
                 `);
 
@@ -483,7 +489,7 @@ $(()=> {
     $.validator.addMethod("email", function(value, element) { 
         return this.optional(element) || /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/i.test(value);
     }, "Email Address is invalid: Please enter a valid email address."); 
-         
+      
     $("#myForm").validate({ 
         rules: {
             name:{required:true,lettersonly:true}, 
@@ -500,7 +506,8 @@ $(()=> {
             checkbox:'<span style="color:#C95E81">Aceptar la politica de cancelación</span>',
         } , 
         submitHandler: function(form){ //si todos los controles cumplen con las validaciones, se ejecuta este codigo
-            // $(".loader").css("visibility","visible");  
+            $(".seleccionar,.categoria").remove();
+            spinner(); 
             jQuery.ajax({ 
                 url: 'agregarcita.php', 
                 type: 'POST',      
@@ -521,17 +528,73 @@ $(()=> {
                 //se llama cuando se recibe la respuesta (no importa si es error o exito)
                 // alert("La respuesta regreso");
                 },
-                success: function(data, textStatus, xhr) { 
-                // $(".loader").css("visibility","hidden"); 
-                // $("#name").val(" ") ; 
-                // $("#email").val(" ") ; 
-                // $("#subject").val(" ") ; 
-                // $("#description").val(" ") ; 
-                // $('.notificacion').html(`
-                // <div class="alert alert-success">
-                // 	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                // 	 Enviado correctamente!
-                // </div> `); 
+                success: function(data, textStatus, xhr) {
+                    $(".spinner-border,.labelcargando").css("visibility","hidden"); 
+                    $(".cargando").html(`
+                    <div class="container row d-flex justify-content-center" style="background:orange">
+                        
+                            <div class="detalles-reservahecha" style="background:teal"> 
+                                <div class="d-flex justify-content-center  "> 
+                                    <img src="img/aceptado.png" style="width:50px;height:50px;">  
+                                </div> 
+
+                                <div class="d-flex justify-content-center mt-3">
+                                    <label class="label-saludo">Nos vemos pronto, ${$("#name").val()}</lable>  
+                                </div> 
+
+                                <div class="d-flex justify-content-center">
+                                    <label class="label-agradecimiento">Gracias por reservar con nosotros</label>
+                                </div>
+
+                                <div class="listado mt-2 m-auto">
+
+                                    <div class="ml-2 mt-"3>
+                                        <i class="far fa-calendar-alt"></i><span class="fecha-reservahecha">${fechaselect}</span>  
+                                    </div>
+                                    <div class="ml-2 mt-3">
+                                        <i class="fas fa-clock"></i><span class="hora-reservahecha">${$(".nombre-horas").text()}</span>    
+                                    </div>
+                                    <div class="ml-2 mt-3">
+                                        <i class="fas fa-tags"></i><span class="precio-reservahecha">$${parseInt(precio)+'.00'}</span>  
+                                    </div>
+                                    <div class="ml-2 mt-3">
+                                        <i class="fas fa-map-marker-alt"></i><span class="market-reservahecha">Selene del Rio Estética </span>
+                                    </div> 
+                                    <div class="">   
+                                        <span class="txt-reservahecha">Av. Monterrey 118 B, colonia</span><br>
+                                        <span class="txt-reservahecha">Roma Norte, CP. 06700 </span>
+                                    </div> 
+                                    <div class="ml-2 mt-3">
+                                        <i class="fas fa-gift "></i><span class="serv-reservahecha">${$(".nombre-detalles").text()}</span>  
+                                    </div>
+                                    <div class="ml-2 mt-3">
+                                        <i class="fas fa-user  "></i><span class="personal-reservahecha">${$(".nombre-detalles").text()}</span>  
+                                    </div>
+                                     
+                                </div>        
+                            </div>
+                            <div class="d-flex justify-content-center msj-reservarealizada " style="background:peru">
+                                <div class="d-flex flex-column  ">
+                                    <div class="msj-correo">
+                                        ¡Tu cita ha quedado programada! Recibirás un correo con los datos y la confirmación 
+                                        de tu cita en aproximadamente 10 min. La cita tiene un tiempo de tolerancia máximo de 10 minutos. 
+                                        Nuestros sistema de beneficios está suspendido temporalmente.
+                                    </div>
+                                    <div class="mapa-reservahecha mt-3">
+                                        mapa
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                    
+                    `);
                 },
                 error: function(xhr, textStatus, errorThrown) {
                 // $(".loader").css("visibility","hidden");
@@ -548,19 +611,24 @@ $(()=> {
 
     function siguiente()
     { 
+         
         var size = $('.slider').find('.s_element').length; 
         $('.slider').find('.s_element').each(function(index,value){ 
-          
+            console.log(index,value);
+           if(index == 0){ 
+            etiquetasig(".categoria",'Personal');
+           }
             if(index == 1){ // Cuando este en la pantalla del calendario se mostrara el mensaje de seleccion
                 nota();
-                
+                etiquetasig(".categoria",'Fecha y hora'); 
             } 
             else if(index  == (0 || 2 || 3)){ // En las otras pantallas debe ocultarse
                 $(".nota").css('display','none');
             }
 
             if(index == 2 && $("#checkbox").is(":not(:checked)")   ){ // Cuando llegue a la pantalla final 
-                
+
+                 etiquetasig(".categoria","Llenar formulario");
                 $(".advertencia-covid").css("border-left","4px solid #C95E81");
             }    
             
@@ -570,6 +638,7 @@ $(()=> {
                 $(value).removeClass('s_visible'); 
                 if(index+1<size)
                 {  
+                    
                     $($('.slider').find('.s_element').get(index+1)).fadeToggle();
                     $($('.slider').find('.s_element').get(index+1)).addClass('s_visible');
                     return false;
@@ -577,6 +646,7 @@ $(()=> {
                   
                 else if(index == 3)// Al iniciar en 0 de 0 a 3 son 4 pantallas,  entonces al llegar a 3 el index le colocamos un limite y solo mostrara hasta ahi
                 {   
+                     etiquetasig();
                     $("#btn-form").click();
                     $($('.slider').find('.s_element').get(3)).fadeToggle();// efecto
                     $($('.slider').find('.s_element').get(3)).addClass('s_visible');// para mostrar	
@@ -597,7 +667,7 @@ $(()=> {
 
     function msj(clase,desc)
     { // Mensaje de error warning al no seleccionar un servicio 
-         console.log(clase,desc);
+         
         if(clase == '.mensajehoras'){
             $('.mensajehoras').html(`
             <div class="alert alert-warning d-flex justify-content-center" role="alert">
@@ -692,7 +762,33 @@ $(()=> {
             default:   
         } 
     }
-    
+
+    function spinner(){
+        $(".load").html(`
+        <div class="cargando d-flex justify-content-center " > 
+            <div class="spinner-border text-primary  " style="width:150px; height:150px;" role="status">
+                <span class="visually-hidden ml-4"></span> 
+            </div>  
+            <div class="labelcargando  ">Cargando...</div>               
+        </div>
+              
+        `); 
+    } 
+    function etiquetasig(clase,descripcion){
+        if(clase !='' && descripcion == 'Llenar formulario'){
+            $(".seleccionar").css('display','none');
+            $(clase).html('Llenar Formulario');
+        }
+        else{
+            $(clase).html(descripcion);
+        }  
+    }
+    function etiquetaant(clas,descrip){
+        $(".seleccionar").css('display','unset');
+        console.log(clas,descrip);
+        $(clas).html(descrip); 
+    }
+   
          
 });
      
