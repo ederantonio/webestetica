@@ -307,6 +307,7 @@
             <div class="container-ho2">  <!-- Esta clase se puede omitir se uso mas que nada para el llenado de todos los servicios y paquetes para evitar o permitir desbordamientos-->
                 <div class="container-map">
                 <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN7Kzdpnbj4YRXukZ_tIZJos&key=AIzaSyBwAk3u-wZbpvrGazyGRp9ZxioQheso_UQ" allowfullscreen></iframe> 
+                    
                 </div>
             </div>
         </div> 
@@ -351,7 +352,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h3 class="modal-title " ><b><span class="seleccionar">Seleccionar</span> <span class="categoria">Servicios</span></b></h3> 
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close btn-cerrar" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>

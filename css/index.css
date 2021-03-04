@@ -909,10 +909,13 @@ cursor: pointer;
 }
  
  
-.nombre-detalles,.nombre-personal,.msjhoras,.nombre-fecha,.personal,.nombre-hora{
+.nombre-detalles,.nombre-personal,.msjhoras,.nombre-fecha,.personal,.nombre-horas{
   font-family: 'poppinsregular';
   font-size:16px;
   font-weight: bold;
+}
+.nombre-horas{
+  margin-left:10px;
 }
 .cargo{
   font-size:14px;
@@ -997,25 +1000,27 @@ text-align:justify;
   position: absolute;
   bottom:12em;
 }
+
 .detalles-reservahecha{ 
   width:420px;
   height:500px;
 }  
-.msj-reservarealizada{
-  background:peru;
+.msj-reservarealizada{ 
   margin-left:1em;
   width:300px;
   height:500px;
+   
 }
+ 
 .msj-correo{
    
-  background:gold;
+ 
   width:270px;
   height:200px;
 }
 .mapa-reservahecha{
   
-  background:rgb(195, 0, 255);
+  
   width:270px;
   height:175px;
 }
