@@ -351,8 +351,10 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
+
+                         
                         <h3 class="modal-title" >
-                            <b><span class="flecha" style="visibility:hidden"><i class="fas fa-chevron-left flecha"></i></span>  <span class="seleccionar">Seleccionar</span> <span class="categoria">Servicios</span></b>
+                            <b><span class="flecha" style="visibility:hidden"><i class="fas fa-chevron-left flecha regresar"></i></span>  <span class="seleccionar">Seleccionar</span> <span class="categoria">Servicios</span></b>
                         </h3> <br>
                                   
                         <button type="button" class="close btn-cerrar" data-dismiss="modal" aria-label="Close">
@@ -362,10 +364,11 @@
                      
                     <div class="modal-body">
                      
-                        <div class="row">
+                        <div class="row contenidodelmodal">
                              <div class="load"></div>
-                            
-                            <article class="article-slider mt-4">  
+                              
+                            <article class="article-slider mt-4 article-modal"> 
+                            <div class="alerta"  > </div> 
                                 <div class="slider m-1">  
                                     <div id="ele1" class="s_element s_visible">  
                                         <div class="panel-group" id="accordion7401210" role="tablist" aria-multiselectable="false">
@@ -502,6 +505,7 @@
                                     </div>
 
                                     <div id="ele3" class="s_element" value="3" > 
+                                        <div class="mensajehoras">  </div>
                                         <div class="container panel-servicios"  >
                                             <div class="contendor-calendario  d-flex align-items-start" >
                                                 <div class="container">  
@@ -618,14 +622,14 @@
     
 
                             <div class="detalles mt-4 ml-4" >
-                                <div class="mensajehoras">
+                                <div class="mensajehoras" id="calendario">
                                 
                                 </div>
                                 <div class="msjhoras">
                                
                                 </div>
                                 <h5 class="ml-4 panel-title"><a>Detalles</a> </h5>
-                                <span class="alerta"></span> 
+                                <span class="alerta" id="alerta"></span> 
                                 <div class="nota"></div> <!-- Advertencia de seleccion de peluquero, servicios y fechas-->
                                 <div class="resultado ml-4 m-1">  
                                     <div class="services-reserva "></div> 
@@ -647,7 +651,7 @@
                         </div> <!-- row-->  
 
                         <div class="modal-footer"> 
-                                <button type="button" class="btn-regresar" id="btnAnt"  >Regresar</button><!--data-dismiss="modal"-->
+                                <button type="button" class="regresar" id="btnAnt"  >Regresar</button><!--data-dismiss="modal"-->
                                 <button  type="button " class="btn-continuar" id="btnSig">Continuar</button>
                         </div>
 

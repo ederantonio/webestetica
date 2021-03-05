@@ -1359,47 +1359,83 @@ text-align:justify;
     font-size: 22px;
   }
   /*-----------------/resposnive modal servicios/-------------*/
-  #exampleModal{
-    padding-left: 0px;
+  /*
+    dialog principal
+    content
+    body
+    row      se colocan los elementos en bloque
+    article 
+  */  
+  #exampleModal{/*reseteo de valores*/
+    top:0;
+    margin:0px;
+    padding:0px;/*----------------*/
+    position: fixed; 
+    
+    left: -5px;
+    z-index: 1050;
+    display: none;
+    width: 0px;
+    height:0px;
+    overflow: hidden;
+    outline: 0;
+
+    width:100%;
+    height:100vh;
+  }  
+  .panel-group{
+    overflow: hidden;
   }
-  .btn-cerrar{
+  .contenidodelmodal{
+  display: block; 
+  height:500px; 
+  overflow-y:scroll;
+  }
+  #calendario, .textonota {
     display: none;
   }
-  .modal-dialog{
-    height: 610px;
+  .detalles{
+    overflow: auto;
   }
-  .modal-content{
-    width:100%;
- }
- .modal-footer{
-  height:45px;
- }
- #btnAnt{
-  display: none;
- }
- .btn-continuar{
-    
-       
-  position: fixed;  
-  bottom: -4px;  
-   
-   left:calc(50% - 50px);
-  
-   
- }
+  .btn-cerrar,#alerta{
+    display: none;
+  }  
+  #btnAnt{
+    display: none;
+  }
+ .btn-continuar{ 
+    position: fixed;
+    left:0px !important;   
+    bottom: -4px; 
+    width:98%; 
+  } 
  .flecha{
-   position:absolute;
-   left:5px;
-   top:11px;
-   visibility: visible;
+    position:absolute;
+    left:5px;
+    top:11px;
+    visibility: visible;
   }
-  .row{
-  display: block;
-  width:500px;
+  .seleccionar{
+    margin-left: 0px;
+    font-size: 25px;
+  }
+  .categoria{
+    font-size: 25px;
   }
   .modal-title{
-  margin-left:50px;
+    margin-left:50px;
    
+  }
+  /*--------/pantalla de finalizado/---------*/
+  .msj-reservarealizada {
+    margin-left:0px;
+    width: 500px;
+    height: 500px;
+  }
+  .detalles{
+   
+  height: 470px;
+  /* overflow: scroll;*/
   }
 }
 

@@ -396,7 +396,7 @@ $(()=> {
     });  
 
     /* ----------/Boton anterior /--------- */
-    $('#btnAnt').click(function()
+    $(' .regresar').click(function()
 	{ 
 		var size = $('.slider').find('.s_element').length;//3 
 		$('.slider').find('.s_element').each( function(index,value){// 0 y elemento1 html   
@@ -682,7 +682,7 @@ $(()=> {
 
     function msj(clase,desc)
     { // Mensaje de error warning al no seleccionar un servicio 
-         
+         console.log(clase,desc);
         if(clase == '.mensajehoras'){
             $('.mensajehoras').html(`
             <div class="alert alert-warning d-flex justify-content-center" role="alert">
@@ -702,7 +702,7 @@ $(()=> {
     function nota(){
         $(".nota").css("display","unset");
         $(".nota").html(`
-            <div class="alert alert-secondary ml-4" " style="width:290px;"> 
+            <div class="alert alert-secondary ml-4 textonota" " style="width:290px;"> 
                 <span>
                     Elige a tu barbero o si no tienes preferencia
                     por algúno selecciona "No disponible".
