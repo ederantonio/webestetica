@@ -361,8 +361,7 @@ $(()=> {
         }); // SelectedDate  
      
     
-    $("#default").attr("checked",true);// Se coloca en checked 'Cualquiera disponible'
-    personal($("#default").val());// Se pasa el value al mensaje para mostrarlo del lado derecho
+     
     var fechaselect;
     /*------------------------/ Advertencia covid /--------------------------*/
     $(document).on("click","#checkbox",function(){ // Controlar el checkbox al dar click
@@ -627,12 +626,16 @@ $(()=> {
     {  
         var size = $('.slider').find('.s_element').length; 
         $('.slider').find('.s_element').each(function(index,value){  
+            console.log(index);
            if(index == 0){ 
             etiquetasig(".categoria",'Personal');
+            $("#default").attr("checked",true);// Se coloca en checked 'Cualquiera disponible'
+            personal($("#default").val());// Se pasa el value al mensaje para mostrarlo del lado derecho
            }
             if(index == 1){ // Cuando este en la pantalla del calendario se mostrara el mensaje de seleccion
                 nota();
                 etiquetasig(".categoria",'Fecha y hora'); 
+                
             } 
             else if(index  == (0 || 2 || 3)){ // En las otras pantallas debe ocultarse
                 $(".nota").css('display','none');
