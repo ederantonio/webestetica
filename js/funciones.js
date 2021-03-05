@@ -436,9 +436,9 @@ $(()=> {
     }); 
       
     /* ------------/ Boton Siguiente /---------- */
-    $(document).on('click','#btnSig',function(e)
+    $(document).on('click','#btnSig',function()
     { 
-        e.preventDefault();  
+         
      
         var sinseleccionar=0;
         $("input[name=serviciosradios]").each(function (index,elem) {  // Contabiliza los seleccionados / deseleccionados

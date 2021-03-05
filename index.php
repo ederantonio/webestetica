@@ -347,11 +347,14 @@
         <!-- ===============================================================
         ---------/ Modal
         =============================================================== --> 
-        <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  >
+        <div class="modal fade " id="exampleModal" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  >
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title " ><b><span class="seleccionar">Seleccionar</span> <span class="categoria">Servicios</span></b></h3> 
+                        <h3 class="modal-title" >
+                            <b><span class="flecha" style="visibility:hidden"><i class="fas fa-chevron-left flecha"></i></span>  <span class="seleccionar">Seleccionar</span> <span class="categoria">Servicios</span></b>
+                        </h3> <br>
+                                  
                         <button type="button" class="close btn-cerrar" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
@@ -644,8 +647,8 @@
                         </div> <!-- row-->  
 
                         <div class="modal-footer"> 
-                                <button type="button" class="btn btn-secondary" id="btnAnt"  >Regresar</button><!--data-dismiss="modal"-->
-                                <span class="btn-cambio"><button  type="button " class="btn btn-primary" id="btnSig">Continuar</button> </span>
+                                <button type="button" class="btn-regresar" id="btnAnt"  >Regresar</button><!--data-dismiss="modal"-->
+                                <button  type="button " class="btn-continuar" id="btnSig">Continuar</button>
                         </div>
 
                         
@@ -666,7 +669,6 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
 <script src="js/clndr.js"></script> 
-<script src="js/test.js"></script> 
 <!-- ---------/ LIBRERIA SLIDER /----------->
 <script src="js/swiper.min.js" charset="UTF-8"></script><!-- plugin del slider--> 
 <!-- ----------/ LIBRERIA VALIDATE FORM /---------->
