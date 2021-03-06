@@ -433,9 +433,9 @@ $(()=> {
             }
 		});
     }); 
-      
+     
     /* ------------/ Boton Siguiente /---------- */
-    $(document).on('click','#btnSig',function()
+    $(document).on('click','.continuar',function()
     { 
          
      
@@ -540,7 +540,7 @@ $(()=> {
                 success: function(data, textStatus, xhr) {
                     $(".spinner-border,.labelcargando").css("visibility","hidden"); 
                     $(".cargando").html(`
-                    <div class="row">
+                    <div class="row finalizado">
                         
                             <div class="detalles-reservahecha"> 
                                 <div class="d-flex justify-content-center  "> 
@@ -593,21 +593,19 @@ $(()=> {
                                         <iframe width="270" height="175" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN7Kzdpnbj4YRXukZ_tIZJos&key=AIzaSyBwAk3u-wZbpvrGazyGRp9ZxioQheso_UQ" allowfullscreen></iframe> 
                                     </div>
                                     <div class="mt-2 d-flex justify-content-center">
-                                        <a href="http://localhost/webestetica/"><button type="button" class="btn btn-primary">Regresar al sitio web</button></a>
+                                        <a href="http://localhost/webestetica/"><button type="button" class="  regresarmapa">Regresar al sitio web</button></a>
                                     </div>
                                      
                                 </div>
                             </div>
                             
                         
-                    </div>
-                    
-                    
-                    
-                    
+                    </div> 
                     
                     
                     `);
+                    $(".regresar").css("visibility","hidden");// quita la flecha regresar
+                    $("#btnSig").css("visibility","hidden");
                 },
                 error: function(xhr, textStatus, errorThrown) {
                 // $(".loader").css("visibility","hidden");
@@ -685,14 +683,14 @@ $(()=> {
          console.log(clase,desc);
         if(clase == '.mensajehoras'){
             $('.mensajehoras').html(`
-            <div class="alert alert-warning d-flex justify-content-center" role="alert">
+            <div class="alert alert-warning alertacalendario d-flex justify-content-center" role="alert">
                 ${desc} 
             </div>  
             `);
         }
         else{
             $(clase).html(`
-            <div class="alert alert-warning d-flex justify-content-center" role="alert">
+            <div class="alert alert-warning alertaservicio d-flex justify-content-center" role="alert">
                 Seleccionar ${desc}
             </div>  
             `);

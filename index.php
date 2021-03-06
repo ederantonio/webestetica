@@ -6,7 +6,7 @@
     <!-- -----------/ Css calendar /-------------->
      
 	<link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" href="css/clndr.css">
+    <!-- <link rel="stylesheet" href="css/clndr.css"> -->
 	<link rel="stylesheet" href="css/swiper.min.css">  
     <link href="img/favicon.png" rel="shortcut icon">
     <!---------/ Boostrap Css/-------- -->
@@ -456,7 +456,7 @@
                                     </div><!-- ele1 -->
                         
                                     <div id="ele2" class="s_element" >
-                                            
+                                        <div class="equipo-personal">   
                                             <div class="form-check ml-2 d-flex align-items-center radio-personal">
                                                 <input class="form-check-input btn-radios" type="radio" name="personalradios" id="default" value="Cualquiera disponible">
                                                 <div class="circulo ml-2 d-flex justify-content-center">
@@ -470,7 +470,7 @@
                                             </div>
                                             
                                             <div class="form-check ml-2 mt-3 d-flex align-items-center radio-personal">
-                                                <input class="form-check-input btn-radios" type="radio" name="personalradios" id=" " value="Alondra Salazar">
+                                                <input class="form-check-input btn-radios" type="radio" name="personalradios" id=" " value="Alfonso Uribe">
                                                 <div class="circulo ml-2 d-flex justify-content-center">
                                                     <img class="img-personal" src="img/chicodos.png"/>
                                                 </div>
@@ -499,7 +499,7 @@
                                                     <div class="cargo">Barbero/Peluquero</div>
                                                 </div>
                                             </div>
-                                             
+                                        </div>  
                                         
 
                                     </div>
@@ -508,7 +508,7 @@
                                         <div class="mensajehoras">  </div>
                                         <div class="container panel-servicios"  >
                                             <div class="contendor-calendario  d-flex align-items-start" >
-                                                <div class="container">  
+                                                <div class="  containercalendario">  
                                                     <div class="cal1"></div> 
                                                     <div id="selected-date" class="cal2"></div> 
                                                 </div> 
@@ -621,15 +621,15 @@
                         
     
 
-                            <div class="detalles mt-4 ml-4" >
-                                <div class="mensajehoras" id="calendario">
+                            <div class="detalles mt-4" >
+                                <!-- <div class="mensajehoras" id="calendario">
                                 
-                                </div>
+                                </div> -->
                                 <div class="msjhoras">
                                
                                 </div>
                                 <h5 class="ml-4 panel-title"><a>Detalles</a> </h5>
-                                <span class="alerta" id="alerta"></span> 
+                                <!-- <span class="alerta" id="alerta"></span>  -->
                                 <div class="nota"></div> <!-- Advertencia de seleccion de peluquero, servicios y fechas-->
                                 <div class="resultado ml-4 m-1">  
                                     <div class="services-reserva "></div> 
@@ -647,12 +647,15 @@
                                         
                                 </div> 
                             </div>
+                            <div class="botonresponsive">
+                                <button  type="button " class="btn-continuar continuar"  >Continuar</button>
+                            </div>
+                             
+                        </div> <!-- row--> 
                         
-                        </div> <!-- row-->  
-
                         <div class="modal-footer"> 
-                                <button type="button" class="regresar" id="btnAnt"  >Regresar</button><!--data-dismiss="modal"-->
-                                <button  type="button " class="btn-continuar" id="btnSig">Continuar</button>
+                                <button type="button" class="btn-regresar regresar" id="btnAnt"  >Regresar</button><!--data-dismiss="modal"-->
+                                <button  type="button " class="btn-continuar continuar" id="btnSig">Continuar</button>
                         </div>
 
                         
