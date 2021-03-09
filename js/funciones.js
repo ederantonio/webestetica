@@ -268,9 +268,9 @@ $(window).scroll(function() {
 });
 
  
-
+  
 $(()=> {
-
+     
     $('.btn-cerrar').click(function() {
         window.location.href = 'http://localhost/webestetica';
         // $('#ModalMax2').fadeOut();
@@ -540,14 +540,16 @@ $(()=> {
                 success: function(data, textStatus, xhr) {
                     $(".spinner-border,.labelcargando").css("visibility","hidden"); 
                     $(".cargando").html(`
-                    <div class="row finalizado">
-                        
-                            <div class="detalles-reservahecha"> 
+                     
+                    <div class="row finalizado"> 
+                            <div class="detalles-reservahecha">  
+                                 
                                 <div class="d-flex justify-content-center  "> 
+                                 
                                     <img src="img/aceptado.png" style="width:50px;height:50px;">  
                                 </div> 
 
-                                <div class="d-flex justify-content-center mt-3">
+                                <div class="d-flex justify-content-center mt-3 icono-aceptado">
                                     <label class="label-saludo">Nos vemos pronto, ${$("#name").val()+'!'}</lable>  
                                 </div> 
 
@@ -584,16 +586,17 @@ $(()=> {
                             </div>
                             <div class="msj-reservarealizada">
                                 <div class="d-flex flex-column  columna">
-                                    <div class="msj-correo  m-auto">
+                                     
+                                    <div class="msj-correo">
                                         ¡Tu cita ha quedado programada! Recibirás un correo con los datos y la confirmación 
                                         de tu cita en aproximadamente 10 min. La cita tiene un tiempo de tolerancia máximo de 10 minutos. 
                                         Nuestros sistema de beneficios está suspendido temporalmente.
                                     </div>
-                                    <div class="mapa-reservahecha mt-3 m-auto">
+                                    <div class="mapa-reservahecha mt-3  ">
                                         <iframe width="270" height="175" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN7Kzdpnbj4YRXukZ_tIZJos&key=AIzaSyBwAk3u-wZbpvrGazyGRp9ZxioQheso_UQ" allowfullscreen></iframe> 
                                     </div>
-                                    <div class="mt-2 d-flex justify-content-center">
-                                        <a href="http://localhost/webestetica/"><button type="button" class="  regresarmapa">Regresar al sitio web</button></a>
+                                    <div class="mt-2 mb-4"  >
+                                        <a href="http://localhost/webestetica/"  ><button type="button" class="regresarmapa">Regresar al sitio web</button></a>
                                     </div>
                                      
                                 </div>
@@ -605,7 +608,10 @@ $(()=> {
                     
                     `);
                     $(".regresar").css("visibility","hidden");// quita la flecha regresar
-                    $("#btnSig").css("visibility","hidden");
+                    //$("#btnSig").css("visibility","hidden");
+                    $(".continuar").css("visibility","hidden");
+                    $(".close").css("visibility","visible");
+                    $(".regresarmapa").css("visibility","visible")
                 },
                 error: function(xhr, textStatus, errorThrown) {
                 // $(".loader").css("visibility","hidden");
@@ -700,7 +706,7 @@ $(()=> {
     function nota(){
         $(".nota").css("display","unset");
         $(".nota").html(`
-            <div class="alert alert-secondary ml-4 textonota" " style="width:290px;"> 
+            <div class="alert alert-info ml-4 textonota" " style="width:290px;"> 
                 <span>
                     Elige a tu barbero o si no tienes preferencia
                     por algúno selecciona "No disponible".

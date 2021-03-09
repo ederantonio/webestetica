@@ -365,8 +365,8 @@
                     <div class="modal-body">
                      
                         <div class="row contenidodelmodal">
-                             <div class="load"></div>
-                              
+                            <div class="load"></div>
+                            
                             <article class="article-slider mt-4 article-modal"> 
                             <div class="alerta"  > </div> 
                                 <div class="slider m-1">  
@@ -534,8 +534,8 @@
                                             </div>
                                       
 
-                                            <div class="msjfechas mt-2 ml-3">
-                                                <i class="fas fa-clock ml-2"></i><label class="mt-3 ml-2" for=" "><b>Seleccion de Fecha:</b><span class="fechaseleccionada">  </span></label> 
+                                            <div class="msjfechas mt-2">
+                                                <i class="fas fa-clock ml-2"></i><label class="mt-3 ml-2" for=" "><b class="seleccionfecha">Seleccion de Fecha:</b><span class="fechaseleccionada">  </span></label> 
                                                 <span class="fecha-formato" style="display:none"></span>
                                             </div>
                                             <div class="container row  mt-2" >                    
@@ -546,7 +546,7 @@
                                                     </div> 
                                                 </div>
 
-                                                <div class="column2 ml-auto">
+                                                <div class="column2  ">
                                                     <span class="cargo ml-3">Tarde</span>
                                                     <div class="horario2">
                                                     
@@ -565,7 +565,7 @@
                                                         <div class="nombre-contacto  mt-4  "> 
                                                             <input type="text" class="campo sobremi form-control" name="name" id="name" placeholder="Nombre*"> 
                                                         </div> 
-                                                        <div class="email-contacto ml-2   mt-4">                                                                                         
+                                                        <div class="email-contacto    mt-4">                                                                                         
                                                             <input type="email" name="email" placeholder="Email*" class="campo email sobremi form-control" id="email"> 
                                                         </div>
                                                     </div> 
@@ -605,11 +605,12 @@
                                                             </div> 
                                                             <div>GRACIAS POR TU APOYO Y COMPRENSIÓN.</div> 
                                                             <p class="mt-5">IMPORTANTE:</p>
-                                                            <div class="mt-4">*Las citas duplicadas en 1 ó más sucursales serán canceladas automáticamente.</div>
                                                             <div class="mb-3 mt-4 form-check">
                                                                 <input type="checkbox" class="form-check-input" name="checkbox" id="checkbox">
                                                                 <label class="form-check-label" for="exampleCheck1">Acepto</label> 
                                                             </div> 
+                                                            <div class="mt-4">*Las citas duplicadas en 1 ó más sucursales serán canceladas automáticamente.</div>
+                                                             
                                                             <div class="msjcheckbox"></div>
                                                         </div>
                                                     </div>
@@ -648,7 +649,7 @@
                                 </div> 
                             </div>
                             <div class="botonresponsive">
-                                <button  type="button " class="btn-continuar continuar"  >Continuar</button>
+                                <button  type="button " class="btn-continuar continuar" id="continuarresponsive" >Continuar</button>
                             </div>
                              
                         </div> <!-- row--> 
