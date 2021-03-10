@@ -270,7 +270,7 @@ $(window).scroll(function() {
  
   
 $(()=> {
-     
+    
     $('.btn-cerrar').click(function() {
         window.location.href = 'http://localhost/webestetica';
         // $('#ModalMax2').fadeOut();
@@ -282,14 +282,17 @@ $(()=> {
     var radio;
     /*------------------------/ Calendario /--------------------------*/
     var lotsOfEvents = [];
-    var actualfecha = moment().format('YYYY-MM-DD hh:mm:ss a'); // Fecha actual 
-    var fechaeningles = moment().format('LLLL').split(',');  
+      // Fecha actual   2021-03-08 06:27:59 pm
+    var fechaeningles = moment().format('LLLL').split(',');
+     
     var dia = fechaeningles[0].substring(0,3);
     var mes = fechaeningles[1].substring(0,4); 
     var numero = fechaeningles[1].replace(" ", "").split(' ');  
     var año = fechaeningles[2].replace(" ", "").split(' ');  
     $(".fechaseleccionada").html( '&nbsp;<b>'+ dia +','+ numero[1] + mes +'del'+' '+ año[0]+'</b>');// label abajo del calendario inicia en la fecha actual
      
+    // git 
+
         clndr.selectedDate = $('#selected-date').clndr({  
             events: lotsOfEvents, // lotsOfEvents: date title para marcar en color verde la fecha que tiene eventos 
             constraints: 
@@ -301,13 +304,13 @@ $(()=> {
             {
                 click: function(target) 
                 {   
-                   
+                 
                     $(".fecha-formato").html(target.date._i); 
                     var fecha = target.date._d.toString();  // Se convierte a string para poder trabajarlo Thu Feb 18 2021 00:00:00 GMT-0600 (hora estándar central)  
                     var fechaentexto = fecha.substring(0,fecha.indexOf("00")); 
                     var fec = fechaentexto.split(' '); 
                     fec.pop(); 
-                    var arraynorepetidos=[]; 
+                    
                     if(target.element.classList[2] === 'inactive'||  //Al dar click en fechas inactivas pasadas, fin de rango del mes y del mes siguiente no hara nada 
                         target.element.classList[1] === 'inactive'||      
                         target.element.classList[3] === 'inactive'){ 
@@ -315,43 +318,9 @@ $(()=> {
                     } 
                     else if(target.element.classList[3] == 'selected' || target.element.classList[4] == 'selected'){ 
                             clickenfecha = "<b>"+ fec[0] +','+fec[2]+' '+fec[1]+' del '+fec[3]+'</b>'; 
-                        $.ajax({ // Al dar click a alguna fecha se enviara a la db para traer datos de esa fecha
-                            url: 'agregarcita.php',
-                            type : 'POST',
-                            dataType:'json', 
-                            data: {
-                                peticion:'clickfecha',
-                                eventDate : target['date']['_i']   // 2021-02-19                      
-                            }, 
-                            success: function(datos){  
-                                
-                                var arreglohorario = ['10:00am' , '11:00am','12:00pm','1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm']; 
-                                if(datos!= '')// Si hay fechas en la tabla, habra que quitarlos del arreglohorario
-                                {   
-                                    for(var c=0;c<arreglohorario.length;c++)//se hace comparacion para dejar los que no se repiten
-                                    {
-                                        var igual=false;
-                                        for(var e=0;e<datos.length;e++){
-                                            if(arreglohorario[c] == datos[e].hora){
-                                                igual=true;
-                                            } 
-                                        }
-                                        if(!igual){// si es false , si es diferente lo guarda
-                                            arraynorepetidos.push(parseInt(arreglohorario[c])); 
-                                            
-                                        }   
-                                    } 
-                                    horas(arraynorepetidos,clickenfecha,1); 
-                                }
-                                else  { // si no hay datos deja por default todas las horas
-                                    horas(arreglohorario,clickenfecha,2);
-                                } 
-                                $('input:radio[name=radiohoras]').change(function() { 
-                                    radio = this.value;
-                                    
-                                });
-                            } 
-                        });// Ajax  
+                          traerdatos(target['date']['_i'],'clickfecha');
+
+
                     }       
                 }, 
             }, 
@@ -359,8 +328,53 @@ $(()=> {
             ignoreInactiveDaysInSelection: true,// Para no seleccionar los que estan inactivos
             template: $('#clndr-template').html()
         }); // SelectedDate  
-     
     
+    function traerdatos(fecha,peticion){ 
+        var arraynorepetidos=[]; 
+        console.log(fecha);
+        $.ajax({ // Al dar click a alguna fecha se enviara a la db para traer datos de esa fecha
+            url: 'agregarcita.php',
+            type : 'POST',
+            dataType:'json', 
+            data: {
+                peticion:('clickfecha' == peticion) ? 'clickfecha' : ('depuraciondehoras' == peticion) ? 'depuraciondehoras' : '',
+                  eventDate :fecha
+                 
+                // target['date']['_i']   // 2021-02-19                      
+            }, 
+            success: function(datos){  
+                
+                var arreglohorario = ['10:00am' , '11:00am','12:00pm','1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm']; 
+                if(datos!= '')// Si hay fechas en la tabla, habra que quitarlos del arreglohorario
+                {   
+
+
+                    console.log(datos);
+                    for(var c=0;c<arreglohorario.length;c++)//se hace comparacion para dejar los que no se repiten
+                    {
+                        var igual=false;
+                        for(var e=0;e<datos.length;e++){
+                            if(arreglohorario[c] == datos[e].hora){
+                                igual=true;
+                            } 
+                        }
+                        if(!igual){// si es false , si es diferente lo guarda
+                            arraynorepetidos.push(parseInt(arreglohorario[c])); 
+                            
+                        }   
+                    } 
+                    horas(arraynorepetidos,clickenfecha,1); 
+                }
+                else  { // si no hay datos deja por default todas las horas
+                    horas(arreglohorario,clickenfecha,2);
+                } 
+                $('input:radio[name=radiohoras]').change(function() { 
+                    radio = this.value;
+                    
+                });
+            } 
+        });// Ajax 
+    }
      
     var fechaselect;
     /*------------------------/ Advertencia covid /--------------------------*/
@@ -629,8 +643,7 @@ $(()=> {
     function siguiente()
     {  
         var size = $('.slider').find('.s_element').length; 
-        $('.slider').find('.s_element').each(function(index,value){  
-            console.log(index);
+        $('.slider').find('.s_element').each(function(index,value){   
            if(index == 0){ 
             etiquetasig(".categoria",'Personal');
             $("#default").attr("checked",true);// Se coloca en checked 'Cualquiera disponible'
@@ -685,8 +698,7 @@ $(()=> {
     } 
 
     function msj(clase,desc)
-    { // Mensaje de error warning al no seleccionar un servicio 
-         console.log(clase,desc);
+    { // Mensaje de error warning al no seleccionar un servicio  
         if(clase == '.mensajehoras'){
             $('.mensajehoras').html(`
             <div class="alert alert-warning alertacalendario d-flex justify-content-center" role="alert">
@@ -721,7 +733,7 @@ $(()=> {
 
     function horas(horarios,fecha,op)
     {  
-        console.log(horarios,fecha,op);
+         
         switch(op) {
             case 1://'existe'
 

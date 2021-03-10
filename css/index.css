@@ -1085,7 +1085,7 @@ h3 {
 }
 .btn-regresar {
   padding: 10px;
-  font-weight: 600;
+  font-weight: 500;
   border-radius: 2px;
   color: #ffffff;
   background-color: #222222;
@@ -1442,6 +1442,7 @@ p {
 .cal2 .clndr .clndr-grid .day.today,
 .cal2 .clndr .clndr-grid .my-day.today {
   background-color: #00aeda;
+  color: rgb(243, 243, 243);
 }
 .cal2 .clndr .clndr-grid .day.selected,
 .cal2 .clndr .clndr-grid .my-day.selected {
@@ -1893,16 +1894,14 @@ p {
     top: 0;
     margin: 0px;
     padding: 0px; /*----------------*/
-    position: fixed;
-
+    position: fixed; 
     left: -5px;
     z-index: 1050;
     display: none;
     width: 0px;
     height: 0px;
     overflow: hidden;
-    outline: 0;
-
+    outline: 0; 
     width: 100%;
     height: 100vh;
   }
@@ -1915,8 +1914,7 @@ p {
     display: block;
     height: 500px;
     overflow-y: auto;
-  }
-
+  } 
   .detalles {
     overflow: auto;
   }
@@ -1939,7 +1937,7 @@ p {
   .continuar {
     width:250px;
     position: fixed;
-    right:56px;
+    right:90px;
     bottom: 2px;
      
     font-weight: 400;
@@ -1964,12 +1962,7 @@ p {
     margin-left: 50px;
   }
   
-  /*--------/pantalla de finalizado/---------*/
-  /* .msj-reservarealizada {
-    margin-left:0px;
-    width: 500px;
-    height: 500px;
-  } */
+  /*--------/pantalla de finalizado/---------*/ 
   .detalles {
     display: none;
     overflow: auto;
@@ -1988,8 +1981,7 @@ p {
   .labelcargando {
     position: absolute;
     left: 175px;
-  }
-
+  } 
   .containercalendario {
     margin-left: 10px;
   }
@@ -2009,13 +2001,12 @@ p {
     position: absolute;
     left: 35px;
     overflow: auto;
-    height: 100vh;
-
+    height: 500px; 
     display: block;
     width: 470px;
   }
   .detalles-reservahecha {
-    margin-left: -18px;
+    margin-left: -80px;
   }
   .modal-body {
     position: relative;
@@ -2027,6 +2018,20 @@ p {
   }
   #continuarresponsive {
     display: unset;
+  }
+  .msj-reservarealizada {
+    margin-left: -150px; 
+  }
+  .msj-correo{
+    width:350px;
+    height:180px;
+  } 
+  .regresarmapa {
+    margin-top: 20px;
+    margin-left: 14px;
+  }
+  .cargando{
+    width:450px;
   }
   /* .seleccionfecha{
     display:none;
@@ -2077,8 +2082,7 @@ p {
   } */
   .equipo-personal {/* contenido principal de personal*/
     margin-left: 14px;
-  }
-
+  } 
   .clndr {/*ancho del calendario de nombre de dias y dias*/
     width: 300px;
   }
@@ -2171,7 +2175,7 @@ p {
   }
   .alertacalendario {
     left: -40px;
- } 
+  } 
  .finalizado { /*contenedor principal de la pantalla finalizar*/
   width:332px;
   background-color: rgb(255, 255, 255);

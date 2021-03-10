@@ -2,11 +2,20 @@
 include "./conexion/conexionDB.php";
 $peticion=$_POST['peticion']; 
 
-switch($peticion)
+switch($peticion) 
 {
-    case 'clickfecha':
+    case 'depuraciondehoras': //fecha y hora
+        $fecha = $_POST['eventDate'];
+        $fechahora = explode(" ", $fechahora);
+        $fec = $fechahora[0];
+        $hor = $fechahora[1];
+        $sql = "SELECT fecha FROM citas WHERE fecha = '".$fec."' AND hora = '".$hor."'";
+        $result = mysqli_query($con,$sql);
+        break;
+
+    case 'clickfecha':// Al seleccionar alguna fecha
         $date = $_POST['eventDate'];
-        $sql = "SELECT hora FROM citas WHERE fecha ='".$date."'";
+        $sql = "SELECT hora FROM citas WHERE fecha = '".$date."'" ;
         $result = mysqli_query($con,$sql);
         $fechaResult = array();
         while ($row = mysqli_fetch_assoc($result)) {
@@ -16,7 +25,7 @@ switch($peticion)
     break;
     
 
-    case 'validacionfechas': 
+    case 'validacionfechas': // Cuando ya se envian las opciones y el formulario completo
         $servicio = $_POST['servicio'];
         $personal = $_POST['personal'];
         $fecha = $_POST['fecha'];
