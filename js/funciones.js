@@ -735,70 +735,131 @@ $(()=> {
 
     function horas(horarios,fecha,op)
     {  
-         console.log(horarios);
+        console.log(horarios,fecha,op);//llegan los no repetidos
         switch(op) {
             case 1://'existe'
 
-            if(horarios == '' && op == 1){ // Si no se obtuvieron elementos que no se repitieron, significa que no hay horas 
-                //$(".selected").css("background-color","#FF4141");// Se pinta en color rojo la fecha
-                $(".fechaseleccionada").html("&nbsp;<b style='color:#FF4141'>No disponible</b>");// Se coloca no disponible 
-                $(".horario").html("");
-                $(".horario2").html("");
-            }
-        
-            else
-            { 
-                $(".fechaseleccionada").html('&nbsp;'+ fecha);
+                if(horarios == '' && op == 1){ // Si no se obtuvieron elementos que no se repitieron, significa que no hay horas 
+                    //$(".selected").css("background-color","#FF4141");// Se pinta en color rojo la fecha
+                    $(".fechaseleccionada").html("&nbsp;<b style='color:#FF4141'>No disponible</b>");// Se coloca no disponible 
+                    $(".horario").html("");
+                    $(".horario2").html("");
+                } 
+                else if(horarios != '' && fecha != '' && op==1)
+                { 
+    
+                    $(".fechaseleccionada").html('&nbsp;'+ fecha); 
+                    var radioam='', radiopm='';  
+                    var hora = '1:00pm'; //validar
+                    var  horaentero,horahorarios,horaenteropm,horahorariospm; 
+  
+                    var index;
+                        for(var e=0;e<horarios.length;e++){
+                             
+                            if(horarios[e].includes('am') && hora.includes('am')){ 
 
-
-
-                var radioam='', radiopm=''; 
-                //moment().format('hh:mma')
-                var hora = '11:00pm';
-                var  horaentero,horahorarios;//hh:mma
-             
-              
-                    
-                    for(var e=0;e<horarios.length;e++){
-                        if(horarios[e].includes('am') && hora.includes('am')){//10 11
-                            horaentero = parseInt(hora.substring(0,hora.indexOf(':')));
-                            horahorarios = parseInt(horarios[e].substring(0,horarios[e].indexOf(':')));// 10am a 10 11am a 11
-                            if(horaentero > horahorarios){
-                                radioam += `
-                                    <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
-                                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e+1] +':'+'00am'}"> 
-                                        <div class="ml-2">
-                                            <div class=" ">${horaentero   +':'+'00am'}</div>
-                                        </div>
-                                    </div> 
-                                `;
-                            }else if(horaentero == horarios){
-                                radioam += `
-                                    <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
-                                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e+1] +':'+'00am'}"> 
-                                        <div class="ml-2">
-                                            <div class=" ">${horaentero   +':'+'00am'}</div>
-                                        </div>
-                                    </div> 
-                                `;
+                                horaentero = parseInt(hora.substring(0,hora.indexOf(':')));
+                                horahorarios = parseInt(horarios[e].substring(0,horarios[e].indexOf(':'))); 
+                            
+                                if(horaentero > horahorarios){
+                                    radioam += `
+                                        <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                                            <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horaentero+':'+'00am'}"> 
+                                            <div class="ml-2">
+                                                <div class=" ">${horaentero+':'+'00am'}</div>
+                                            </div>
+                                        </div> 
+                                    `;
+                                }  
+                                else if(horaentero == 10 && horaentero == horahorarios){
+                                        radioam += `
+                                        <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                                            <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e]}"> 
+                                            <div class="ml-2">
+                                                <div class=" ">${horarios[e]}</div>
+                                            </div>
+                                        </div> 
+                                    `;
+                                }
+                                else if(horaentero == 11 && horaentero == horahorarios){ }
+                                 
+                                else{
+                                    radioam += `
+                                        <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                                            <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e]}"> 
+                                            <div class="ml-2">
+                                                <div class=" ">${horarios[e]}</div>
+                                            </div>
+                                        </div> 
+                                    `;
+                                } 
                             }
-                            else{
-                                radioam += `
+                            else if(horarios[e].includes('pm') && hora.includes('pm')){
+                                
+                                horaenteropm = parseInt(hora.substring(0,hora.indexOf(':')));
+                                horahorariospm = parseInt(horarios[e].substring(0,horarios[e].indexOf(':')));
+                                 
+                                  if(horaenteropm ==12 && horaenteropm > horahorariospm){
+                                     index = e+1;
+                                        if(index == horarios.length){// Cuando el indice que va transcurriendo coincide con el total del arreglo habra terminado y no hara nada
+                                            
+                                        }else{
+                                            radiopm += `
+                                            <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                                                <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e+1]}"> 
+                                                <div class="ml-2">
+                                                    <div class=" ">${horarios[e+1]}</div>
+                                                </div>
+                                            </div> 
+                                            `;
+                                        }
+
+                                } 
+                                else if( horaenteropm < horahorariospm){
+                                    /*
+                                    const array1 = [5, 12, 8, 130, 44];
+
+const isLargeNumber = (element) => element > 13;
+                                    
+                                    
+                                    */
+                                    radiopm += `
                                     <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
-                                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e+1] +':'+'00am'}"> 
+                                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e+1]}"> 
                                         <div class="ml-2">
-                                            <div class=" ">${horahorarios   +':'+'00am'}</div>
+                                            <div class=" ">${horarios[e+1]}</div>
                                         </div>
                                     </div> 
-                                `;
-                            }
-                        }  
-                    }
-                   
-            }
-            $(".horario").html(radioam);  
-            $(".horario2").html(radiopm);
-                break;
+                                    `;
+                                }
+                                else if( horaenteropm == horahorariospm){
+                                    radiopm += `
+                                    <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e+1]}"> 
+                                        <div class="ml-2">
+                                            <div class=" ">${horarios[e+1]}</div>
+                                        </div>
+                                    </div> 
+                                     `;
+                                }
+                                 
+                                else{
+                                    radiopm += `
+                                        <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                                            <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e]}"> 
+                                            <div class="ml-2">
+                                                <div class=" ">${horarios[e]}</div>
+                                            </div>
+                                        </div> 
+                                    `;
+                                }
+                            }  
+                        }   
+                }
+                console.log(radioam);
+                $(".horario").html(radioam);  
+                $(".horario2").html(radiopm);
+            break;
 
             case 2://'no existe'
             $(".fechaseleccionada").html('&nbsp;'+ fecha);
