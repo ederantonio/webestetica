@@ -6,11 +6,23 @@ switch($peticion)
 {
     case 'depuraciondehoras': //fecha y hora
         $fecha = $_POST['eventDate'];
-        $fechahora = explode(" ", $fechahora);
+        $fechahora = explode(" ", $fecha);
         $fec = $fechahora[0];
         $hor = $fechahora[1];
         $sql = "SELECT fecha FROM citas WHERE fecha = '".$fec."' AND hora = '".$hor."'";
-        $result = mysqli_query($con,$sql);
+        $total = mysqli_num_rows(mysqli_query($con,$sql));
+        // echo "<script>console.log('$total')</script>";
+        if($total==0){ 
+            echo json_encode('sin reserva:'.$hor);
+        }
+        // }else{  
+        //     $result = mysqli_query($con,$sql);
+        //     $fechaResult = array();
+        //     while ($row = mysqli_fetch_assoc($result)) {
+        //         $fechaResult[] = $row;
+        //     }
+        //     echo json_encode($fechaResult);
+        // }
         break;
 
     case 'clickfecha':// Al seleccionar alguna fecha

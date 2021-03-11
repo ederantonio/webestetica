@@ -1,5 +1,6 @@
 var clndr = {};
-var player, value, ytplayer,precio,clickenfecha;
+var player, value, ytplayer,precio,clickenfecha,
+    arreglohorario;
 
 var swiper = new Swiper('#link-Inicio__slider', {
    /* centeredSlides: true,*/
@@ -270,7 +271,7 @@ $(window).scroll(function() {
  
   
 $(()=> {
-    
+     
     $('.btn-cerrar').click(function() {
         window.location.href = 'http://localhost/webestetica';
         // $('#ModalMax2').fadeOut();
@@ -282,7 +283,7 @@ $(()=> {
     var radio;
     /*------------------------/ Calendario /--------------------------*/
     var lotsOfEvents = [];
-      // Fecha actual   2021-03-08 06:27:59 pm
+       
     var fechaeningles = moment().format('LLLL').split(',');
      
     var dia = fechaeningles[0].substring(0,3);
@@ -291,8 +292,11 @@ $(()=> {
     var año = fechaeningles[2].replace(" ", "").split(' ');  
     $(".fechaseleccionada").html( '&nbsp;<b>'+ dia +','+ numero[1] + mes +'del'+' '+ año[0]+'</b>');// label abajo del calendario inicia en la fecha actual
      
-    // git 
 
+        // Timeout = setInterval(function(){  
+        //     verificarentabla(moment().format('YYYY-MM-DD HH:mma'),'depuraciondehoras');
+        // },10000);
+        
         clndr.selectedDate = $('#selected-date').clndr({  
             events: lotsOfEvents, // lotsOfEvents: date title para marcar en color verde la fecha que tiene eventos 
             constraints: 
@@ -318,7 +322,7 @@ $(()=> {
                     } 
                     else if(target.element.classList[3] == 'selected' || target.element.classList[4] == 'selected'){ 
                             clickenfecha = "<b>"+ fec[0] +','+fec[2]+' '+fec[1]+' del '+fec[3]+'</b>'; 
-                          traerdatos(target['date']['_i'],'clickfecha');
+                            verificarentabla(target['date']['_i'],'clickfecha');// Cuando se da click en alguna fecha va y revisa en la base de datos
 
 
                     }       
@@ -329,27 +333,26 @@ $(()=> {
             template: $('#clndr-template').html()
         }); // SelectedDate  
     
-    function traerdatos(fecha,peticion){ 
+    function verificarentabla(fecha,peticion){ 
         var arraynorepetidos=[]; 
-        console.log(fecha);
+       
         $.ajax({ // Al dar click a alguna fecha se enviara a la db para traer datos de esa fecha
             url: 'agregarcita.php',
             type : 'POST',
             dataType:'json', 
             data: {
-                peticion:('clickfecha' == peticion) ? 'clickfecha' : ('depuraciondehoras' == peticion) ? 'depuraciondehoras' : '',
+                  peticion:('clickfecha' == peticion) ? 'clickfecha' : ('depuraciondehoras' == peticion) ? 'depuraciondehoras' : '',
                   eventDate :fecha
                  
                 // target['date']['_i']   // 2021-02-19                      
             }, 
             success: function(datos){  
-                
-                var arreglohorario = ['10:00am' , '11:00am','12:00pm','1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm']; 
+                  arreglohorario = ['10:00am' , '11:00am','12:00pm','1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm']; 
                 if(datos!= '')// Si hay fechas en la tabla, habra que quitarlos del arreglohorario
                 {   
 
 
-                    console.log(datos);
+                    
                     for(var c=0;c<arreglohorario.length;c++)//se hace comparacion para dejar los que no se repiten
                     {
                         var igual=false;
@@ -359,10 +362,10 @@ $(()=> {
                             } 
                         }
                         if(!igual){// si es false , si es diferente lo guarda
-                            arraynorepetidos.push(parseInt(arreglohorario[c])); 
+                            arraynorepetidos.push(arreglohorario[c]); 
                             
                         }   
-                    } 
+                    }  
                     horas(arraynorepetidos,clickenfecha,1); 
                 }
                 else  { // si no hay datos deja por default todas las horas
@@ -450,9 +453,7 @@ $(()=> {
      
     /* ------------/ Boton Siguiente /---------- */
     $(document).on('click','.continuar',function()
-    { 
-         
-     
+    {  
         var sinseleccionar=0;
         $("input[name=serviciosradios]").each(function (index,elem) {  // Contabiliza los seleccionados / deseleccionados
           
@@ -643,7 +644,7 @@ $(()=> {
     function siguiente()
     {  
         var size = $('.slider').find('.s_element').length; 
-        $('.slider').find('.s_element').each(function(index,value){   
+        $('.slider').find('.s_element').each(function(index,value){  
            if(index == 0){ 
             etiquetasig(".categoria",'Personal');
             $("#default").attr("checked",true);// Se coloca en checked 'Cualquiera disponible'
@@ -652,6 +653,7 @@ $(()=> {
             if(index == 1){ // Cuando este en la pantalla del calendario se mostrara el mensaje de seleccion
                 nota();
                 etiquetasig(".categoria",'Fecha y hora'); 
+               
                 
             } 
             else if(index  == (0 || 2 || 3)){ // En las otras pantallas debe ocultarse
@@ -733,7 +735,7 @@ $(()=> {
 
     function horas(horarios,fecha,op)
     {  
-         
+         console.log(horarios);
         switch(op) {
             case 1://'existe'
 
@@ -744,31 +746,55 @@ $(()=> {
                 $(".horario2").html("");
             }
         
-            else{ 
+            else
+            { 
                 $(".fechaseleccionada").html('&nbsp;'+ fecha);
-                var radioam='', radiopm='';
-                for(var d=0;d<horarios.length;d++){
-                    if(horarios[d] == 10 || horarios[d] ==11){ // Si es igual a las horas 10 o 11 coloca am
-                        radioam += `
-                        <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
-                            <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[d] +':'+'00am'}"> 
-                            <div class="ml-2">
-                                <div class=" ">${horarios[d] +':'+'00am'}</div>
-                            </div>
-                        </div> 
-                        `;
+
+
+
+                var radioam='', radiopm=''; 
+                //moment().format('hh:mma')
+                var hora = '11:00pm';
+                var  horaentero,horahorarios;//hh:mma
+             
+              
+                    
+                    for(var e=0;e<horarios.length;e++){
+                        if(horarios[e].includes('am') && hora.includes('am')){//10 11
+                            horaentero = parseInt(hora.substring(0,hora.indexOf(':')));
+                            horahorarios = parseInt(horarios[e].substring(0,horarios[e].indexOf(':')));// 10am a 10 11am a 11
+                            if(horaentero > horahorarios){
+                                radioam += `
+                                    <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e+1] +':'+'00am'}"> 
+                                        <div class="ml-2">
+                                            <div class=" ">${horaentero   +':'+'00am'}</div>
+                                        </div>
+                                    </div> 
+                                `;
+                            }else if(horaentero == horarios){
+                                radioam += `
+                                    <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e+1] +':'+'00am'}"> 
+                                        <div class="ml-2">
+                                            <div class=" ">${horaentero   +':'+'00am'}</div>
+                                        </div>
+                                    </div> 
+                                `;
+                            }
+                            else{
+                                radioam += `
+                                    <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e+1] +':'+'00am'}"> 
+                                        <div class="ml-2">
+                                            <div class=" ">${horahorarios   +':'+'00am'}</div>
+                                        </div>
+                                    </div> 
+                                `;
+                            }
+                        }  
                     }
-                    else{
-                        radiopm += `
-                        <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
-                            <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[d] +':'+'00pm'}"> 
-                            <div class="ml-2">
-                                <div class=" ">${horarios[d] +':'+'00pm'}</div>
-                            </div>
-                        </div> 
-                        `;
-                    }
-                }
+                   
             }
             $(".horario").html(radioam);  
             $(".horario2").html(radiopm);
