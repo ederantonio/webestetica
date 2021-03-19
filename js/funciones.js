@@ -51,8 +51,7 @@ $(".container-sec_2 > section").mouseenter(function() {
     var idSec = $(this).attr("id");
     idSec = "#" + idSec + ">div>section"
     $(idSec).animate({ "top": "+=400px" }, "slow" );
-});
-
+}); 
 
 /*----------/ Boton menu responsive hamburguesa /-----------*/
 $("#header-btnMenuResponsive__btn").click(function() { 
@@ -65,9 +64,8 @@ $("#header-btnMenuResponsive__btn").click(function() {
         $('.header-menu').fadeOut();
     } 
 });  
-    servicios(); 
-     paquetes();
-  
+servicios(); 
+paquetes(); 
 
 function servicios() 
 { 
@@ -88,8 +86,7 @@ function servicios()
            $( `#Servicio_${resultado[i].id_servicio}`).css("background-image","url('img/"+resultado[i].ser_source_principal+"')")
         } 
     }); 
-}
- 
+} 
 
 function paquetes() 
 {
@@ -107,12 +104,10 @@ function paquetes()
             document.getElementById('Paquete_'+ value.id_paquete).style.backgroundImage = "url('img/" + value.paq_sorce + "')";
         });
     });
-}
-
+} 
 
 function InfoServPaq(id)
-{  
-     
+{   
     id = id.split("_");  
     var spurl = ''; 
     var p = '';  
@@ -153,52 +148,52 @@ function InfoServPaq(id)
                         }
                     });
                 }
-                    else  
-                    {
-                        var e = ""; 
-                        var t = value.ser_descripcion.length; 
-                        var l = value.ser_descripcion.indexOf(":") + 1; 
+                else  
+                {
+                    var e = ""; 
+                    var t = value.ser_descripcion.length; 
+                    var l = value.ser_descripcion.indexOf(":") + 1; 
 
-                        var f = t - l;
-                        var m = l - 9; 
-                        var e = value.ser_descripcion.substring(l,t); 
-                        var newtxt = value.ser_descripcion.substring(0,m); 
-                        $.each(newtxt.split("."), function( index3, value3 ) { 
-                           
-                            if (value3.length > 10) {  
-                                $(".Modal2-text").append( 
-                                    "<article class='serpaqtextos'>" + value3 + ".</article>"
-                                );
-                            }
-                        }); 
-                        $(".Modal2-text").append(
-                            "<p><strong>Contacto:" + e + "</strong></p>"
-                        );
-                    }
+                    var f = t - l;
+                    var m = l - 9; 
+                    var e = value.ser_descripcion.substring(l,t); 
+                    var newtxt = value.ser_descripcion.substring(0,m); 
+                    $.each(newtxt.split("."), function( index3, value3 ) { 
+                        
+                        if (value3.length > 10) {  
+                            $(".Modal2-text").append( 
+                                "<article class='serpaqtextos'>" + value3 + ".</article>"
+                            );
+                        }
+                    }); 
+                    $(".Modal2-text").append(
+                        "<p><strong>Contacto:" + e + "</strong></p>"
+                    );
+                }
                 });
                 break;
 
-            case 'Paquete': 
-                $(".Modal2-text").append("<section id='ContainerPaquetes'></section>"); 
-                $("#imgModal2").attr("src","img/" + result['informacion'].paq_source2); 
-                $('.Modal2-title>strong').text(result['informacion'].paq_titulo); 
-                $.each(result['paquetes'], function(key, value) {
-                    var arreglo_especificaciones = value.especificaciones.split(","); 
-              
-                    var lista = "<ul id='ContainerPaquetes_serv_"+value.id_estudio_especificacion+"'><li class='title_Paquetes'><strong>"+value.est_titulo+"</strong></li>"; 
-                    $.each(arreglo_especificaciones, function(index, esp) {  
-                        lista+= "<li>"+esp+"</li>"; 
-                    });
-                    lista+= "</ul>"; 
-                    $("#ContainerPaquetes").append(lista); 
-
+        case 'Paquete': 
+            $(".Modal2-text").append("<section id='ContainerPaquetes'></section>"); 
+            $("#imgModal2").attr("src","img/" + result['informacion'].paq_source2); 
+            $('.Modal2-title>strong').text(result['informacion'].paq_titulo); 
+            $.each(result['paquetes'], function(key, value) {
+                var arreglo_especificaciones = value.especificaciones.split(","); 
+            
+                var lista = "<ul id='ContainerPaquetes_serv_"+value.id_estudio_especificacion+"'><li class='title_Paquetes'><strong>"+value.est_titulo+"</strong></li>"; 
+                $.each(arreglo_especificaciones, function(index, esp) {  
+                    lista+= "<li>"+esp+"</li>"; 
                 });
+                lista+= "</ul>"; 
+                $("#ContainerPaquetes").append(lista); 
 
-                var num = result['informacion'].paq_precio.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g,'$1.');
-                num = num.split('').reverse().join('').replace(/^[\.]/,'');
+            });
 
-                $(".Modal2-text").append("<span class='Modal2-precio'><strong>$ "+num+"</strong></span>");
-                break;
+            var num = result['informacion'].paq_precio.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g,'$1.');
+            num = num.split('').reverse().join('').replace(/^[\.]/,'');
+
+            $(".Modal2-text").append("<span class='Modal2-precio'><strong>$ "+num+"</strong></span>");
+        break;
         } //llave del switch
     }); 
 
@@ -266,18 +261,12 @@ $(window).scroll(function() {
     else {
         $(".infoSolicitud").fadeOut();
     }
-});
-
- 
+}); 
   
 $(()=> {
      
     $('.btn-cerrar').click(function() {
-        window.location.href = 'http://localhost/webestetica';
-        // $('#ModalMax2').fadeOut();
-        // $("#imgModal2").attr("src","");
-        // $(".Modal2-text").empty();
-        // $("body").css("overflow", "auto");
+        window.location.href = 'http://localhost/webestetica'; 
     }); 
      
     var radio;
@@ -290,8 +279,7 @@ $(()=> {
     var mes = fechaeningles[1].substring(0,4); 
     var numero = fechaeningles[1].replace(" ", "").split(' ');  
     var año = fechaeningles[2].replace(" ", "").split(' ');  
-    $(".fechaseleccionada").html( '&nbsp;<b>'+ dia +','+ numero[1] + mes +'del'+' '+ año[0]+'</b>');// label abajo del calendario inicia en la fecha actual
-     
+    $(".fechaseleccionada").html( '&nbsp;<b>'+ dia +','+ numero[1] + mes +'del'+' '+ año[0]+'</b>');// label abajo del calendario inicia en la fecha actual 
 
         // Timeout = setInterval(function(){  
         //     verificarentabla(moment().format('YYYY-MM-DD HH:mma'),'depuraciondehoras');
@@ -318,7 +306,7 @@ $(()=> {
                     if(target.element.classList[2] === 'inactive'||  //Al dar click en fechas inactivas pasadas, fin de rango del mes y del mes siguiente no hara nada 
                         target.element.classList[1] === 'inactive'||      
                         target.element.classList[3] === 'inactive'){ 
-                           horas('',3);
+                           horas('',3);// inactivos
                     } 
                     else if(target.element.classList[3] == 'selected' || target.element.classList[4] == 'selected'){ 
                             clickenfecha = "<b>"+ fec[0] +','+fec[2]+' '+fec[1]+' del '+fec[3]+'</b>'; 
@@ -348,7 +336,7 @@ $(()=> {
             }, 
             success: function(datos){  
                   arreglohorario = ['10:00am' , '11:00am','12:00pm','1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm']; 
-                if(datos!= '')// Si hay fechas en la tabla, habra que quitarlos del arreglohorario
+                if(datos!= '')// Si hay fechas en la tabla, habra que quitarlos del arreglohorario de acuerdo a la fecha enviada
                 {   
 
 
@@ -366,7 +354,7 @@ $(()=> {
                             
                         }   
                     }  
-                    horas(arraynorepetidos,clickenfecha,1); 
+                    horas(arraynorepetidos,clickenfecha,1); // disponibles
                 }
                 else  { // si no hay datos deja por default todas las horas
                     horas(arreglohorario,clickenfecha,2);
@@ -500,8 +488,7 @@ $(()=> {
                         <i class="far fa-calendar-alt"></i><span class="nombre-fecha ml-2">${fechaselect}</span>  
                     </div> 
                 `);
-            } 
-              
+            }   
         } 
         else 
         { 
@@ -615,12 +602,8 @@ $(()=> {
                                     </div>
                                      
                                 </div>
-                            </div>
-                            
-                        
-                    </div> 
-                    
-                    
+                            </div>  
+                    </div>  
                     `);
                     $(".regresar").css("visibility","hidden");// quita la flecha regresar
                     //$("#btnSig").css("visibility","hidden");
@@ -653,8 +636,6 @@ $(()=> {
             if(index == 1){ // Cuando este en la pantalla del calendario se mostrara el mensaje de seleccion
                 nota();
                 etiquetasig(".categoria",'Fecha y hora'); 
-               
-                
             } 
             else if(index  == (0 || 2 || 3)){ // En las otras pantallas debe ocultarse
                 $(".nota").css('display','none');
@@ -728,17 +709,16 @@ $(()=> {
                 </span> 
             </div>
         `);
-    }
-     
- 
-     
+    } 
 
     function horas(horarios,fecha,op)
     {  
         console.log(horarios,fecha,op);//llegan los no repetidos
+         
         switch(op) {
-            case 1://'existe'
 
+            case 1:// Es cuando lleguen disponibles
+                var hora='12:00pm';
                 if(horarios == '' && op == 1){ // Si no se obtuvieron elementos que no se repitieron, significa que no hay horas 
                     //$(".selected").css("background-color","#FF4141");// Se pinta en color rojo la fecha
                     $(".fechaseleccionada").html("&nbsp;<b style='color:#FF4141'>No disponible</b>");// Se coloca no disponible 
@@ -746,169 +726,108 @@ $(()=> {
                     $(".horario2").html("");
                 } 
                 else if(horarios != '' && fecha != '' && op==1)// si hay registros y opcion 1
-                {  
-                    var horaentero='',horahorarios='',radioam='',radioampm='',
-                    horaenteropm='',horahorariospm='',hora='12:00pm',radiopm='' ;
-                    horarios.forEach(function(valor, indice, array) {// se obtienen los elementos con pm
-                        if(horarios[indice].includes('pm')){
-                            radioampm+= `
-                               <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
-                                   <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${valor}"> 
-                                   <div class="ml-2">
-                                       <div class=" ">${valor}</div>
-                                   </div>
-                               </div>
-                               
-                               `;
-                        } 
-                    }); 
-                    for(var e=0;e<horarios.length;e++){ 
-                        
-                        if(horarios[e].includes('am') && hora.includes('am')){ 
-                          
-                            horaentero = parseInt(hora.substring(0,hora.indexOf(':')));
-                            horahorarios = parseInt(horarios[e].substring(0,horarios[e].indexOf(':'))); 
-                        
-                            if(horaentero > horahorarios){}  
-                            else if(horaentero == 10 && horaentero == horahorarios){ }// Cuando sean las 10:00 am no se mostrara
-                            else if(horaentero == 11 && horaentero == horahorarios){ }// Igual cuando sean las 11:00am no se mostrar 
-                            else{
-                                radioam += `
-                                    <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
-                                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e]}"> 
-                                        <div class="ml-2">
-                                            <div class=" ">${horarios[e]}</div>
-                                        </div>
-                                    </div> 
-                                `;
-                            } 
-                            
-                        }
-                        /*-------------------------/ PM /-------------------*/ 
-                        else if(horarios[e].includes('pm') && hora.includes('pm')){
-                           
-                            horaenteropm = parseInt(hora.substring(0,hora.indexOf(':')));
-                            horahorariospm = parseInt(horarios[e].substring(0,horarios[e].indexOf(':')));
-                            
-                            if(horahorariospm == horaenteropm){// Se elimina el elemento del arreglo y se deja el restante
-                               horarios.splice(e, 1);
-                               console.log(horarios);
-                               radiopm+= `
-                               <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
-                                   <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e]}"> 
-                                   <div class="ml-2">
-                                       <div class=" ">${horarios[e]}</div>
-                                   </div>
-                               </div> 
-                               `; 
-                            }  
-                            else{
-                                radiopm+= `
-                               <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
-                                   <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e]}"> 
-                                   <div class="ml-2">
-                                       <div class=" ">${horarios[e]}</div>
-                                   </div>
-                               </div>
-                               
-                               `;
-                            } 
-                        }  
-                    }// for  
-                }
-                 
-                if(hora.includes('am')){// Termina el barrido de las validaciones y si la hora esta en am significa que debera pintar las variables que tienen los valores 
-                    $(".horario").html(radioam);
-                    $(".horario2").html(radioampm);
-                }
-                else if(hora.includes('pm')){
-                  
-                    $(".horario2").html(radiopm);
-                } 
+                { 
+                    $(".fechaseleccionada").html(fecha);
+                    validacionhoras(horarios,hora);
+                }  
+            break; 
+
+
+            case 2:// Es cuando no haya fechas reservadas se colocan todos quitando el de la hora del sistema am o pm
+            var hora='12:00pm'
+                 $(".fechaseleccionada").html(fecha);
+                validacionhoras(arreglohorario,hora);  
             break;
 
-            case 2://'En caso de que no haya datos colocara todos'
-                $(".fechaseleccionada").html('&nbsp;'+ fecha);
-                var botonradiosam='',botonradiospm='';
-                for(var i=0;i<11;i++){// Para ir generando los radio buttons 
-                    if((i+10)<12)
-                    {
-                        botonradiosam += `
-                        <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
-                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e]}"> 
-                        <div class="ml-2">
-                            <div class=" ">${i+10+':00am'}</div>
-                            </div>
-                        </div>
-                        
-                        `; 
-                    }
-                    else if(i+10 == 12){
-                        botonradiospm += `
-                        <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
-                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e]}"> 
-                        <div class="ml-2">
-                            <div class=" ">${i+10+':00pm'}</div>
-                            </div>
-                        </div>
-                        
-                        `; 
-                    }
-                    else{
-                        botonradiospm += `
-                        <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
-                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e]}"> 
-                        <div class="ml-2">
-                            <div class=" ">${i-2+':00pm'}</div>
-                            </div>
-                        </div>
-                        
-                        `; 
-                    }
-                } 
-                    $(".horario").html(botonradiosam);
-                    $(".horario2").html(botonradiospm); 
-            break;
 
-            case 3:// Al dar en fechas inactivas no debe hacer nada
+            case 3:// Cuando da click a los Inactivos Al dar en fechas inactivas no debe hacer nada
                 $(".horario").html("");
                 $(".horario2").html("");
             break;
               
         } 
+    } 
+    
+    function validacionhoras(horarios,hora){
+        var horaentero='',horahorarios='',radioam='',radioampm='',
+        horaenteropm='',horahorariospm='',radiopm='' ;
+        horarios.forEach(function(valor, indice, array) {// se obtienen los elementos con pm
+            if(horarios[indice].includes('pm')){
+                radioampm+= `
+                   <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                       <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${valor}"> 
+                       <div class="ml-2">
+                           <div class=" ">${valor}</div>
+                       </div>
+                   </div>
+                   
+                   `;
+            } 
+        }); 
+        for(var e=0;e<horarios.length;e++){ 
+             /*-------------------------/ AM /-------------------*/ 
+            if(horarios[e].includes('am') && hora.includes('am')){ 
+              
+                horaentero = parseInt(hora.substring(0,hora.indexOf(':')));
+                horahorarios = parseInt(horarios[e].substring(0,horarios[e].indexOf(':'))); 
+            
+                if(horaentero > horahorarios){}  
+                else if(horaentero == 10 && horaentero == horahorarios){ }// Cuando sean las 10:00 am no se mostrara
+                else if(horaentero == 11 && horaentero == horahorarios){ }// Igual cuando sean las 11:00am no se mostrar 
+                else{
+                    radioam += `
+                        <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                            <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e]}"> 
+                            <div class="ml-2">
+                                <div class=" ">${horarios[e]}</div>
+                            </div>
+                        </div> 
+                    `;
+                } 
+                
+            }
+            /*-------------------------/ PM /-------------------*/ 
+            else if(horarios[e].includes('pm') && hora.includes('pm')){
+               
+                horaenteropm = parseInt(hora.substring(0,hora.indexOf(':')));
+                horahorariospm = parseInt(horarios[e].substring(0,horarios[e].indexOf(':')));
+                
+                if(horahorariospm == horaenteropm){// Se elimina el elemento del arreglo y se deja el restante
+                   horarios.splice(e, 1);
+                  
+                   radiopm+= `
+                   <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                       <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e]}"> 
+                       <div class="ml-2">
+                           <div class=" ">${horarios[e]}</div>
+                       </div>
+                   </div> 
+                   `; 
+                }  
+                else{
+                    radiopm+= `
+                   <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                       <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e]}"> 
+                       <div class="ml-2">
+                           <div class=" ">${horarios[e]}</div>
+                       </div>
+                   </div>
+                   
+                   `;
+                } 
+            }  
+        }// for  
+    
+        if(hora.includes('am')){// Termina el barrido de las validaciones y si la hora esta en am significa que debera pintar las variables que tienen los valores 
+            $(".horario").html(radioam);
+            $(".horario2").html(radioampm);
+        }
+        else if(hora.includes('pm')){
+        
+            $(".horario2").html(radiopm);
+        } 
     }
 
-    function generarradios(){
-        
-        var botonradios='', botonradios2=' ';
-        for(var i=0;i<9;i++){// Para ir generando los radio buttons 
-            if(i+12 == 12){
-                botonradios2 += `
-                <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
-                    <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${i+12+':00pm'}"> 
-                    <div class="ml-2">
-                        <div class=" ">${ i+12+':00pm'}</div>
-                    </div>
-                </div> 
-                `;
-            }
-            else{
-                botonradios2 += `
-                <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
-                    <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${i }"> 
-                    <div class="ml-2">
-                        <div class=" ">${i}</div>
-                    </div>
-                </div> 
-                `;
-            }
-                
-             
-        }
-          
-        $(".horario2").html(botonradios2);
-        console.log(botonradios);
-    }
     function spinner(){
         $(".load").html(`
         <div class="cargando d-flex justify-content-center " > 
@@ -920,6 +839,7 @@ $(()=> {
               
         `); 
     } 
+
     function etiquetasig(clase,descripcion){
         if(clase !='' && descripcion == 'Llenar formulario'){
             $(".seleccionar").css('display','none');
@@ -929,12 +849,11 @@ $(()=> {
             $(clase).html(descripcion);
         }  
     }
+
     function etiquetaant(clas,descrip){
         $(".seleccionar").css('display','unset'); 
         $(clas).html(descrip); 
-    }
-   
-         
+    }      
 });
      
  
