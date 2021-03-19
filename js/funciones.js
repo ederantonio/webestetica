@@ -747,7 +747,8 @@ $(()=> {
                 } 
                 else if(horarios != '' && fecha != '' && op==1)// si hay registros y opcion 1
                 {  
-                    var horaentero='',horahorarios='',radioam='',radioampm='',horaenteropm='',horahorariospm='',hora='12:00pm',radiopm='';
+                    var horaentero='',horahorarios='',radioam='',radioampm='',
+                    horaenteropm='',horahorariospm='',hora='12:00pm',radiopm='' ;
                     horarios.forEach(function(valor, indice, array) {// se obtienen los elementos con pm
                         if(horarios[indice].includes('pm')){
                             radioampm+= `
@@ -828,27 +829,51 @@ $(()=> {
 
             case 2://'En caso de que no haya datos colocara todos'
                 $(".fechaseleccionada").html('&nbsp;'+ fecha);
+                var botonradiosam='',botonradiospm='';
                 for(var i=0;i<11;i++){// Para ir generando los radio buttons 
                     if((i+10)<12)
                     {
-                        botonradios += `
+                        botonradiosam += `
                         <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
                         <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e]}"> 
                         <div class="ml-2">
-                            <div class=" ">${horarios[e]}</div>
+                            <div class=" ">${i+10+':00am'}</div>
                             </div>
                         </div>
                         
                         `; 
                     }
-                }
-            // var botonradios ="",botonradios2="";  
-             
-            
-                break;
-                case 3:
-                    $(".horario").html("");
-                    $(".horario2").html("");
+                    else if(i+10 == 12){
+                        botonradiospm += `
+                        <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e]}"> 
+                        <div class="ml-2">
+                            <div class=" ">${i+10+':00pm'}</div>
+                            </div>
+                        </div>
+                        
+                        `; 
+                    }
+                    else{
+                        botonradiospm += `
+                        <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e]}"> 
+                        <div class="ml-2">
+                            <div class=" ">${i-2+':00pm'}</div>
+                            </div>
+                        </div>
+                        
+                        `; 
+                    }
+                } 
+                    $(".horario").html(botonradiosam);
+                    $(".horario2").html(botonradiospm); 
+            break;
+
+            case 3:// Al dar en fechas inactivas no debe hacer nada
+                $(".horario").html("");
+                $(".horario2").html("");
+            break;
               
         } 
     }
