@@ -718,7 +718,7 @@ $(()=> {
         switch(op) {
 
             case 1:// Es cuando lleguen disponibles
-                var hora='12:00pm';
+                var hora=moment().format('hh:mma');
                 if(horarios == '' && op == 1){ // Si no se obtuvieron elementos que no se repitieron, significa que no hay horas 
                     //$(".selected").css("background-color","#FF4141");// Se pinta en color rojo la fecha
                     $(".fechaseleccionada").html("&nbsp;<b style='color:#FF4141'>No disponible</b>");// Se coloca no disponible 
@@ -734,7 +734,7 @@ $(()=> {
 
 
             case 2:// Es cuando no haya fechas reservadas se colocan todos quitando el de la hora del sistema am o pm
-            var hora='12:00pm'
+            var hora=moment().format('hh:mma');
                  $(".fechaseleccionada").html(fecha);
                 validacionhoras(arreglohorario,hora);  
             break;
