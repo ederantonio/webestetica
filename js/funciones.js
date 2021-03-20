@@ -334,7 +334,8 @@ $(()=> {
                  
                 // target['date']['_i']   // 2021-02-19                      
             }, 
-            success: function(datos){  
+            success: function(datos){  //trae las horas reservadas
+               
                   arreglohorario = ['10:00am' , '11:00am','12:00pm','1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm']; 
                 if(datos!= '')// Si hay fechas en la tabla, habra que quitarlos del arreglohorario de acuerdo a la fecha enviada
                 {   
@@ -354,6 +355,7 @@ $(()=> {
                             
                         }   
                     }  
+                    console.log(arraynorepetidos);
                     horas(arraynorepetidos,clickenfecha,1); // disponibles
                 }
                 else  { // si no hay datos deja por default todas las horas
@@ -749,6 +751,7 @@ $(()=> {
     } 
     
     function validacionhoras(horarios,hora){
+        console.log(horarios);
         var horaentero='',horahorarios='',radioam='',radioampm='',
         horaenteropm='',horahorariospm='',radiopm='' ;
         horarios.forEach(function(valor, indice, array) {// se obtienen los elementos con pm
@@ -805,15 +808,45 @@ $(()=> {
                    `; 
                 }  
                 else{
+                   if(horahorariospm == 12 && 12 != horaenteropm){ 
+                    
+                    radiopm+=`  <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                                    <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="expiro" disabled> 
+                                    <div class="ml-2">
+                                        <div class=" ">expiro</div>
+                                    </div>
+                                </div>`
+                   }  
+                   else if(horahorariospm < horaenteropm){
+                    radiopm+=`
+                        <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                            <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="expiro" disabled> 
+                            <div class="ml-2">
+                                <div class=" ">expiro</div>
+                            </div>
+                        </div>  
+                    ` 
+                   }
+                   else if(horahorariospm == horaenteropm){
+                    radiopm+=`
+                            <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                                <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e]}"> 
+                                <div class="ml-2">
+                                    <div class=" ">${horarios[e]}</div>
+                                </div>
+                            </div> 
+                    `
+                   }
+                   else if(horahorariospm > horaenteropm){
                     radiopm+= `
-                   <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
-                       <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e]}"> 
-                       <div class="ml-2">
-                           <div class=" ">${horarios[e]}</div>
-                       </div>
-                   </div>
-                   
-                   `;
+                    <div class="form-check ml-3 mt-2 d-flex align-items-center radio-personal"> 
+                        <input class="form-check-input btn-radios" type="radio" name="radiohoras" id=" " value="${horarios[e-1]}"> 
+                        <div class="ml-2">
+                            <div class=" ">${horarios[e]}</div>
+                        </div>
+                    </div>
+                    `
+                   }  
                 } 
             }  
         }// for  
