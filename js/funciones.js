@@ -507,14 +507,14 @@ $(()=> {
         rules: {
             name:{required:true,lettersonly:true}, 
             email:{required:true}, 
-            phone:{required:true,digits:true,minlength:10},
+            phone:{required:true,digits:true,maxlength:10},
             description:{required:true},
             checkbox:{required:true }, 
         },
         messages:{ 
             name:'<span style="color:#C95E81">Llenar campo / incorrecto</span> ',
             email:'<span style="color:#C95E81">Llenar campo / incorrecto</span>',
-            phone:' <span style="color:#C95E81">Llenar campo / ingresar solo números</span> ',
+            phone:' <span style="color:#C95E81">Llenar campo / solo números 10 digitos</span> ',
             description:'<span style="color:#C95E81">Llenar campo</span>', 
             checkbox:'<span style="color:#C95E81">Aceptar la politica de cancelación</span>',
         } , 
