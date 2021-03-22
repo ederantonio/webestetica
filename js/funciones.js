@@ -507,7 +507,7 @@ $(()=> {
         rules: {
             name:{required:true,lettersonly:true}, 
             email:{required:true}, 
-            phone:{required:true,digits:true },
+            phone:{required:true,digits:true,minlength:10},
             description:{required:true},
             checkbox:{required:true }, 
         },
